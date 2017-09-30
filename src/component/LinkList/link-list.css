@@ -1,3 +1,9 @@
+.linklist {
+  margin-bottom: 0px;
+  border-left: 1px solid black;
+  padding-left: 10px;
+}
+
 .linklist__li {
   display: inline;
   list-style-type: none;
