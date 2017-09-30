@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 
-import Link from './component/Link';
+import { LANGUAGES } from './languages';
+import LinkList from './component/LinkList';
 import './App.css';
 
 class App extends Component {
   render() {
+    const links = [];
+
+    LANGUAGES.forEach((lang) => {
+      links.push([`/${lang}`.toLowerCase(), lang]);
+    })
+
     return (
-      <Link text="Hello World" />
+      <LinkList links={links} />
     );
   }
 }
