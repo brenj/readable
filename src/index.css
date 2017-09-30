@@ -1,5 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: sans-serif;
+}
+
+div {
+  border: 1px solid #ff0000;
 }
