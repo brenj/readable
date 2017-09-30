@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import './link.css';
+
 class Link extends Component {
   render() {
     const { text, href } = this.props;
 
     return (
-      <li><a href={href}>{text}</a></li>
+      <a href={href}>{text}</a>
     );
   }
 }

@@ -1,0 +1,9 @@
+a:link, a:visited {
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover {
+  cursor: pointer;
+}

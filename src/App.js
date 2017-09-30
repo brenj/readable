@@ -15,7 +15,14 @@ class App extends Component {
     })
 
     return (
-      <LinkList links={links} />
+      <div className="container">
+        <div className="row">
+          <div className="two columns">Readable</div>
+          <div className="ten columns">
+            <LinkList links={links} />
+          </div>
+        </div>
+      </div>
     );
   }
 }
