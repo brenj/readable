@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import { LANGUAGES } from './languages';
 import LinkList from './component/LinkList';
+
 import './App.css';
+import 'skeleton-css-webpack';
 
 class App extends Component {
   render() {
