@@ -1,0 +1,18 @@
+.navbar {
+  /* background: #ee6225; */
+  background: #545454;
+}
+
+.navbar__col {
+  padding: 0px;
+  margin: 0px;
+}
+
+.navbar__strong {
+  color: white;
+  padding-left: 20px;
+}
+
+.navbar__span {
+  color: white;
+}
