@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Heading from './component/Heading';
 import NavBar from './component/NavBar';
+import Sorter from './component/Sorter';
 
 import './App.css';
 import 'skeleton-css-webpack';
@@ -15,6 +16,7 @@ class App extends Component {
       <div className="container app">
         <NavBar />
         <Heading mainText={HEADING_MAIN} subText={HEADING_SUB} />
+        <Sorter sorterType='post' />
       </div>
     );
   }
