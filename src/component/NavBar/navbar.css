@@ -1,6 +1,7 @@
 .navbar {
   /* background: #ee6225; */
   background: #545454;
+  margin-bottom: 60px;
 }
 
 .navbar__col {
