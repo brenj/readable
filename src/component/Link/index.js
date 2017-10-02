@@ -7,7 +7,7 @@ class Link extends Component {
     const { text, href } = this.props;
 
     return (
-      <a href={href}>{text}</a>
+      <a className="link" href={href}>{text}</a>
     );
   }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Link from '../../component/Link';
+
 import './post.css';
 
 class Post extends Component {
@@ -8,13 +10,16 @@ class Post extends Component {
 
     return (
       <div className="row post">
-        <div className="one column" />
-        <div className="one column post__votes">
+        <div className="two columns post__votes">
           <span>{post.votes}</span>
         </div>
-        <div className="nine columns post__title">
-          <a href="#">{post.title}</a>
-          <span className="post__language">({post.language})</span>
+        <div className="nine columns post__details">
+          <a className="post__title"href="#">{post.title}</a>
+          <span className="post__language">
+            (&nbsp;
+              <Link href="#" text={post.language} />
+            &nbsp;)
+          </span>
           <div>
             <span>by <em>{post.creator}&nbsp;</em></span>
             <span>on <em>{post.timestamp}&nbsp;</em></span>
