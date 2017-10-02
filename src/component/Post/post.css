@@ -5,15 +5,23 @@
 
 .post__votes {
   font-size: xx-large;
+  padding-left: 20px;
 }
 
-.post__title {
+.post__details {
+  color: #bdbdbd;
   margin-left: 0% !important;
+}
+
+.post__title:link, .post__title:visited {
+  color: black;
+  font-size: large;
+  text-decoration: none;
 }
 
 .post__language {
   font-size: small;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .post__comments {

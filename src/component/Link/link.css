@@ -1,4 +1,4 @@
-a:link, a:visited {
+.link:link, .link:visited {
   text-align: center; 
   text-decoration: none;
   display: inline-block;
@@ -6,6 +6,6 @@ a:link, a:visited {
   font-size: small;
 }
 
-a:hover {
+.link:hover {
   cursor: pointer;
 }
