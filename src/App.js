@@ -20,6 +20,16 @@ class App extends Component {
         <Sorter sorterType='post' />
         <Post
           post={{
+            title: 'This is a really long message and this is to test what happens when you have a really long message like this.',
+            creator: 'dude',
+            timestamp: 'June 21',
+            language: 'C#',
+            votes: '125'
+          }}
+          totalComments="15"
+        />
+        <Post
+          post={{
             title: 'Check out this destructuring',
             creator: 'brenj',
             timestamp: 'June 10',
