@@ -1,0 +1,23 @@
+.post {
+  border: 1px solid #e1e1e1;
+  margin: 20px 40px 0 40px;
+}
+
+.post__votes {
+  font-size: xx-large;
+}
+
+.post__title {
+  margin-left: 0% !important;
+}
+
+.post__language {
+  font-size: small;
+  margin-left: 5px;
+}
+
+.post__comments {
+  border-left: 1px solid black;
+  margin-left: 5px;
+  padding-left: 5px;
+}
