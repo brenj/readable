@@ -8,7 +8,7 @@ class Sorter extends Component {
 
     return (
       <div className="row sorter">
-        <div className="one columns" />
+        <div className="one column" />
         <div className="nine columns sorter__heading">
           <span>
             Sort {sorterType + 's'} by&nbsp;
