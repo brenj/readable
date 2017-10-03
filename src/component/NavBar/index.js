@@ -9,8 +9,9 @@ class NavBar extends Component {
   render() {
     const links = [];
 
-    LANGUAGES.forEach((lang) => {
-      links.push([`/${lang}`.toLowerCase(), lang]);
+    Object.keys(LANGUAGES).forEach((langKey) => {
+      const { displayName, path } = LANGUAGES[langKey];
+      links.push( {href: `/lang/${path}`.toLowerCase(), text: displayName });
     });
 
     return (
@@ -28,4 +29,3 @@ class NavBar extends Component {
 }
 
 export default NavBar;
-

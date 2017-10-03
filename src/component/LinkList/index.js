@@ -10,7 +10,7 @@ class LinkList extends Component {
 
     return (
       <ul className="linklist">
-        {links.map(([href, text]) => (
+        {links.map(({ href, text }) => (
           <li key={href} className="linklist__li">
             <Link key={href} text={text} href={href} />
           </li>
