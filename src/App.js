@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import HomeView from './component/HomeView';
+import LanguageView from './component/LanguageView';
 import NavBar from './component/NavBar';
 
 import './App.css';
@@ -14,6 +15,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/" component={HomeView} />
+          <Route path="/lang/:name" component={LanguageView} />
         </Switch>
       </div>
     );
