@@ -23,7 +23,7 @@ class LanguageView extends Component {
             creator: 'dude',
             timestamp: 'June 21',
             language: 'Python',
-            votes: '7'
+            voteScore: '7'
           }}
           totalComments="15"
         />

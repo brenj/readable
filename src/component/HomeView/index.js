@@ -19,7 +19,7 @@ class HomeView extends Component {
             creator: 'dude',
             timestamp: 'June 21',
             language: 'C#',
-            votes: '125'
+            voteScore: '125'
           }}
           totalComments="15"
         />
@@ -29,7 +29,7 @@ class HomeView extends Component {
             creator: 'brenj',
             timestamp: 'June 10',
             language: 'JavaScript',
-            votes: '19'
+            voteScore: '19'
           }}
           totalComments="11"
         />
@@ -39,7 +39,7 @@ class HomeView extends Component {
             creator: 'dude',
             timestamp: 'June 21',
             language: 'Python',
-            votes: '7'
+            voteScore: '7'
           }}
           totalComments="15"
         />

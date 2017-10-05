@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import Link from '../../component/Link';
+import Link from '../Link';
+import VoteBox from '../VoteBox';
 
 import './post.css';
 
@@ -9,10 +10,7 @@ class Post extends Component {
     const { post, totalComments } = this.props;
 
     return (
-      <div className="row post">
-        <div className="two columns post__votes">
-          <span>{post.votes}</span>
-        </div>
+      <VoteBox className="row post" votes={post.voteScore}>
         <div className="nine columns post__details">
           <a className="post__title"href="#">{post.title}</a>
           <span className="post__language">
@@ -30,7 +28,7 @@ class Post extends Component {
           </div>
         </div>
         <div className="one column" />
-      </div>
+      </VoteBox>
     );
   }
 }
