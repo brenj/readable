@@ -1,0 +1,22 @@
+.post-view__button--delete {
+  color: red !important;
+  margin-left: 15px;
+}
+
+.post-view__button--edit {
+  margin-left: 25px;
+}
+
+.post-view__details {
+  color: #bdbdbd;
+}
+
+.post-view__total-comments {
+  border-left: 1px solid black;
+  margin-left: 5px;
+  padding-left: 5px;
+}
+
+.post-view__code {
+  margin: 40px 40px 0px 40px;
+}
