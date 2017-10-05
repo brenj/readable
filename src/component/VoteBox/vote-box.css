@@ -1,0 +1,9 @@
+.vote-box {
+  border: 1px solid #e1e1e1;
+  margin: 20px 40px 0 40px;
+}
+
+.vote-box__votes {
+  font-size: xx-large;
+  padding-left: 20px;
+}
