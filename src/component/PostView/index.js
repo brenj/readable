@@ -18,9 +18,9 @@ class PostView extends Component {
         background-color: red;
       }
       `,
-      creator: 'brandon',
+      author: 'brandon',
       timestamp: 'October 3',
-      votes: '5',
+      voteScore: '5',
     }
 
     const totalComments = 100;
@@ -45,17 +45,23 @@ class PostView extends Component {
             </a>
           </div>
         </div>
-        <VoteBox votes={post.votes}>
-          <span>{post.title}</span>
-          <div className="post-view__details">
-            <span>by <em>{post.creator}&nbsp;</em></span>
-            <span>on <em>{post.timestamp}&nbsp;</em></span>
-            <span className="post-view__total-comments">
-              <em>{totalComments}</em>
-              &nbsp;comments
-            </span>
-          </div>
-        </VoteBox>
+        <h5 className="post-view__title">{post.title}</h5>
+        <table class="u-full-width post-view__table">
+          <thead>
+            <tr>
+              <th>Author</th>
+              <th>Date</th>
+              <th>Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{post.author}</td>
+              <td>{post.timestamp}</td>
+              <td>{post.voteScore}</td>
+            </tr>
+          </tbody>
+        </table>
         <pre><code className="post-view__code">{post.body}</code></pre>
         <Sorter sorterType='comment' />
         <Comment comment={comment} />
