@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import HomeView from './component/HomeView';
 import LanguageView from './component/LanguageView';
 import NavBar from './component/NavBar';
+import PostForm from './component/PostForm';
 import PostView from './component/PostView';
 
 import './App.css';
@@ -17,6 +18,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomeView} />
           <Route exact path="/:lang" component={LanguageView} />
+          <Route exact path="/:lang/new" component={PostForm} />
           <Route exact path="/:lang/:id" component={PostView} />
         </Switch>
       </div>
