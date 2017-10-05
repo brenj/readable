@@ -15,7 +15,7 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/" component={HomeView} />
-          <Route path="/lang/:name" component={LanguageView} />
+          <Route exact path="/:lang" component={LanguageView} />
         </Switch>
       </div>
     );

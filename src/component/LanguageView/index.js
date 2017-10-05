@@ -8,7 +8,7 @@ import Sorter from '../Sorter';
 
 class LanguageView extends Component {
   render() {
-    const language = LANGUAGES[this.props.match.params.name];
+    const language = LANGUAGES[this.props.match.params.lang];
 
     return (
       <div>
