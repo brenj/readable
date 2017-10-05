@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Comment from '../Comment';
+import MessageForm from '../MessageForm';
 import Post from '../Post';
 import Sorter from '../Sorter';
 import VoteBox from '../VoteBox';
@@ -65,6 +66,7 @@ class PostView extends Component {
         <pre><code className="post-view__code">{post.body}</code></pre>
         <Sorter sorterType='comment' />
         <Comment comment={comment} />
+        <MessageForm />
       </div>
     );
   }
