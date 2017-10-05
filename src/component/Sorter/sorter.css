@@ -5,3 +5,7 @@
 .sorter__heading {
   margin-top: 20px;
 }
+
+.sorter__button {
+  width: 130px !important;
+}

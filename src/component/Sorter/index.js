@@ -20,7 +20,7 @@ class Sorter extends Component {
           </span>
         </div>
         <div className="two columns">
-          <a className="button button-primary" href="#">
+          <a className="button button-primary sorter__button" href="#">
             {sorterType}
           </a>
         </div>
