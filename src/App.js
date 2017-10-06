@@ -17,8 +17,8 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/" component={HomeView} />
+          <Route exact path="/new" component={PostForm} />
           <Route exact path="/:lang" component={LanguageView} />
-          <Route exact path="/:lang/new" component={PostForm} />
           <Route exact path="/:lang/:id" component={PostView} />
         </Switch>
       </div>

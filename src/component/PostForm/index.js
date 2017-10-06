@@ -7,8 +7,6 @@ import './post-form.css';
 
 class PostForm extends Component {
   render() {
-    const language = this.props.match.params.lang;
-
     return (
       <form className="post-form">
         <Heading
