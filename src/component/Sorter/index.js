@@ -13,7 +13,7 @@ class Sorter extends Component {
         <div className="one column" />
         <div className="nine columns sorter__heading">
           <span>
-            Sort {sorterType + 's'} by&nbsp;
+            Sort {`${sorterType}s`} by&nbsp;
             <Link href="#" text="Popularity" />
             &nbsp;or&nbsp;
             <Link href="#" text="Date" />

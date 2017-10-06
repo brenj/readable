@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class LabeledInput extends Component {
   render() {
-    const {focus, inputPlaceholder, labelText} = this.props;
+    const { focus, inputPlaceholder, labelText } = this.props;
 
     return (
       <div className="row">

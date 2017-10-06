@@ -16,14 +16,14 @@ class LanguageView extends Component {
           mainText={language.displayName}
           subText={language.tagLine}
         />
-        <Sorter sorterType='post' />
+        <Sorter sorterType="post" />
         <Post
           post={{
             title: 'And this is why I love Python',
             creator: 'dude',
             timestamp: 'June 21',
             language: 'Python',
-            voteScore: '7'
+            voteScore: '7',
           }}
           totalComments="15"
         />

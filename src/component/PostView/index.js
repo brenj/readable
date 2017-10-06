@@ -22,7 +22,7 @@ class PostView extends Component {
       author: 'brandon',
       timestamp: 'October 3',
       voteScore: '5',
-    }
+    };
 
     const totalComments = 100;
 
@@ -30,7 +30,7 @@ class PostView extends Component {
       voteScore: 10,
       body: 'This is a comment.',
       author: 'Brendan',
-    }
+    };
 
     return (
       <div>
@@ -47,7 +47,7 @@ class PostView extends Component {
           </div>
         </div>
         <h5 className="post-view__title">{post.title}</h5>
-        <table class="u-full-width post-view__table">
+        <table className="u-full-width post-view__table">
           <thead>
             <tr>
               <th>Author</th>
@@ -64,7 +64,7 @@ class PostView extends Component {
           </tbody>
         </table>
         <pre><code className="post-view__code">{post.body}</code></pre>
-        <Sorter sorterType='comment' />
+        <Sorter sorterType="comment" />
         <Comment comment={comment} />
         <MessageForm />
       </div>

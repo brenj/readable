@@ -9,7 +9,7 @@ class MessageForm extends Component {
     return (
       <form className="message-form">
         <LabeledInput
-          focus={true}
+          focus
           labelText="Name"
           inputPlaceholder="Sadie"
         />
@@ -17,8 +17,7 @@ class MessageForm extends Component {
         <textarea
           className="u-full-width"
           placeholder="Meow, furthermore, meow mew."
-        >
-        </textarea>
+        />
         <input className="button" type="submit" value="Cancel" />
         <input
           className="button message-form__button--submit"

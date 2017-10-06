@@ -7,12 +7,12 @@ export const LANGUAGES = {
   go: {
     displayName: 'Go',
     path: 'go',
-    tagLine: 'Go is expressive, concise, clean, and efficient'
+    tagLine: 'Go is expressive, concise, clean, and efficient',
   },
   java: {
     displayName: 'Java',
     path: 'java',
-    tagLine: 'C++ with all the knives, guns, and clubs put away'
+    tagLine: 'C++ with all the knives, guns, and clubs put away',
   },
   javascript: {
     displayName: 'JavaScript',

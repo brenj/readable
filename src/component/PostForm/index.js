@@ -16,7 +16,7 @@ class PostForm extends Component {
           subText="~ Anonymously ~"
         />
         <LabeledInput
-          focus={true}
+          focus
           labelText="Name"
           inputPlaceholder="Sadie"
         />
@@ -32,8 +32,7 @@ class PostForm extends Component {
         <textarea
           className="u-full-width post-form__snippet"
           placeholder="console.log(&quot;Hello, World!&quot;);"
-        >
-        </textarea>
+        />
         <input className="button" type="submit" value="Cancel" />
         <input
           className="button button-primary post-form__button--submit"
