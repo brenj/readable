@@ -9,7 +9,6 @@ class MessageForm extends Component {
     return (
       <form className="message-form">
         <LabeledInput
-          focus
           labelText="Name"
           id="nameInput"
           inputPlaceholder="Sadie"

@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 
 class LabeledInput extends Component {
   render() {
-    const { focus, id, inputPlaceholder, labelText } = this.props;
+    const { id, inputPlaceholder, labelText } = this.props;
 
     return (
       <div className="row">
         <div className="six columns">
           <label htmlFor={id}>{labelText}</label>
           <input
-            autoFocus={focus}
             className="u-full-width"
             id={id}
             placeholder={inputPlaceholder}
@@ -20,9 +19,5 @@ class LabeledInput extends Component {
     );
   }
 }
-
-LabeledInput.defaultProps = {
-  focus: false,
-};
 
 export default LabeledInput;

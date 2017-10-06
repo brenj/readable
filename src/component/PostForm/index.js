@@ -14,7 +14,6 @@ class PostForm extends Component {
           subText="~ Anonymously ~"
         />
         <LabeledInput
-          focus
           labelText="Name"
           id="nameInput"
           inputPlaceholder="Sadie"
