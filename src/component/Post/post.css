@@ -29,3 +29,12 @@
   margin-left: 5px;
   padding-left: 5px;
 }
+
+.post__link--edit {
+  color: blue;
+}
+
+.post__link--delete {
+  color: red;
+  margin-left: 10px;
+}

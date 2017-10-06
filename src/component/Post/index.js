@@ -12,19 +12,17 @@ class Post extends Component {
     return (
       <VoteBox className="row post" votes={post.voteScore}>
         <div className="nine columns post__details">
-          <a className="post__title"href="#">{post.title}</a>
-          <span className="post__language">
-            (&nbsp;
-              <Link href="#" text={post.language} />
-            &nbsp;)
-          </span>
+          <a className="post__title"href="/">{post.title}</a>
           <div>
-            <span>by <em>{post.creator}&nbsp;</em></span>
-            <span>on <em>{post.timestamp}&nbsp;</em></span>
+            <span>by {post.creator}&nbsp;</span>
+            <span>in <Link href="/" text={post.language} />&nbsp;</span>
+            <span>on {post.timestamp}&nbsp;</span>
             <span className="post__comments">
               <em>{totalComments}</em>
               &nbsp;comments
             </span>
+            <a className="u-pull-right post__link--delete" href="/">Delete</a>
+            <a className="u-pull-right post__link--edit" href="/">Edit</a>
           </div>
         </div>
         <div className="one column" />
