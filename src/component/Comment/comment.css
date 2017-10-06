@@ -1,0 +1,14 @@
+.comment__details {
+  color: #bdbdbd;
+}
+
+.comment__link--edit:link, .comment__link--edit:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+.comment__link--delete:link, .comment__link--delete:visited {
+  color: red;
+  margin: 0 10px 0 10px;
+  text-decoration: none;
+}
