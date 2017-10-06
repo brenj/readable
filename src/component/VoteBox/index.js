@@ -6,8 +6,14 @@ class VoteBox extends Component {
   render() {
     return (
       <div className="row vote-box">
-        <div className="two columns vote-box__votes">
+        <div className="three columns vote-box__votes">
+          <span>
+            <a className="vote-box__downvote" href="/">-</a>
+          </span>
           <span>{this.props.votes}</span>
+          <span>
+            <a className="vote-box__upvote" href="/">+</a>
+          </span>
         </div>
         {this.props.children}
       </div>

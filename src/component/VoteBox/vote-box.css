@@ -7,3 +7,13 @@
   font-size: xx-large;
   padding-left: 20px;
 }
+
+.vote-box__upvote {
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.vote-box__downvote {
+  margin-right: 15px;
+  text-decoration: none;
+}
