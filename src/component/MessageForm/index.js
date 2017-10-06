@@ -11,11 +11,13 @@ class MessageForm extends Component {
         <LabeledInput
           focus
           labelText="Name"
+          id="nameInput"
           inputPlaceholder="Sadie"
         />
-        <label>Message</label>
+        <label htmlFor="messageTextArea">Message</label>
         <textarea
           className="u-full-width"
+          id="messageTextArea"
           placeholder="Meow, furthermore, meow mew."
         />
         <input className="button" type="submit" value="Cancel" />

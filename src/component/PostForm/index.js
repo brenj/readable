@@ -16,20 +16,24 @@ class PostForm extends Component {
         <LabeledInput
           focus
           labelText="Name"
+          id="nameInput"
           inputPlaceholder="Sadie"
         />
         <LabeledInput
           labelText="Title"
+          id="titleInput"
           inputPlaceholder="Hello World"
         />
         <LabeledInput
           labelText="Language"
+          id="languageInput"
           inputPlaceholder="JavaScript"
         />
-        <label>Code Snippet</label>
+        <label htmlFor="snippetTextArea">Code Snippet</label>
         <textarea
           className="u-full-width post-form__snippet"
           placeholder="console.log(&quot;Hello, World!&quot;);"
+          id="snippetTextArea"
         />
         <input className="button" type="submit" value="Cancel" />
         <input
