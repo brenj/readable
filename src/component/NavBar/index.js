@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { LANGUAGES } from '../../languages';
+import { getLanguage, getLanguages } from '../../languages';
 import LinkList from '../../component/LinkList';
 
 import './navbar.css';
@@ -9,8 +9,8 @@ class NavBar extends Component {
   render() {
     const links = [];
 
-    Object.keys(LANGUAGES).forEach((langKey) => {
-      const { displayName, path } = LANGUAGES[langKey];
+    getLanguages().forEach((langKey) => {
+      const { displayName, path } = getLanguage(langKey);
       links.push({ href: `/${path}`.toLowerCase(), text: displayName });
     });
 
