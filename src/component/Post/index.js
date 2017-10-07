@@ -15,7 +15,7 @@ class Post extends Component {
           <a className="post__title"href="/">{post.title}</a>
           <div>
             <span>by {post.author}&nbsp;</span>
-            <span>in <Link href="/" text={post.language} />&nbsp;</span>
+            <span>in <Link href="/" text={post.category} />&nbsp;</span>
             <span>on {post.timestamp}&nbsp;</span>
             <span className="post__comments">
               <em>{totalComments}</em>
