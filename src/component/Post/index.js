@@ -14,7 +14,7 @@ class Post extends Component {
         <div className="nine columns post__details">
           <a className="post__title"href="/">{post.title}</a>
           <div>
-            <span>by {post.creator}&nbsp;</span>
+            <span>by {post.author}&nbsp;</span>
             <span>in <Link href="/" text={post.language} />&nbsp;</span>
             <span>on {post.timestamp}&nbsp;</span>
             <span className="post__comments">
