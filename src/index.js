@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { createStore  } from 'redux';
 
 import App from './App';
+import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
 
 import './index.css';
