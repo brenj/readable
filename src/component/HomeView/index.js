@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Heading from '../Heading';
 import Post from '../Post';
@@ -48,4 +49,8 @@ class HomeView extends Component {
   }
 }
 
-export default HomeView;
+const mapStateToProps = state => ({
+  posts: Object.keys(state.posts).map(postId => state.posts[postId]),
+});
+
+export default connect(mapStateToProps)(HomeView);
