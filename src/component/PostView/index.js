@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 import Comment from '../Comment';
 import MessageForm from '../MessageForm';
-import Post from '../Post';
 import Sorter from '../Sorter';
-import VoteBox from '../VoteBox';
 
 import './post-view.css';
 
@@ -36,12 +34,12 @@ class PostView extends Component {
       <div>
         <div className="row">
           <div className="offset-by-eight one column">
-            <a className="button post-view__button--edit" href="#">
+            <a className="button post-view__button--edit" href="/">
               Edit
             </a>
           </div>
           <div className="offset-by-one two columns">
-            <a className="button post-view__button--delete" href="#">
+            <a className="button post-view__button--delete" href="/">
               Delete
             </a>
           </div>
