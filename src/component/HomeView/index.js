@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getPosts } from '../../api';
 import Heading from '../Heading';
-import Post from '../Post';
+import PostLister from '../PostLister';
 import { showPosts } from '../../action';
 import Sorter from '../Sorter';
 
@@ -16,13 +16,13 @@ class HomeView extends Component {
   }
 
   render() {
+    const { comments, posts } = this.props;
+
     return (
       <div>
         <Heading mainText={HEADING} subText={SUBHEADING} />
         <Sorter sorterType="post" />
-        {this.props.posts.map(post => (
-          <Post post={post} totalComments={10} />
-        ))}
+        <PostLister posts={posts} comments={comments} />
       </div>
     );
   }
@@ -30,6 +30,7 @@ class HomeView extends Component {
 
 const mapStateToProps = state => ({
   posts: Object.keys(state.posts).map(postId => state.posts[postId]),
+  comments: state.comments,
 });
 
 export default connect(mapStateToProps)(HomeView);
