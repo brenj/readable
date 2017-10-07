@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { SHOW_POSTS } from '../action';
+import { SHOW_POSTS, SHOW_POSTS_BY_LANG } from '../action';
 
 function comments(state = {}, action) {
   return state;
@@ -16,11 +16,10 @@ function reducePosts(posts) {
 function posts(state = {}, action) {
   switch (action.type) {
     case SHOW_POSTS:
-      return action.posts.reduce((postsState, post) => {
-        const updatedPostsState = postsState;
-        updatedPostsState[post.id] = post;
-        return postsState;
-      }, {});
+      return reducePosts(action.posts);
+    case SHOW_POSTS_BY_LANG:
+      const { language, posts } = action.payload;
+      return reducePosts(posts.filter(post => post.category === language));
     default:
       return state;
   }
