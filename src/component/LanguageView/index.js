@@ -1,34 +1,40 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { getPosts } from '../../api';
 import Heading from '../Heading';
-import { LANGUAGES } from '../../languages';
-import Post from '../Post';
+import { getLanguage } from '../../languages';
+import PostLister from '../PostLister';
+import { showPostsByLang } from '../../action';
 import Sorter from '../Sorter';
 
 class LanguageView extends Component {
+  componentDidMount() {
+    // TODO: Add redirect to 404 if unknown language was passed as parameter
+    const { lang, dispatch } = this.props;
+    getPosts().then(posts => dispatch(showPostsByLang(posts, lang.path)));
+  }
+
   render() {
-    const language = LANGUAGES[this.props.match.params.lang];
+    const { lang, posts } = this.props;
 
     return (
       <div>
         <Heading
-          mainText={language.displayName}
-          subText={language.tagLine}
+          mainText={lang.displayName}
+          subText={lang.tagLine}
         />
         <Sorter sorterType="post" />
-        <Post
-          post={{
-            title: 'And this is why I love Python',
-            creator: 'dude',
-            timestamp: 'June 21',
-            language: 'Python',
-            voteScore: '7',
-          }}
-          totalComments="15"
-        />
+        <PostLister posts={posts} />
       </div>
     );
   }
 }
 
-export default LanguageView;
+const mapStateToProps = (state, ownProps) => ({
+  lang: getLanguage(ownProps.match.params.lang),
+  posts: Object.keys(state.posts).map(postId => state.posts[postId]),
+  comments: state.comments,
+});
+
+export default connect(mapStateToProps)(LanguageView);
