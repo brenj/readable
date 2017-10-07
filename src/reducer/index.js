@@ -6,6 +6,13 @@ function comments(state = {}, action) {
   return state;
 }
 
+function reducePosts(posts) {
+  return posts.reduce((newPostsState, post) => {
+    newPostsState[post.id] = post;
+    return newPostsState;
+  }, {});
+}
+
 function posts(state = {}, action) {
   switch (action.type) {
     case SHOW_POSTS:
