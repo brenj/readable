@@ -1,4 +1,4 @@
-export const LANGUAGES = {
+const LANGUAGES = {
   csharp: {
     displayName: 'C#',
     path: 'csharp',
@@ -45,3 +45,11 @@ export const LANGUAGES = {
     tagLine: 'Structured Query Language',
   },
 };
+
+export function getLanguage(lang) {
+  return LANGUAGES[lang];
+}
+
+export function getLanguages() {
+  return Object.keys(LANGUAGES);
+}
