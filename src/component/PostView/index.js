@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { getCommentsForPost, getPost } from '../../api';
 import Comment from '../Comment';
 import MessageForm from '../MessageForm';
+import { showPostDetails } from '../../action';
 import Sorter from '../Sorter';
 
 import './post-view.css';
 
 class PostView extends Component {
-  render() {
-    const { id: postId } = this.props.match.params;
+  componentDidMount() {
+    const { detailsDispatcher, post } = this.props;
 
-    const post = {
-      title: 'This is where an actual post will go.',
-      body: `
-      .some-class {
-        background-color: red;
-      }
-      `,
-      author: 'brandon',
-      timestamp: 'October 3',
-      voteScore: '5',
-    };
+    if (post === undefined) {
+      const postId = this.props.match.params.id;
+      Promise.all([getPost(postId), getCommentsForPost(postId)])
+        .then(values => (detailsDispatcher(...values)));
+    } else {
+      getCommentsForPost(post.id)
+        .then(comments => detailsDispatcher(post, comments));
+    }
+  }
+
+  render() {
+    const { post = {} } = this.props;
 
     const totalComments = 100;
 
@@ -70,4 +74,10 @@ class PostView extends Component {
   }
 }
 
-export default PostView;
+const mapStateToProps = (state, ownProps) => ({
+  post: state.posts[ownProps.match.params.id],
+  comments: state.comments,
+});
+
+export default connect(
+  mapStateToProps, { detailsDispatcher: showPostDetails })(PostView);
