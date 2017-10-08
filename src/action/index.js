@@ -1,5 +1,6 @@
 const SHOW_POSTS = 'SHOW_POSTS';
 const SHOW_POSTS_BY_LANG = 'SHOW_POSTS_BY_LANG';
+const SHOW_POST_DETAILS = 'SHOW_POST_DETAILS';
 
 const showPosts = (posts) => {
   return {
@@ -15,4 +16,11 @@ const showPostsByLang = (posts, language) => {
   };
 };
 
-export { SHOW_POSTS, SHOW_POSTS_BY_LANG, showPosts, showPostsByLang };
+const showPostDetails = (post, comments) => {
+  return {
+    type: SHOW_POST_DETAILS,
+    payload: { comments, post },
+  };
+};
+
+export { SHOW_POSTS, SHOW_POSTS_BY_LANG, SHOW_POST_DETAILS,  showPosts, showPostsByLang, showPostDetails };
