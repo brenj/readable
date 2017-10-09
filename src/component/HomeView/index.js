@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getPosts } from '../../api';
 import Heading from '../Heading';
 import PostLister from '../PostLister';
-import { showPosts } from '../../action';
+import { showPosts } from '../../action/creators';
 import Sorter from '../Sorter';
 
 const HEADING = 'Readable is the place for discussing code snippets';

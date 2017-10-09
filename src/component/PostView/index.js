@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getCommentsForPost, getPost } from '../../api';
 import CommentLister from '../CommentLister';
 import MessageForm from '../MessageForm';
-import { showPostDetails } from '../../action';
+import { showPostDetails } from '../../action/creators';
 import Sorter from '../Sorter';
 
 import './post-view.css';

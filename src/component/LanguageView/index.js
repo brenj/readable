@@ -5,7 +5,7 @@ import { getPosts } from '../../api';
 import Heading from '../Heading';
 import { getLanguage } from '../../languages';
 import PostLister from '../PostLister';
-import { showPostsByLang } from '../../action';
+import { showPostsByLang } from '../../action/creators';
 import Sorter from '../Sorter';
 
 class LanguageView extends Component {

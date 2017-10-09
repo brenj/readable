@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-import { SHOW_POSTS, SHOW_POSTS_BY_LANG, SHOW_POST_DETAILS } from '../action';
+import { actions } from '../action';
 
 function commentsReducer(state = [], action) {
   switch (action.type) {
-    case SHOW_POST_DETAILS:
+    case actions.SHOW_POST_DETAILS:
       return action.payload.comments;
     default:
       return state;
@@ -18,13 +18,13 @@ function reducePosts(posts) {
 
 function postsReducer(state = {}, action) {
   switch (action.type) {
-    case SHOW_POSTS:
+    case actions.SHOW_POSTS:
       return reducePosts(action.posts);
-    case SHOW_POSTS_BY_LANG: {
+    case actions.SHOW_POSTS_BY_LANG: {
       const { language, posts } = action.payload;
       return reducePosts(posts.filter(post => post.category === language));
     }
-    case SHOW_POST_DETAILS: {
+    case actions.SHOW_POST_DETAILS: {
       const { post } = action.payload;
       return { [post.id]: post };
     }
