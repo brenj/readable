@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 
 import { SHOW_POSTS, SHOW_POSTS_BY_LANG } from '../action';
 
-function comments(state = {}, action) {
   return state;
+function commentsReducer(state = [], action) {
 }
 
 function reducePosts(posts) {
@@ -11,7 +11,7 @@ function reducePosts(posts) {
     { ...newPostsState, [post.id]: post }), {});
 }
 
-function posts(state = {}, action) {
+function postsReducer(state = {}, action) {
   switch (action.type) {
     case SHOW_POSTS:
       return reducePosts(action.posts);
@@ -24,6 +24,6 @@ function posts(state = {}, action) {
 }
 
 export default combineReducers({
-  comments,
-  posts,
+  comments: commentsReducer,
+  posts: postsReducer,
 });
