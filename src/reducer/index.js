@@ -7,10 +7,8 @@ function comments(state = {}, action) {
 }
 
 function reducePosts(posts) {
-  return posts.reduce((newPostsState, post) => {
-    newPostsState[post.id] = post;
-    return newPostsState;
-  }, {});
+  return posts.reduce((newPostsState, post) => (
+    { ...newPostsState, [post.id]: post }), {});
 }
 
 function posts(state = {}, action) {
