@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getCommentsForPost, getPost } from '../../api';
-import Comment from '../Comment';
+import CommentLister from '../CommentLister';
 import MessageForm from '../MessageForm';
 import { showPostDetails } from '../../action';
 import Sorter from '../Sorter';
@@ -24,15 +24,9 @@ class PostView extends Component {
   }
 
   render() {
-    const { post = {} } = this.props;
-
+    const { comments, post = {} } = this.props;
+    // TODO: Handle total comments
     const totalComments = 100;
-
-    const comment = {
-      voteScore: 10,
-      body: 'This is a comment.',
-      author: 'Brendan',
-    };
 
     return (
       <div>
@@ -67,7 +61,7 @@ class PostView extends Component {
         </table>
         <pre><code className="post-view__code">{post.body}</code></pre>
         <Sorter sorterType="comment" />
-        <Comment comment={comment} />
+        <CommentLister comments={comments} />
         <MessageForm />
       </div>
     );
