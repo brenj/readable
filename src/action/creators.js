@@ -3,7 +3,7 @@ import { actions } from '.';
 export const showPosts = (posts) => {
   return {
     type: actions.SHOW_POSTS,
-    posts,
+    payload: posts,
   };
 };
 

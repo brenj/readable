@@ -19,7 +19,7 @@ function reducePosts(posts) {
 function postsReducer(state = {}, action) {
   switch (action.type) {
     case actions.SHOW_POSTS:
-      return reducePosts(action.posts);
+      return reducePosts(action.payload);
     case actions.SHOW_POSTS_BY_LANG: {
       const { language, posts } = action.payload;
       return reducePosts(posts.filter(post => post.category === language));
