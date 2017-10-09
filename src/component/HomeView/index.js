@@ -12,7 +12,7 @@ const SUBHEADING = '- Anonymously -';
 
 class HomeView extends Component {
   componentDidMount() {
-    getPosts().then(posts => this.props.dispatch(showPosts(posts)));
+    getPosts().then(posts => this.props.postsDispatcher(posts));
   }
 
   render() {
@@ -33,4 +33,5 @@ const mapStateToProps = state => ({
   comments: state.comments,
 });
 
-export default connect(mapStateToProps)(HomeView);
+export default connect(
+  mapStateToProps, { postsDispatcher: showPosts })(HomeView);
