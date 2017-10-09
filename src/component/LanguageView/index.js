@@ -11,8 +11,8 @@ import Sorter from '../Sorter';
 class LanguageView extends Component {
   componentDidMount() {
     // TODO: Add redirect to 404 if unknown language was passed as parameter
-    const { lang, dispatch } = this.props;
-    getPosts().then(posts => dispatch(showPostsByLang(posts, lang.path)));
+    const { lang, postsByLangDispatcher } = this.props;
+    getPosts().then(posts => postsByLangDispatcher(posts, lang.path));
   }
 
   render() {
@@ -37,4 +37,5 @@ const mapStateToProps = (state, ownProps) => ({
   comments: state.comments,
 });
 
-export default connect(mapStateToProps)(LanguageView);
+export default connect(
+  mapStateToProps, { postsByLangDispatcher: showPostsByLang })(LanguageView);
