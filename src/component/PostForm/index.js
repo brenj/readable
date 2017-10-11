@@ -12,6 +12,25 @@ class PostForm extends Component {
     language: '',
     snippet: '',
   }
+
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({[name]: value});
+  }
+
+  handleCancel = () => {
+    this.props.history.push('/');
+  }
+
+  handleSubmit = (event) => {
+    this.submitForm();
+    event.preventDefault();
+  }
+
+  submitForm = () => {
+    console.log(this.state.name);
+  }
+
   render() {
     return (
       <form className="post-form">
