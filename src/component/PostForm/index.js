@@ -23,8 +23,8 @@ class PostForm extends Component {
   }
 
   handleSubmit = (event) => {
-    this.submitForm();
     event.preventDefault();
+    this.submitForm();
   }
 
   submitForm = () => {
