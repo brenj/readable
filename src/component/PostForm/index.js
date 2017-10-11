@@ -92,4 +92,4 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+export default connect(null, { addPostDispatcher: addPost })(PostForm);
