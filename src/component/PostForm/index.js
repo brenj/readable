@@ -6,6 +6,12 @@ import LabeledInput from '../LabeledInput';
 import './post-form.css';
 
 class PostForm extends Component {
+  state = {
+    name: '',
+    title: '',
+    language: '',
+    snippet: '',
+  }
   render() {
     return (
       <form className="post-form">
