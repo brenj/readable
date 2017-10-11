@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { addPost as addPostAPI } from '../../api';
+import { addPost } from '../../action/creators';
 import Heading from '../Heading';
 import LabeledInput from '../LabeledInput';
 
