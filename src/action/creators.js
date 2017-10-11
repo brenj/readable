@@ -1,5 +1,10 @@
 import { actions } from '.';
 
+export const addPost = post => ({
+  type: actions.ADD_POST,
+  payload: post,
+});
+
 export const showPosts = posts => ({
   type: actions.SHOW_POSTS,
   payload: posts,
