@@ -20,6 +20,9 @@ class LabeledInput extends Component {
             id={id}
             placeholder={inputPlaceholder}
             type="text"
+            onChange={onChange}
+            name={name}
+            value={value}
           />
         </div>
       </div>
