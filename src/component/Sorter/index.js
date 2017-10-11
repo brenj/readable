@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import Link from '../../component/Link';
+import { Link } from 'react-router-dom';
 
 import './sorter.css';
 
@@ -14,15 +13,18 @@ class Sorter extends Component {
         <div className="nine columns sorter__heading">
           <span>
             Sort {`${sorterType}s`} by&nbsp;
-            <Link href="#" text="Popularity" />
+            <Link to="/">Popularity</Link>
             &nbsp;or&nbsp;
-            <Link href="#" text="Date" />
+            <Link to="/">Date</Link>
           </span>
         </div>
         <div className="two columns">
-          <a className="button button-primary sorter__button" href="#">
+          <Link
+            className="button button-primary sorter__button"
+            to="/new"
+          >
             {sorterType}
-          </a>
+          </Link>
         </div>
       </div>
     );
