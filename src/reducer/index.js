@@ -18,6 +18,10 @@ function reducePosts(posts) {
 
 function postsReducer(state = {}, action) {
   switch (action.type) {
+    case actions.ADD_POST: {
+      const post = action.payload;
+      return { ...state.posts, [post.id]: post };
+    }
     case actions.SHOW_POSTS:
       return reducePosts(action.payload);
     case actions.SHOW_POSTS_BY_LANG: {
