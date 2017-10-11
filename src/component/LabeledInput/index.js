@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 
 class LabeledInput extends Component {
   render() {
-    const { id, inputPlaceholder, labelText } = this.props;
+    const {
+      id,
+      inputPlaceholder,
+      labelText,
+      name,
+      onChange,
+      value
+    } = this.props;
 
     return (
       <div className="row">
