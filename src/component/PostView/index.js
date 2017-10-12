@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getCommentsForPost, getPost } from '../../api';
+import { getCommentsForPost, getPost, deletePost as deletePostAPI } from '../../api';
 import CommentLister from '../CommentLister';
 import MessageForm from '../MessageForm';
-import { showPostDetails } from '../../action/creators';
+import { deletePost, showPostDetails } from '../../action/creators';
 import Sorter from '../Sorter';
 
 import './post-view.css';
@@ -23,6 +23,11 @@ class PostView extends Component {
     }
   }
 
+  handleDelete = () => {
+    const { deleteDispatcher, post } = this.props;
+    deletePostAPI(post.id).then(() => deleteDispatcher(post));
+  }
+
   render() {
     const { comments, post = {} } = this.props;
     // TODO: Handle total comments
@@ -37,9 +42,12 @@ class PostView extends Component {
             </a>
           </div>
           <div className="offset-by-one two columns">
-            <a className="button post-view__button--delete" href="/">
+            <button
+              className="button post-view__button--delete"
+              onClick={this.handleDelete}
+            >
               Delete
-            </a>
+            </button>
           </div>
         </div>
         <h5 className="post-view__title">{post.title}</h5>
@@ -74,4 +82,6 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 export default connect(
-  mapStateToProps, { detailsDispatcher: showPostDetails })(PostView);
+  mapStateToProps,
+  { detailsDispatcher: showPostDetails, deleteDispatcher: deletePost})
+(PostView);
