@@ -5,6 +5,8 @@ import { addPost as addPostAPI } from '../../api';
 import { addPost } from '../../action/creators';
 import Heading from '../Heading';
 import LabeledInput from '../LabeledInput';
+import LabeledSelect from '../LabeledSelect';
+import { getLanguageOptions } from '../../languages';
 
 import './post-form.css';
 
@@ -62,13 +64,13 @@ class PostForm extends Component {
           value={this.state.title}
           onChange={this.handleInputChange}
         />
-        <LabeledInput
+        <LabeledSelect
           name="language"
           labelText="Language"
           id="languageInput"
-          inputPlaceholder="JavaScript"
           value={this.state.language}
           onChange={this.handleInputChange}
+          options={getLanguageOptions()}
         />
         <label htmlFor="snippetTextArea">Code Snippet</label>
         <textarea
