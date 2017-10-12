@@ -36,3 +36,8 @@ export const addPost = (title, body, author, category) => {
     .then(results => results.json())
     .then(data => data);
 };
+
+export const deletePost = id =>
+  fetch(`${API_BASE}/posts/${id}`, { method: 'DELETE', headers })
+    .then(results => results.json())
+    .then(data => data);
