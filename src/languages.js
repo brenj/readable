@@ -53,3 +53,10 @@ export function getLanguage(lang) {
 export function getLanguages() {
   return Object.keys(LANGUAGES);
 }
+
+export function getLanguageOptions() {
+  return getLanguages().map(key => ({
+    text: getLanguage(key).displayName,
+    value: key,
+  }));
+}
