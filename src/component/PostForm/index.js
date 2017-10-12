@@ -12,7 +12,7 @@ class PostForm extends Component {
   state = {
     name: '',
     title: '',
-    language: '',
+    language: 'javascript',
     snippet: '',
   }
 
