@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getPosts } from '../../api';
+import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
 import { getLanguage } from '../../languages';
 import PostLister from '../PostLister';

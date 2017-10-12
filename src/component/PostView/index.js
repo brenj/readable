@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getCommentsForPost, getPost, deletePost as deletePostAPI } from '../../api';
+import { api } from '../../api';
 import CommentLister from '../CommentLister';
+import { creators } from '../../action';
 import MessageForm from '../MessageForm';
-import { deletePost, showPostDetails } from '../../action/creators';
 import Sorter from '../Sorter';
 
 import './post-view.css';
@@ -15,17 +15,17 @@ class PostView extends Component {
 
     if (post === undefined) {
       const postId = this.props.match.params.id;
-      Promise.all([getPost(postId), getCommentsForPost(postId)])
+      Promise.all([api.getPost(postId), api.getCommentsForPost(postId)])
         .then(values => (detailsDispatcher(...values)));
     } else {
-      getCommentsForPost(post.id)
+      api.getCommentsForPost(post.id)
         .then(comments => detailsDispatcher(post, comments));
     }
   }
 
   handleDelete = () => {
     const { deleteDispatcher, post } = this.props;
-    deletePostAPI(post.id).then(() => deleteDispatcher(post));
+    api.deletePostAPI(post.id).then(() => deleteDispatcher(post));
   }
 
   render() {
@@ -83,5 +83,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 export default connect(
   mapStateToProps,
-  { detailsDispatcher: showPostDetails, deleteDispatcher: deletePost})
+  {
+    detailsDispatcher: creators.showPostDetails,
+    deleteDispatcher: creators.deletePost,
+  })
 (PostView);
