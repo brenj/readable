@@ -10,7 +10,8 @@
 
 .post__details {
   color: #bdbdbd;
-  margin-left: 0% !important;
+  margin-left: 0px !important;
+  padding-top: 5px;
 }
 
 .post__title:link, .post__title:visited {
@@ -29,13 +30,19 @@
   padding-left: 5px;
 }
 
-.post__link--edit:link, .post__link--edit:visited {
+.post__link--edit {
   color: blue;
   text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.post__link--delete:link, .post__link--delete:visited {
-  color: red;
+.post__link--delete {
   margin-left: 10px;
+  color: red;
   text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

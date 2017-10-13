@@ -24,21 +24,29 @@ class Post extends Component {
         <div className="nine columns post__details">
           <Link className="post__title" to={postPath}>{post.title}</Link>
           <div>
-            <span>by {post.author}&nbsp;</span>
+            <span>{`by ${post.author} in `}</span>
             <span>
-              in&nbsp;
               <Link className="post__language" to={post.category}>
-                {post.category}
+                {`${post.category} `}
               </Link>
-              &nbsp;
             </span>
-            <span>on {post.timestamp}&nbsp;</span>
+            <span>{`on ${post.timestamp} `}</span>
             <span className="post__comments">
-              <em>{totalComments}</em>
-              &nbsp;comments
+              <em>{totalComments}</em>{` comments`}
             </span>
-            <a className="u-pull-right post__link--delete" href="/">Delete</a>
-            <a className="u-pull-right post__link--edit" href="/">Edit</a>
+            <span
+              role="button"
+              className="u-pull-right post__link--delete"
+              onClick={this.handleDeletePost}
+            >
+              Delete
+            </span>
+            <span
+              role="button"
+              className="u-pull-right post__link--edit"
+            >
+              Edit
+            </span>
           </div>
         </div>
         <div className="one column" />
