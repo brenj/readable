@@ -24,9 +24,12 @@ class PostView extends Component {
   }
 
   handleDelete = () => {
-    const { deleteDispatcher, post } = this.props;
-    api.deletePostAPI(post.id).then(() => deleteDispatcher(post));
-  }
+    const { deleteDispatcher, history, post } = this.props;
+    api.deletePost(post.id).then(() => {
+      deleteDispatcher(post);
+      history.goBack();
+    });
+  };
 
   render() {
     const { comments, post = {} } = this.props;
@@ -86,5 +89,4 @@ export default connect(
   {
     detailsDispatcher: creators.showPostDetails,
     deleteDispatcher: creators.deletePost,
-  })
-(PostView);
+  })(PostView);
