@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { api } from '../../api';
+import { creators } from '../../action';
 import VoteBox from '../VoteBox';
 
 import './post.css';
 
 class Post extends Component {
+  handleDeletePost = () => {
+    const { deletePostDispatcher, post } = this.props;
+    api.deletePost(post.id)
+      .then(() => { deletePostDispatcher(post); });
+  };
+
   render() {
     const { post, totalComments } = this.props;
     const postPath = `/${post.category}/${post.id}`;
@@ -38,4 +47,5 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export default connect(
+  null, { deletePostDispatcher: creators.deletePost })(Post);
