@@ -52,6 +52,11 @@ class PostForm extends Component {
     return api.addPost(title, snippet, name, language);
   }
 
+  editPost = () => {
+    const { title, snippet } = this.state;
+    return api.editPost(title, snippet);
+  }
+
   }
 
   render() {
