@@ -47,12 +47,11 @@ class PostForm extends Component {
   }
 
   submitForm = () => {
+  addPost = () => {
     const { title, snippet, name, language } = this.state;
-    addPostAPI(title, snippet, name, language)
-      .then((post) => {
-        this.props.addPostDispatcher(post);
-        this.props.history.push('/');
-      });
+    return api.addPost(title, snippet, name, language);
+  }
+
   }
 
   render() {
