@@ -21,7 +21,7 @@ class Sorter extends Component {
         <div className="two columns">
           <Link
             className="button button-primary sorter__button"
-            to="/new"
+            to="/post/new"
           >
             {sorterType}
           </Link>
