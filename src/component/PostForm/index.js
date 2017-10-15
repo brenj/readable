@@ -47,6 +47,13 @@ class PostForm extends Component {
   }
 
   submitForm = () => {
+    const { formType } = this.props;
+    this[`${formType}Post`]().then((post) => {
+      this.props[`${formType}PostDispatcher`](post);
+      this.props.history.push('/');
+    });
+  }
+
   addPost = () => {
     const { title, snippet, name, language } = this.state;
     return api.addPost(title, snippet, name, language);
