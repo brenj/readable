@@ -117,4 +117,14 @@ class PostForm extends Component {
   }
 }
 
-export default connect(null, { addPostDispatcher: addPost })(PostForm);
+const mapStateToProps = (state, ownProps) => ({
+  post: state.posts[ownProps.match.params.id],
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    addPostDispatcher: creators.addPost,
+    editPostDispatcher: creators.editPost,
+  },
+)(PostForm);
