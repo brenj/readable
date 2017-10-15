@@ -41,12 +41,12 @@ class Post extends Component {
             >
               Delete
             </span>
-            <span
-              role="button"
+            <Link
+              to={`/post/edit/${post.id}`}
               className="u-pull-right post__link--edit"
             >
               Edit
-            </span>
+            </Link>
           </div>
         </div>
         <div className="one column" />

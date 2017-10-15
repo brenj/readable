@@ -64,6 +64,8 @@ class PostForm extends Component {
     return api.editPost(title, snippet);
   }
 
+  fillForm = (post) => {
+    this.setState({ title: post.title, snippet: post.body });
   }
 
   render() {
