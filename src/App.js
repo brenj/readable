@@ -17,9 +17,20 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path="/" component={HomeView} />
-          <Route exact path="/new" component={PostForm} />
-          <Route exact path="/:lang" component={LanguageView} />
-          <Route exact path="/:lang/:id" component={PostView} />
+          <Route exact path="/language/:lang" component={LanguageView} />
+          <Route
+            exact
+            path="/post/new"
+            render={props => (
+              <PostForm {...props} formType="add" heading="Add a post" />)}
+          />
+          <Route
+            exact
+            path="/post/edit/:id"
+            render={props => (
+              <PostForm {...props} formType="edit" heading="Edit a post" />)}
+          />
+          <Route exact path="/post/:id" component={PostView} />
         </Switch>
       </div>
     );
