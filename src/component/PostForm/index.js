@@ -56,10 +56,12 @@ class PostForm extends Component {
   }
 
   render() {
+    const { formType, heading } = this.props;
+
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
         <Heading
-          mainText="Create a new post"
+          mainText={heading}
           subText="~ Anonymously ~"
         />
         <LabeledInput
