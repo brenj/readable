@@ -64,14 +64,16 @@ class PostForm extends Component {
           mainText={heading}
           subText="~ Anonymously ~"
         />
-        <LabeledInput
-          name="name"
-          labelText="Name"
-          id="nameInput"
-          inputPlaceholder="Sadie"
-          value={this.state.name}
-          onChange={this.handleInputChange}
-        />
+        {formType === 'add' &&
+          <LabeledInput
+            name="name"
+            labelText="Name"
+            id="nameInput"
+            inputPlaceholder="Sadie"
+            value={this.state.name}
+            onChange={this.handleInputChange}
+          />
+        }
         <LabeledInput
           name="title"
           labelText="Title"
@@ -80,14 +82,16 @@ class PostForm extends Component {
           value={this.state.title}
           onChange={this.handleInputChange}
         />
-        <LabeledSelect
-          name="language"
-          labelText="Language"
-          id="languageInput"
-          value={this.state.language}
-          onChange={this.handleInputChange}
-          options={getLanguageOptions()}
-        />
+        {formType === 'add' &&
+          <LabeledSelect
+            name="language"
+            labelText="Language"
+            id="languageInput"
+            value={this.state.language}
+            onChange={this.handleInputChange}
+            options={getLanguageOptions()}
+          />
+        }
         <label htmlFor="snippetTextArea">Code Snippet</label>
         <textarea
           name="snippet"
