@@ -5,6 +5,11 @@ export const addPost = post => ({
   payload: post,
 });
 
+export const editPost = post => ({
+  type: actions.EDIT_POST,
+  payload: post,
+});
+
 export const deletePost = post => ({
   type: actions.DELETE_POST,
   payload: post,
