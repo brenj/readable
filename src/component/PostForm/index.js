@@ -18,6 +18,20 @@ class PostForm extends Component {
     snippet: '',
   }
 
+  componentDidMount() {
+    const { formType, post } = this.props;
+
+    if (formType === 'edit') {
+      if (post === undefined) {
+        const { id } = this.props.match.params;
+        api.getPost(id)
+          .then((fetchedPost) => { this.fillForm(fetchedPost); });
+      } else {
+        this.fillForm(post);
+      }
+    }
+  }
+
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
