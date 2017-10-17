@@ -1,6 +1,7 @@
 import * as moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { api } from '../../api';
 import CommentLister from '../CommentLister';
@@ -42,9 +43,12 @@ class PostView extends Component {
       <div>
         <div className="row">
           <div className="offset-by-eight one column">
-            <a className="button post-view__button--edit" href="/">
+            <Link
+              to={`/post/edit/${post.id}`}
+              className="button post-view__button--edit"
+            >
               Edit
-            </a>
+            </Link>
           </div>
           <div className="offset-by-one two columns">
             <button
