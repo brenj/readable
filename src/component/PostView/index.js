@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -33,6 +34,7 @@ class PostView extends Component {
 
   render() {
     const { comments, post = {} } = this.props;
+    const formattedDate = moment(post.timestamp).format("MMM Do YYYY, h:mmA");
     // TODO: Handle total comments
     const totalComments = 100;
 
@@ -65,7 +67,7 @@ class PostView extends Component {
           <tbody>
             <tr>
               <td>{post.author}</td>
-              <td>{post.timestamp}</td>
+              <td>{formattedDate}</td>
               <td>{post.voteScore}</td>
             </tr>
           </tbody>
