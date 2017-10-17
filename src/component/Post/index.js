@@ -28,7 +28,9 @@ class Post extends Component {
           <div>
             <span>{`by ${post.author} in `}</span>
             <span>
-              <Link className="post__language" to={post.category}>
+              <Link
+                className="post__language"
+                to={`/language/${post.category}`}>
                 {`${post.category} `}
               </Link>
             </span>

@@ -11,7 +11,8 @@ class NavBar extends Component {
 
     getLanguages().forEach((langKey) => {
       const { displayName, path } = getLanguage(langKey);
-      links.push({ href: `/${path}`.toLowerCase(), text: displayName });
+      links.push(
+        { href: `/language/${path}`.toLowerCase(), text: displayName });
     });
 
     return (
