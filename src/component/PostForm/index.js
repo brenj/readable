@@ -50,7 +50,7 @@ class PostForm extends Component {
     const { formType } = this.props;
     this[`${formType}Post`]().then((post) => {
       this.props[`${formType}PostDispatcher`](post);
-      this.props.history.push('/');
+      this.props.history.goBack();
     });
   }
 
@@ -60,8 +60,9 @@ class PostForm extends Component {
   }
 
   editPost = () => {
+    const { id } = this.props.match.params;
     const { title, snippet } = this.state;
-    return api.editPost(title, snippet);
+    return api.editPost(id, title, snippet);
   }
 
   fillForm = (post) => {
