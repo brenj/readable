@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -17,6 +18,7 @@ class Post extends Component {
 
   render() {
     const { post, totalComments } = this.props;
+    const formattedDate = moment(post.timestamp).format("MM/DD/YYYY");
     const postPath = `/${post.category}/${post.id}`;
 
     return (
@@ -30,7 +32,7 @@ class Post extends Component {
                 {`${post.category} `}
               </Link>
             </span>
-            <span>{`on ${post.timestamp} `}</span>
+            <span>{`on ${formattedDate} `}</span>
             <span className="post__comments">
               <em>{totalComments}</em>{` comments`}
             </span>
