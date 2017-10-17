@@ -19,18 +19,23 @@ class Post extends Component {
   render() {
     const { post, totalComments } = this.props;
     const formattedDate = moment(post.timestamp).format("MM/DD/YYYY");
-    const postPath = `/${post.category}/${post.id}`;
 
     return (
       <VoteBox className="row post" votes={post.voteScore}>
         <div className="nine columns post__details">
-          <Link className="post__title" to={postPath}>{post.title}</Link>
+          <Link
+            className="post__title"
+            to={`/post/${post.id}`}
+          >
+            {post.title}
+          </Link>
           <div>
             <span>{`by ${post.author} in `}</span>
             <span>
               <Link
                 className="post__language"
-                to={`/language/${post.category}`}>
+                to={`/language/${post.category}`}
+              >
                 {`${post.category} `}
               </Link>
             </span>
