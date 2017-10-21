@@ -24,7 +24,6 @@ function postsReducer(state = {}, action) {
     }
     case actions.EDIT_POST: {
       const post = action.payload;
-      console.log(post);
       return { ...state.posts, [post.id]: post };
     }
     case actions.DELETE_POST: {
