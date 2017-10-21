@@ -49,3 +49,11 @@ export const editPost = (id, title, body) => {
     .then(results => results.json())
     .then(data => data);
 };
+
+export const voteOnPost = (id, voteType) => {
+  const requestBody = JSON.stringify({ option: voteType });
+  return fetch(
+    `${API_BASE}/posts/${id}`, { method: 'POST', headers, body: requestBody })
+    .then(results => results.json())
+    .then(data => data);
+};
