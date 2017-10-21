@@ -42,6 +42,12 @@ function postsReducer(state = {}, action) {
       const { post } = action.payload;
       return { [post.id]: post };
     }
+    case actions.VOTE_ON_POST: {
+      const { post, voteType } = action.payload;
+      let newVoteScore = post.voteScore;
+      newVoteScore += (voteType === 'upVote') ? 1 : -1;
+      return { ...state, [post.id]: { ...post, voteScore: newVoteScore } };
+    }
     default:
       return state;
   }
