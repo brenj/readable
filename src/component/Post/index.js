@@ -16,6 +16,12 @@ class Post extends Component {
       .then(() => { deletePostDispatcher(post); });
   };
 
+  handleVoteOnPost = (voteType) => {
+    const { voteOnPostDispatcher, post } = this.props;
+    api.voteOnPost(post.id, voteType)
+      .then(() => { voteOnPostDispatcher(post, voteType); });
+  };
+
   render() {
     const { post } = this.props;
     const formattedDate = moment(post.timestamp).format("MM/DD/YYYY");
@@ -65,4 +71,9 @@ class Post extends Component {
 }
 
 export default connect(
-  null, { deletePostDispatcher: creators.deletePost })(Post);
+  null,
+  {
+    deletePostDispatcher: creators.deletePost,
+    voteOnPostDispatcher: creators.voteOnPost,
+  },
+)(Post);
