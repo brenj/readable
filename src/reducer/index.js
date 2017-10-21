@@ -27,8 +27,10 @@ function postsReducer(state = {}, action) {
       return { ...state.posts, [post.id]: post };
     }
     case actions.DELETE_POST: {
-      const newState = { ...state.posts };
-      delete newState[action.payload];
+      const newState = { ...state };
+      const post = action.payload;
+
+      delete newState[post.id];
       return newState;
     }
     case actions.SHOW_POSTS:
