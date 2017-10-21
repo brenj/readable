@@ -27,7 +27,11 @@ class Post extends Component {
     const formattedDate = moment(post.timestamp).format("MM/DD/YYYY");
 
     return (
-      <VoteBox className="row post" votes={post.voteScore}>
+      <VoteBox
+        className="row post"
+        votes={post.voteScore}
+        handleVote={this.handleVoteOnPost}
+      >
         <div className="nine columns post__details">
           <Link
             className="post__title"
