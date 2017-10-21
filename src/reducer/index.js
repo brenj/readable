@@ -20,11 +20,11 @@ function postsReducer(state = {}, action) {
   switch (action.type) {
     case actions.ADD_POST: {
       const post = action.payload;
-      return { ...state.posts, [post.id]: post };
+      return { ...state, [post.id]: post };
     }
     case actions.EDIT_POST: {
       const post = action.payload;
-      return { ...state.posts, [post.id]: post };
+      return { ...state, [post.id]: post };
     }
     case actions.DELETE_POST: {
       const newState = { ...state };
