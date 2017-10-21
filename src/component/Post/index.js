@@ -17,7 +17,7 @@ class Post extends Component {
   };
 
   render() {
-    const { post, totalComments } = this.props;
+    const { post } = this.props;
     const formattedDate = moment(post.timestamp).format("MM/DD/YYYY");
 
     return (
@@ -41,7 +41,7 @@ class Post extends Component {
             </span>
             <span>{`on ${formattedDate} `}</span>
             <span className="post__comments">
-              <em>{totalComments}</em>{` comments`}
+              <em>{post.commentCount}</em>{` comments`}
             </span>
             <span
               role="button"

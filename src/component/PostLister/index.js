@@ -8,11 +8,7 @@ function PostLister(props) {
   return (
     <div>
       {posts.map(post => (
-        <Post
-          key={post.id}
-          post={post}
-          totalComments={10}
-        />
+        <Post key={post.id} post={post} />
       ))}
     </div>
   );

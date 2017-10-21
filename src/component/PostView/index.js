@@ -36,8 +36,6 @@ class PostView extends Component {
   render() {
     const { comments, post = {} } = this.props;
     const formattedDate = moment(post.timestamp).format("MMM Do YYYY, h:mmA");
-    // TODO: Handle total comments
-    const totalComments = 100;
 
     return (
       <div>
