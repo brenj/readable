@@ -25,7 +25,15 @@ class CommentForm extends Component {
           id="commentTextArea"
           placeholder="Meow, furthermore, meow mew."
         />
-        <input className="button" type="submit" value="Cancel" />
+        <input
+          className="button"
+          type="submit"
+          value="Cancel"
+          onClick={(event) => {
+            event.preventDefault();
+            this.props.cancelHandler();
+          }}
+        />
         <input
           className="button comment-form__button--submit"
           type="submit"
