@@ -2,6 +2,11 @@ import { combineReducers } from 'redux';
 
 import { actions } from '../action';
 
+function reduceComments(comments) {
+  return comments.reduce((newCommentsState, comment) => (
+    { ...newCommentsState, [comment.id]: comment }), {});
+}
+
 function commentsReducer(state = [], action) {
   switch (action.type) {
     case actions.SHOW_POST_DETAILS:
