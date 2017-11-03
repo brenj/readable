@@ -5,6 +5,11 @@ export const addPost = post => ({
   payload: post,
 });
 
+export const addComment = comment => ({
+  type: actions.ADD_COMMENT,
+  payload: comment,
+});
+
 export const editPost = post => ({
   type: actions.EDIT_POST,
   payload: post,
