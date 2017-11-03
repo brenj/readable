@@ -10,7 +10,7 @@ function reduceComments(comments) {
 function commentsReducer(state = [], action) {
   switch (action.type) {
     case actions.SHOW_POST_DETAILS:
-      return action.payload.comments;
+      return reduceComments(action.payload.comments);
     default:
       return state;
   }
