@@ -82,6 +82,14 @@ class PostView extends Component {
         </table>
         <pre><code className="post-view__code">{post.body}</code></pre>
         <Sorter sorterType="comment" />
+        <button
+          className="button-primary"
+          onClick={() => {
+            this.setState({ commentFormVisible: true });
+          }}
+        >
+          Comment
+        </button>
         <CommentLister comments={comments} />
         <CommentForm />
       </div>
