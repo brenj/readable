@@ -116,6 +116,7 @@ const mapStateToProps = (state, ownProps) => ({
 export default connect(
   mapStateToProps,
   {
+    addCommentDispatcher: creators.addComment,
     detailsDispatcher: creators.showPostDetails,
     deleteDispatcher: creators.deletePost,
   })(PostView);
