@@ -57,3 +57,17 @@ export const voteOnPost = (id, voteType) => {
     .then(results => results.json())
     .then(data => data);
 };
+
+export const addComment = (body, author, parentId) => {
+  const requestBody = JSON.stringify({
+    id: v4(),
+    timestamp: Date.now(),
+    body,
+    author,
+    parentId,
+  });
+  return fetch(
+    `${API_BASE}/comments`, { method: 'POST', headers, body: requestBody })
+    .then(results => results.json())
+    .then(data => data);
+};
