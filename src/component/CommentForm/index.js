@@ -2,26 +2,26 @@ import React, { Component } from 'react';
 
 import LabeledInput from '../LabeledInput';
 
-import './message-form.css';
+import './comment-form.css';
 
-class MessageForm extends Component {
+class CommentForm extends Component {
   render() {
     return (
-      <form className="message-form">
+      <form className="comment-form">
         <LabeledInput
           labelText="Name"
           id="nameInput"
           inputPlaceholder="Sadie"
         />
-        <label htmlFor="messageTextArea">Message</label>
+        <label htmlFor="commentTextArea">Comment</label>
         <textarea
           className="u-full-width"
-          id="messageTextArea"
+          id="commentTextArea"
           placeholder="Meow, furthermore, meow mew."
         />
         <input className="button" type="submit" value="Cancel" />
         <input
-          className="button message-form__button--submit"
+          className="button comment-form__button--submit"
           type="submit"
           value="Submit"
         />
@@ -30,4 +30,4 @@ class MessageForm extends Component {
   }
 }
 
-export default MessageForm;
+export default CommentForm;

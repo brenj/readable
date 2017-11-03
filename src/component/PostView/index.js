@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { api } from '../../api';
 import CommentLister from '../CommentLister';
 import { creators } from '../../action';
-import MessageForm from '../MessageForm';
+import CommentForm from '../CommentForm';
 import Sorter from '../Sorter';
 
 import './post-view.css';
@@ -35,7 +35,7 @@ class PostView extends Component {
 
   render() {
     const { comments, post = {} } = this.props;
-    const formattedDate = moment(post.timestamp).format("MMM Do YYYY, h:mmA");
+    const formattedDate = moment(post.timestamp).format("MMM D YYYY, h:mm A");
 
     return (
       <div>
@@ -77,7 +77,7 @@ class PostView extends Component {
         <pre><code className="post-view__code">{post.body}</code></pre>
         <Sorter sorterType="comment" />
         <CommentLister comments={comments} />
-        <MessageForm />
+        <CommentForm />
       </div>
     );
   }
