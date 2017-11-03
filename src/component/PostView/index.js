@@ -91,7 +91,15 @@ class PostView extends Component {
           Comment
         </button>
         <CommentLister comments={comments} />
-        <CommentForm />
+        {
+          this.state.commentFormVisible &&
+            <CommentForm
+              submitHandler={this.handleSubmitComment}
+              cancelHandler={() => {
+                this.setState({ commentFormVisible: false });
+              }}
+            />
+        }
       </div>
     );
   }
