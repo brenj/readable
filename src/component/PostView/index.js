@@ -12,6 +12,8 @@ import Sorter from '../Sorter';
 import './post-view.css';
 
 class PostView extends Component {
+  state = { commentFormVisible: false };
+
   componentDidMount() {
     const { detailsDispatcher, post } = this.props;
 
