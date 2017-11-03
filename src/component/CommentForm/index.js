@@ -5,9 +5,15 @@ import LabeledInput from '../LabeledInput';
 import './comment-form.css';
 
 class CommentForm extends Component {
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.submitHandler('author', 'comment');
+  }
+
   render() {
     return (
-      <form className="comment-form">
+      <form className="comment-form" onSubmit={this.handleSubmit}>
         <LabeledInput
           labelText="Name"
           id="nameInput"
