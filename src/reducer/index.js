@@ -9,6 +9,10 @@ function reduceComments(comments) {
 
 function commentsReducer(state = [], action) {
   switch (action.type) {
+    case actions.ADD_COMMENT: {
+      const comment = action.payload;
+      return { ...state, [comment.id]: comment };
+    }
     case actions.SHOW_POST_DETAILS:
       return reduceComments(action.payload.comments);
     default:
