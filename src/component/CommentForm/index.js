@@ -5,6 +5,12 @@ import LabeledInput from '../LabeledInput';
 import './comment-form.css';
 
 class CommentForm extends Component {
+  state = { name: '', comment: '' };
+
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -15,15 +21,19 @@ class CommentForm extends Component {
     return (
       <form className="comment-form" onSubmit={this.handleSubmit}>
         <LabeledInput
+          name="name"
           labelText="Name"
           id="nameInput"
           inputPlaceholder="Sadie"
+          onChange={this.handleInputChange}
         />
         <label htmlFor="commentTextArea">Comment</label>
         <textarea
+          name="comment"
           className="u-full-width"
           id="commentTextArea"
           placeholder="Meow, furthermore, meow mew."
+          onChange={this.handleInputChange}
         />
         <input
           className="button"
