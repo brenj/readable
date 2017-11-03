@@ -35,6 +35,10 @@ class PostView extends Component {
     });
   };
 
+  handleSubmitComment = (author, comment) => {
+    this.setState({ commentFormVisible: false });
+  };
+
   render() {
     const { comments, post = {} } = this.props;
     const formattedDate = moment(post.timestamp).format("MMM D YYYY, h:mm A");
