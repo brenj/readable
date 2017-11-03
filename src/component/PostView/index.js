@@ -36,6 +36,8 @@ class PostView extends Component {
   };
 
   handleSubmitComment = (author, comment) => {
+    api.addComment(comment, author, this.props.post.id)
+      .then((comment) => console.log(comment));
     this.setState({ commentFormVisible: false });
   };
 
