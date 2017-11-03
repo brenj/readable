@@ -109,7 +109,8 @@ class PostView extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   post: state.posts[ownProps.match.params.id],
-  comments: state.comments,
+  comments: Object.keys(state.comments)
+    .map(commentId => state.comments[commentId]),
 });
 
 export default connect(
