@@ -14,7 +14,9 @@ class CommentForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.submitHandler('author', 'comment');
+
+    const { name, comment } = this.state;
+    this.props.submitHandler(name, comment);
   }
 
   render() {
