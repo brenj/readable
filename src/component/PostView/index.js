@@ -35,10 +35,13 @@ class PostView extends Component {
     });
   };
 
-  handleSubmitComment = (author, comment) => {
-    api.addComment(comment, author, this.props.post.id)
-      .then((comment) => console.log(comment));
-    this.setState({ commentFormVisible: false });
+  handleSubmitComment = (author, body) => {
+    const { addCommentDispatcher, post } = this.props;
+    api.addComment(body, author, post.id)
+      .then((comment) => {
+        addCommentDispatcher(comment);
+        this.setState({ commentFormVisible: false });
+      });
   };
 
   render() {
