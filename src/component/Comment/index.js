@@ -15,6 +15,12 @@ class Comment extends Component {
       .then(() => { deleteCommentDispatcher(comment); });
   };
 
+  handleVoteOnComment = (voteType) => {
+    const { voteOnCommentDispatcher, comment } = this.props;
+    api.voteOnComment(comment.id, voteType)
+      .then(() => { voteOnCommentDispatcher(comment, voteType); });
+  };
+
   render() {
     const { comment } = this.props;
 
