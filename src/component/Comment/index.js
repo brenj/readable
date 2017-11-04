@@ -25,7 +25,10 @@ class Comment extends Component {
     const { comment } = this.props;
 
     return (
-      <VoteBox votes={comment.voteScore}>
+      <VoteBox
+        votes={comment.voteScore}
+        handleVote={this.handleVoteOnComment}
+      >
         <span>{comment.body}</span>
         <div>
           <span className="comment__details">by {comment.author}</span>
