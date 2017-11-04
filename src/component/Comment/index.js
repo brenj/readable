@@ -23,7 +23,13 @@ class Comment extends Component {
         <span>{comment.body}</span>
         <div>
           <span className="comment__details">by {comment.author}</span>
-          <a className="u-pull-right comment__link--delete" href="/">Delete</a>
+          <span
+            role="button"
+            className="u-pull-right comment__link--delete"
+            onClick={this.handleDeleteComment}
+          >
+            Delete
+          </span>
           <a className="u-pull-right comment__link--edit" href="/">Edit</a>
         </div>
       </VoteBox>
