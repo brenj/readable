@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { api } from '../../api';
+import { creators } from '../../action';
 import VoteBox from '../VoteBox';
 
 import './comment.css';
