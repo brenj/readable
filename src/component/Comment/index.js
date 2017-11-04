@@ -8,6 +8,13 @@ import VoteBox from '../VoteBox';
 import './comment.css';
 
 class Comment extends Component {
+
+  handleDeleteComment = () => {
+    const { deleteCommentDispatcher, comment } = this.props;
+    api.deleteComment(comment.id)
+      .then(() => { deleteCommentDispatcher(comment); });
+  };
+
   render() {
     const { comment } = this.props;
 
