@@ -71,3 +71,8 @@ export const addComment = (body, author, parentId) => {
     .then(results => results.json())
     .then(data => data);
 };
+
+export const deleteComment = id =>
+  fetch(`${API_BASE}/comments/${id}`, { method: 'DELETE', headers })
+    .then(results => results.json())
+    .then(data => data);
