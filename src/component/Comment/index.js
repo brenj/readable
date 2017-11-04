@@ -24,4 +24,9 @@ class Comment extends Component {
   }
 }
 
-export default Comment;
+export default connect(
+  null,
+  {
+    deleteCommentDispatcher: creators.deleteComment,
+  },
+)(Comment);
