@@ -40,6 +40,11 @@ export const showPostDetails = (post, comments) => ({
   payload: { comments, post },
 });
 
+export const voteOnComment = (comment, voteType) => ({
+  type: actions.VOTE_ON_COMMENT,
+  payload: { comment, voteType },
+});
+
 export const voteOnPost = (post, voteType) => ({
   type: actions.VOTE_ON_POST,
   payload: { post, voteType },
