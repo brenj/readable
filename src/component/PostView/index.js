@@ -27,7 +27,7 @@ class PostView extends Component {
     }
   }
 
-  handleDelete = () => {
+  handleDeletePost = () => {
     const { deleteDispatcher, history, post } = this.props;
     api.deletePost(post.id).then(() => {
       deleteDispatcher(post);
@@ -62,7 +62,7 @@ class PostView extends Component {
           <div className="offset-by-one two columns">
             <button
               className="button post-view__button--delete"
-              onClick={this.handleDelete}
+              onClick={this.handleDeletePost}
             >
               Delete
             </button>
