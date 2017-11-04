@@ -10,13 +10,18 @@ export const addComment = comment => ({
   payload: comment,
 });
 
-export const editPost = post => ({
-  type: actions.EDIT_POST,
-  payload: post,
+export const deleteComment = comment => ({
+  type: actions.DELETE_COMMENT,
+  payload: comment,
 });
 
 export const deletePost = post => ({
   type: actions.DELETE_POST,
+  payload: post,
+});
+
+export const editPost = post => ({
+  type: actions.EDIT_POST,
   payload: post,
 });
 
