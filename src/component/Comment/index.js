@@ -50,5 +50,6 @@ export default connect(
   null,
   {
     deleteCommentDispatcher: creators.deleteComment,
+    voteOnCommentDispatcher: creators.voteOnComment,
   },
 )(Comment);
