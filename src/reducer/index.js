@@ -13,6 +13,13 @@ function commentsReducer(state = [], action) {
       const comment = action.payload;
       return { ...state, [comment.id]: comment };
     }
+    case actions.DELETE_COMMENT: {
+      const newState = { ...state };
+      const comment = action.payload;
+
+      delete newState[comment.id];
+      return newState;
+    }
     case actions.SHOW_POST_DETAILS:
       return reduceComments(action.payload.comments);
     default:
@@ -31,16 +38,16 @@ function postsReducer(state = {}, action) {
       const post = action.payload;
       return { ...state, [post.id]: post };
     }
-    case actions.EDIT_POST: {
-      const post = action.payload;
-      return { ...state, [post.id]: post };
-    }
     case actions.DELETE_POST: {
       const newState = { ...state };
       const post = action.payload;
 
       delete newState[post.id];
       return newState;
+    }
+    case actions.EDIT_POST: {
+      const post = action.payload;
+      return { ...state, [post.id]: post };
     }
     case actions.SHOW_POSTS:
       return reducePosts(action.payload);
