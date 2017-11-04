@@ -22,6 +22,15 @@ function commentsReducer(state = [], action) {
     }
     case actions.SHOW_POST_DETAILS:
       return reduceComments(action.payload.comments);
+    case actions.VOTE_ON_COMMENT: {
+      const { comment, voteType } = action.payload;
+      let newVoteScore = comment.voteScore;
+      newVoteScore += (voteType === 'upVote') ? 1 : -1;
+      return {
+        ...state,
+        [comment.id]: { ...comment, voteScore: newVoteScore },
+      };
+    }
     default:
       return state;
   }
