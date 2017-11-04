@@ -2,13 +2,19 @@
   color: #bdbdbd;
 }
 
-.comment__link--edit:link, .comment__link--edit:visited {
+.comment__link--edit {
   color: blue;
   text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.comment__link--delete:link, .comment__link--delete:visited {
+.comment__link--delete {
+  margin-left: 10px;
   color: red;
-  margin: 0 10px 0 10px;
   text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
