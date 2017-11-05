@@ -35,6 +35,10 @@ class PostView extends Component {
     });
   };
 
+  handleEditComment = (comment) => {
+    this.setState({ commentFormVisible: true, commentToEdit: comment });
+  };
+
   handleSubmitComment = (author, body) => {
     const { addCommentDispatcher, post } = this.props;
     api.addComment(body, author, post.id)
@@ -105,6 +109,10 @@ class PostView extends Component {
               }}
             />
         }
+        <CommentLister
+          comments={comments}
+          editHandler={this.handleEditComment}
+        />
       </div>
     );
   }
