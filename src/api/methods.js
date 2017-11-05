@@ -77,6 +77,16 @@ export const deleteComment = id =>
     .then(results => results.json())
     .then(data => data);
 
+export const editComment = (id, body) => {
+  const requestBody = JSON.stringify({ timestamp: Date.now(), body });
+  return fetch(
+    `${API_BASE}/comments/${id}`,
+    { method: 'PUT', headers, body: requestBody }
+  )
+    .then(results => results.json())
+    .then(data => data);
+};
+
 export const voteOnComment = (id, voteType) => {
   const requestBody = JSON.stringify({ option: voteType });
   return fetch(
