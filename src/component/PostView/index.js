@@ -40,12 +40,22 @@ class PostView extends Component {
   };
 
   handleSubmitComment = (author, body) => {
-    const { addCommentDispatcher, post } = this.props;
-    api.addComment(body, author, post.id)
-      .then((comment) => {
-        addCommentDispatcher(comment);
-        this.setState({ commentFormVisible: false });
-      });
+    let apiCall;
+    let dispatcher;
+
+    // Are we in edit mode (there is a comment to edit)?
+    if (this.state.commentToEdit === null) {
+      apiCall = api.addComment(body, author, this.props.post.id);
+      dispatcher = this.props.addCommentDispatcher;
+    } else {
+      apiCall = api.editComment(this.state.commentToEdit.id, body);
+      dispatcher = this.props.editCommentDispatcher;
+    }
+
+    apiCall.then((comment) => {
+      dispatcher(comment);
+      this.setState({ commentFormVisible: false, commentToEdit: null });
+    });
   };
 
   render() {
