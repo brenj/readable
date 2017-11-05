@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import './sorter.css';
 
@@ -13,9 +12,9 @@ class Sorter extends Component {
         <div className="eleven columns sorter__heading">
           <span>
             Sort {`${sorterType}s`} by&nbsp;
-            <Link to="/">Popularity</Link>
+            <a href="/">Popularity</a>
             &nbsp;or&nbsp;
-            <Link to="/">Date</Link>
+            <a href="/">Date</a>
           </span>
         </div>
       </div>
