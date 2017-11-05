@@ -36,6 +36,7 @@ class CommentForm extends Component {
           labelText="Name"
           id="nameInput"
           inputPlaceholder="Sadie"
+          isDisabled={this.props.comment !== null}
           onChange={this.handleInputChange}
           value={this.state.commentAuthor}
         />

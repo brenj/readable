@@ -5,6 +5,7 @@ class LabeledInput extends Component {
     const {
       id,
       inputPlaceholder,
+      isDisabled,
       labelText,
       name,
       onChange,
@@ -17,6 +18,7 @@ class LabeledInput extends Component {
           <label htmlFor={id}>{labelText}</label>
           <input
             className="u-full-width"
+            disabled={isDisabled}
             id={id}
             placeholder={inputPlaceholder}
             type="text"
