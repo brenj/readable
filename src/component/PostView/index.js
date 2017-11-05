@@ -109,14 +109,17 @@ class PostView extends Component {
         >
           Comment
         </button>
-        <CommentLister comments={comments} />
         {
           this.state.commentFormVisible &&
             <CommentForm
-              submitHandler={this.handleSubmitComment}
               cancelHandler={() => {
-                this.setState({ commentFormVisible: false });
+                this.setState({
+                  commentFormVisible: false,
+                  commentToEdit: null,
+                });
               }}
+              comment={this.state.commentToEdit}
+              submitHandler={this.handleSubmitComment}
             />
         }
         <CommentLister
@@ -140,4 +143,5 @@ export default connect(
     addCommentDispatcher: creators.addComment,
     detailsDispatcher: creators.showPostDetails,
     deleteDispatcher: creators.deletePost,
+    editCommentDispatcher: creators.editComment,
   })(PostView);
