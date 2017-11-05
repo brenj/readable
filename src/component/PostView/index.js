@@ -12,7 +12,7 @@ import Sorter from '../Sorter';
 import './post-view.css';
 
 class PostView extends Component {
-  state = { commentFormVisible: false };
+  state = { commentFormVisible: false, commentToEdit: null };
 
   componentDidMount() {
     const { detailsDispatcher, post } = this.props;
