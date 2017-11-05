@@ -19,7 +19,7 @@ class HomeView extends Component {
   }
 
   render() {
-    const { comments, posts } = this.props;
+    const { posts } = this.props;
 
     return (
       <div>
@@ -32,7 +32,7 @@ class HomeView extends Component {
           </button>
         </Link>
         <Sorter sorterType="post" />
-        <PostLister posts={posts} comments={comments} />
+        <PostLister posts={posts} />
       </div>
     );
   }

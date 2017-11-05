@@ -3,7 +3,7 @@ import React from 'react';
 import Post from '../Post';
 
 function PostLister(props) {
-  const { comments, posts } = props;
+  const { posts } = props;
 
   return (
     <div>
