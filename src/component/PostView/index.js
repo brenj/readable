@@ -100,14 +100,13 @@ class PostView extends Component {
           </tbody>
         </table>
         <pre><code className="post-view__code">{post.body}</code></pre>
-        <Sorter sorterType="comment" />
         <button
-          className="button-primary"
+          className="button-primary post-view__button--comment"
           onClick={() => {
             this.setState({ commentFormVisible: true });
           }}
         >
-          Comment
+          Add Comment
         </button>
         {
           this.state.commentFormVisible &&
@@ -122,6 +121,7 @@ class PostView extends Component {
               submitHandler={this.handleSubmitComment}
             />
         }
+        <Sorter sorterType="comment" />
         <CommentLister
           comments={comments}
           editHandler={this.handleEditComment}

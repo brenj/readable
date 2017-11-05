@@ -7,6 +7,10 @@
   margin-left: 25px;
 }
 
+.post-view__button--comment {
+  margin: 60px 0px 20px 40px;
+}
+
 .post-view__details {
   color: #bdbdbd;
 }
