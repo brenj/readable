@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
@@ -24,6 +25,13 @@ class LanguageView extends Component {
           mainText={lang.displayName}
           subText={lang.tagLine}
         />
+        <Link to="/post/new">
+          <button
+            className="button-primary home-view__button--comment"
+          >
+            Add Post
+          </button>
+        </Link>
         <Sorter sorterType="post" />
         <PostLister posts={posts} />
       </div>
