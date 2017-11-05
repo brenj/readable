@@ -22,7 +22,7 @@ class Comment extends Component {
   };
 
   render() {
-    const { comment } = this.props;
+    const { comment, editHandler } = this.props;
 
     return (
       <VoteBox
@@ -39,7 +39,15 @@ class Comment extends Component {
           >
             Delete
           </span>
-          <a className="u-pull-right comment__link--edit" href="/">Edit</a>
+          <span
+            role="button"
+            className="u-pull-right comment__link--edit"
+            onClick={() => {
+              editHandler(comment);
+            }}
+          >
+            Edit
+          </span>
         </div>
       </VoteBox>
     );
