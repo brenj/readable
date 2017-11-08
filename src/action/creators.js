@@ -45,6 +45,20 @@ export const showPostDetails = (post, comments) => ({
   payload: { comments, post },
 });
 
+export const sortBy = (sortType) => {
+  if (sortType === "date") {
+    return {
+      type: actions.SORT_BY_DATE,
+      payload: 'date',
+    };
+  } else {
+    return {
+      type: actions.SORT_BY_VOTE,
+      payload: 'vote',
+    };
+  }
+};
+
 export const voteOnComment = (comment, voteType) => ({
   type: actions.VOTE_ON_COMMENT,
   payload: { comment, voteType },
