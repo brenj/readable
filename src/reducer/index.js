@@ -83,7 +83,21 @@ function postsReducer(state = {}, action) {
   }
 }
 
+function activeSortReducer(state = 'vote', action) {
+  switch (action.type) {
+    case actions.SORT_BY_VOTE: {
+      return 'vote';
+    }
+    case actions.SORT_BY_DATE: {
+      return 'date';
+    }
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
+  activeSort: activeSortReducer,
   comments: commentsReducer,
   posts: postsReducer,
 });
