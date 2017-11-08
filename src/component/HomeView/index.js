@@ -23,7 +23,7 @@ class HomeView extends Component {
   };
 
   render() {
-    const { posts } = this.props;
+    const { activeSort, posts } = this.props;
 
     return (
       <div>
@@ -42,10 +42,12 @@ class HomeView extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  posts: Object.keys(state.posts).map(postId => state.posts[postId]),
-  comments: state.comments,
-});
+const mapStateToProps = state => {
+  return {
+    activeSort: state.activeSort,
+    posts: Object.keys(state.posts).map(postId => state.posts[postId]),
+  };
+};
 
 export default connect(
   mapStateToProps,
