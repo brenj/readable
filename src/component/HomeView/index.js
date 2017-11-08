@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
 import PostLister from '../PostLister';
-import { showPosts } from '../../action/creators';
+import { showPosts, sortBy } from '../../action/creators';
 import Sorter from '../Sorter';
 
 import './home-view.css';
@@ -17,6 +17,10 @@ class HomeView extends Component {
   componentDidMount() {
     getPosts().then(posts => this.props.postsDispatcher(posts));
   }
+
+  handleSort = (sortType) => {
+    this.props.sortByDispatcher(sortType)
+  };
 
   render() {
     const { posts } = this.props;
@@ -44,4 +48,9 @@ const mapStateToProps = state => ({
 });
 
 export default connect(
-  mapStateToProps, { postsDispatcher: showPosts })(HomeView);
+  mapStateToProps,
+  {
+    postsDispatcher: showPosts,
+    sortByDispatcher: sortBy,
+  }
+)(HomeView);
