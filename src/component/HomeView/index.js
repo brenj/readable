@@ -35,7 +35,11 @@ class HomeView extends Component {
             Add Post
           </button>
         </Link>
-        <Sorter sorterType="post" />
+        <Sorter
+          activeSort={activeSort}
+          activeSortHandler={this.handleSort}
+          sorterType="post"
+        />
         <PostLister posts={posts} />
       </div>
     );
