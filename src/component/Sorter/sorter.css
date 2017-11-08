@@ -1,5 +1,9 @@
-.sorter {
+.sorter__sort--active {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-.sorter__heading {
+.sorter__sort--inactive {
+  cursor: auto;
+  text-decoration: none;
 }
