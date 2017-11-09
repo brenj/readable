@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -6,11 +7,37 @@ import { Link } from 'react-router-dom';
 import { api } from '../../api';
 import CommentLister from '../CommentLister';
 import { creators } from '../../action';
-import { getSortedComments } from '../../selectors/index.js';
+import { getSortedComments } from '../../selectors';
 import CommentForm from '../CommentForm';
 import Sorter from '../Sorter';
 
 import './post-view.css';
+
+const propTypes = {
+  activeSort: PropTypes.string.isRequired,
+  addCommentDispatcher: PropTypes.func.isRequired,
+  comments: PropTypes.arrayOf(PropTypes.object).isRequired,
+  editCommentDispatcher: PropTypes.func.isRequired,
+  deleteDispatcher: PropTypes.func.isRequired,
+  detailsDispatcher: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  post: PropTypes.shape({
+    author: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    timestamp: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    voteScore: PropTypes.number.isRequired,
+  }),
+  sortByDispatcher: PropTypes.func.isRequired,
+};
 
 class PostView extends Component {
   state = { commentFormVisible: false, commentToEdit: null };
@@ -139,6 +166,8 @@ class PostView extends Component {
     );
   }
 }
+
+PostView.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => ({
   activeSort: state.activeSort,
