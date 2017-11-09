@@ -15,13 +15,13 @@ class Sorter extends Component {
             <span
               role="button"
               className={
-                activeSort === 'vote' ?
+                activeSort === 'VOTE' ?
                   "sorter__sort--inactive" :
                   "sorter__sort--active"
               }
               onClick={() => {
-                if (activeSort !== "vote") {
-                  activeSortHandler('vote');
+                if (activeSort !== "VOTE") {
+                  activeSortHandler('VOTE');
                 }
               }}
             >
@@ -31,13 +31,13 @@ class Sorter extends Component {
             <span
               role="button"
               className={
-                activeSort === 'date' ?
+                activeSort === 'DATE' ?
                   "sorter__sort--inactive" :
                   "sorter__sort--active"
               }
               onClick={() => {
-                if (activeSort !== "date") {
-                  activeSortHandler('date');
+                if (activeSort !== "DATE") {
+                  activeSortHandler('DATE');
                 }
               }}
             >

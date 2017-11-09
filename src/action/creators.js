@@ -46,15 +46,15 @@ export const showPostDetails = (post, comments) => ({
 });
 
 export const sortBy = (sortType) => {
-  if (sortType === "date") {
+  if (sortType === "DATE") {
     return {
       type: actions.SORT_BY_DATE,
-      payload: 'date',
+      payload: 'DATE',
     };
   } else {
     return {
       type: actions.SORT_BY_VOTE,
-      payload: 'vote',
+      payload: 'VOTE',
     };
   }
 };

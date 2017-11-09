@@ -83,13 +83,13 @@ function postsReducer(state = {}, action) {
   }
 }
 
-function activeSortReducer(state = 'vote', action) {
+function activeSortReducer(state = 'VOTE', action) {
   switch (action.type) {
     case actions.SORT_BY_VOTE: {
-      return 'vote';
+      return 'VOTE';
     }
     case actions.SORT_BY_DATE: {
-      return 'date';
+      return 'DATE';
     }
     default:
       return state;
