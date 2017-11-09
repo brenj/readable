@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { getLanguage, getLanguages } from '../../languages';
-import LinkList from '../../component/LinkList';
+import NavLinks from '../../component/NavLinks';
 
 import './navbar.css';
 
@@ -22,7 +22,7 @@ class NavBar extends Component {
           <span className="navbar__span">&nbsp;&lt;code&gt;</span>
         </div>
         <div className="ten columns">
-          <LinkList links={links} />
+          <NavLinks links={links} />
         </div>
       </div>
     );

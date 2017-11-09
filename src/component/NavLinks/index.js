@@ -7,10 +7,10 @@ class NavLinks extends Component {
     const { links } = this.props;
 
     return (
-      <ul className="linklist">
+      <ul className="nav-links">
         {links.map(({ href, text }) => (
-          <li key={href} className="linklist__li">
-            <a className="link" href={href}>{text}</a>
+          <li key={href} className="nav-links__links">
+            <a className="nav-links__link" href={href}>{text}</a>
           </li>
         ))}
       </ul>
