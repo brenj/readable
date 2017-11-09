@@ -42,7 +42,6 @@ class LanguageView extends Component {
 const mapStateToProps = (state, ownProps) => ({
   lang: getLanguage(ownProps.match.params.lang),
   posts: Object.keys(state.posts).map(postId => state.posts[postId]),
-  comments: state.comments,
 });
 
 export default connect(
