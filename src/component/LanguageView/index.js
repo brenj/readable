@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
 import { getLanguage } from '../../languages';
+import { getSortedPosts } from '../../selectors/index.js';
 import PostLister from '../PostLister';
-import { showPostsByLang } from '../../action/creators';
+import { showPostsByLang, sortBy } from '../../action/creators';
 import Sorter from '../Sorter';
 
 class LanguageView extends Component {
@@ -16,8 +17,12 @@ class LanguageView extends Component {
     getPosts().then(posts => postsByLangDispatcher(posts, lang.path));
   }
 
+  handleSort = (sortType) => {
+    this.props.sortByDispatcher(sortType)
+  };
+
   render() {
-    const { lang, posts } = this.props;
+    const { activeSort, lang, posts } = this.props;
 
     return (
       <div>
@@ -32,7 +37,11 @@ class LanguageView extends Component {
             Add Post
           </button>
         </Link>
-        <Sorter sorterType="post" />
+        <Sorter
+          activeSort={activeSort}
+          activeSortHandler={this.handleSort}
+          sorterType="post"
+        />
         <PostLister posts={posts} />
       </div>
     );
@@ -40,9 +49,15 @@ class LanguageView extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
+  activeSort: state.activeSort,
   lang: getLanguage(ownProps.match.params.lang),
-  posts: Object.keys(state.posts).map(postId => state.posts[postId]),
+  posts: getSortedPosts(state),
 });
 
 export default connect(
-  mapStateToProps, { postsByLangDispatcher: showPostsByLang })(LanguageView);
+  mapStateToProps,
+  {
+    postsByLangDispatcher: showPostsByLang,
+    sortByDispatcher: sortBy,
+  }
+)(LanguageView);
