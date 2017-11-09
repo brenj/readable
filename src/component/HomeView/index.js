@@ -6,6 +6,7 @@ import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
 import PostLister from '../PostLister';
 import { showPosts, sortBy } from '../../action/creators';
+import { getSortedPosts } from '../../selectors/index.js';
 import Sorter from '../Sorter';
 
 import './home-view.css';
@@ -49,7 +50,7 @@ class HomeView extends Component {
 const mapStateToProps = state => {
   return {
     activeSort: state.activeSort,
-    posts: Object.keys(state.posts).map(postId => state.posts[postId]),
+    posts: getSortedPosts(state),
   };
 };
 
