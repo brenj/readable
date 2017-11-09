@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { api } from '../../api';
 import CommentLister from '../CommentLister';
 import { creators } from '../../action';
+import { getSortedComments } from '../../selectors/index.js';
 import CommentForm from '../CommentForm';
 import Sorter from '../Sorter';
 
@@ -39,6 +40,10 @@ class PostView extends Component {
     this.setState({ commentFormVisible: true, commentToEdit: comment });
   };
 
+  handleSort = (sortType) => {
+    this.props.sortByDispatcher(sortType)
+  };
+
   handleSubmitComment = (author, body) => {
     let apiCall;
     let dispatcher;
@@ -59,7 +64,7 @@ class PostView extends Component {
   };
 
   render() {
-    const { comments, post = {} } = this.props;
+    const { activeSort, comments, post = {} } = this.props;
     const formattedDate = moment(post.timestamp).format("MMM D YYYY, h:mm A");
 
     return (
@@ -121,7 +126,11 @@ class PostView extends Component {
               submitHandler={this.handleSubmitComment}
             />
         }
-        <Sorter sorterType="comment" />
+        <Sorter
+          activeSort={activeSort}
+          activeSortHandler={this.handleSort}
+          sorterType="comment"
+        />
         <CommentLister
           comments={comments}
           editHandler={this.handleEditComment}
@@ -132,9 +141,9 @@ class PostView extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
+  activeSort: state.activeSort,
+  comments: getSortedComments(state),
   post: state.posts[ownProps.match.params.id],
-  comments: Object.keys(state.comments)
-    .map(commentId => state.comments[commentId]),
 });
 
 export default connect(
@@ -144,4 +153,5 @@ export default connect(
     detailsDispatcher: creators.showPostDetails,
     deleteDispatcher: creators.deletePost,
     editCommentDispatcher: creators.editComment,
+    sortByDispatcher: creators.sortBy,
   })(PostView);
