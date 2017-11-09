@@ -11,9 +11,9 @@ export const getSortedPosts = createSelector(
 
     switch (activeSort) {
       case 'DATE':
-        return postsToSort.sort(sortBy('timestamp'));
+        return postsToSort.sort(sortBy('-timestamp'));
       case 'VOTE':
-        return postsToSort.sort(sortBy('voteScore'));
+        return postsToSort.sort(sortBy('-voteScore'));
       default:
         return postsToSort;
     }
