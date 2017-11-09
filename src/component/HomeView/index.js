@@ -20,7 +20,7 @@ class HomeView extends Component {
   }
 
   handleSort = (sortType) => {
-    this.props.sortByDispatcher(sortType)
+    this.props.sortByDispatcher(sortType);
   };
 
   render() {
@@ -47,17 +47,15 @@ class HomeView extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    activeSort: state.activeSort,
-    posts: getSortedPosts(state),
-  };
-};
+const mapStateToProps = state => ({
+  activeSort: state.activeSort,
+  posts: getSortedPosts(state),
+});
 
 export default connect(
   mapStateToProps,
   {
     postsDispatcher: showPosts,
     sortByDispatcher: sortBy,
-  }
+  },
 )(HomeView);

@@ -18,7 +18,7 @@ class LanguageView extends Component {
   }
 
   handleSort = (sortType) => {
-    this.props.sortByDispatcher(sortType)
+    this.props.sortByDispatcher(sortType);
   };
 
   render() {
@@ -59,5 +59,5 @@ export default connect(
   {
     postsByLangDispatcher: showPostsByLang,
     sortByDispatcher: sortBy,
-  }
+  },
 )(LanguageView);

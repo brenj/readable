@@ -16,11 +16,11 @@ class Sorter extends Component {
               role="button"
               className={
                 activeSort === 'VOTE' ?
-                  "sorter__sort--inactive" :
-                  "sorter__sort--active"
+                  'sorter__sort--inactive' :
+                  'sorter__sort--active'
               }
               onClick={() => {
-                if (activeSort !== "VOTE") {
+                if (activeSort !== 'VOTE') {
                   activeSortHandler('VOTE');
                 }
               }}
@@ -32,11 +32,11 @@ class Sorter extends Component {
               role="button"
               className={
                 activeSort === 'DATE' ?
-                  "sorter__sort--inactive" :
-                  "sorter__sort--active"
+                  'sorter__sort--inactive' :
+                  'sorter__sort--active'
               }
               onClick={() => {
-                if (activeSort !== "DATE") {
+                if (activeSort !== 'DATE') {
                   activeSortHandler('DATE');
                 }
               }}

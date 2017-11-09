@@ -41,7 +41,7 @@ class PostView extends Component {
   };
 
   handleSort = (sortType) => {
-    this.props.sortByDispatcher(sortType)
+    this.props.sortByDispatcher(sortType);
   };
 
   handleSubmitComment = (author, body) => {
@@ -65,7 +65,7 @@ class PostView extends Component {
 
   render() {
     const { activeSort, comments, post = {} } = this.props;
-    const formattedDate = moment(post.timestamp).format("MMM D YYYY, h:mm A");
+    const formattedDate = moment(post.timestamp).format('MMM D YYYY, h:mm A');
 
     return (
       <div>

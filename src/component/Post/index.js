@@ -24,7 +24,7 @@ class Post extends Component {
 
   render() {
     const { post } = this.props;
-    const formattedDate = moment(post.timestamp).format("MM/DD/YYYY");
+    const formattedDate = moment(post.timestamp).format('MM/DD/YYYY');
 
     return (
       <VoteBox
@@ -51,7 +51,7 @@ class Post extends Component {
             </span>
             <span>{`on ${formattedDate} `}</span>
             <span className="post__comments">
-              <em>{post.commentCount}</em>{` comments`}
+              <em>{post.commentCount}</em>{' comments'}
             </span>
             <span
               role="button"

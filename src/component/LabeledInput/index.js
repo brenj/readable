@@ -9,7 +9,7 @@ class LabeledInput extends Component {
       labelText,
       name,
       onChange,
-      value
+      value,
     } = this.props;
 
     return (

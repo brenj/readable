@@ -8,11 +8,11 @@ class CommentForm extends Component {
   constructor(props) {
     super(props);
 
-   if (props.comment !== null) {
+    if (props.comment !== null) {
       const { author, body } = props.comment;
       this.state = { commentAuthor: author, commentText: body };
     } else {
-      this.state = { commentAuthor: '', commentText: ''  };
+      this.state = { commentAuthor: '', commentText: '' };
     }
   }
 
