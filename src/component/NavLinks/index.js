@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 
-import Link from '../../component/Link';
+import './nav-links.css';
 
-import './link-list.css';
-
-class LinkList extends Component {
+class NavLinks extends Component {
   render() {
     const { links } = this.props;
 
@@ -12,7 +10,7 @@ class LinkList extends Component {
       <ul className="linklist">
         {links.map(({ href, text }) => (
           <li key={href} className="linklist__li">
-            <Link key={href} text={text} href={href} />
+            <a className="link" href={href}>{text}</a>
           </li>
         ))}
       </ul>
@@ -20,4 +18,4 @@ class LinkList extends Component {
   }
 }
 
-export default LinkList;
+export default NavLinks;

@@ -1,0 +1,23 @@
+.nav-links {
+  margin-bottom: 0px;
+  border-left: 1px solid black;
+  padding-left: 10px;
+}
+
+.nav-links__links {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+.nav-links__link:link, .nav-links__link:visited {
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  font-size: small;
+}
+
+.nav-links__link:hover {
+  cursor: pointer;
+}
