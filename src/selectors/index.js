@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import sortBy from 'sort-by';
 
 const getActiveSort = state => state.activeSort;
 const getPosts = state => state.posts;
@@ -10,9 +11,9 @@ export const getSortedPosts = createSelector(
 
     switch (activeSort) {
       case 'DATE':
-        return postsToSort;
+        return postsToSort.sort(sortBy('timestamp'));
       case 'VOTE':
-        return postsToSort.filter(t => t.voteScore === -5);
+        return postsToSort.sort(sortBy('voteScore'));
       default:
         return postsToSort;
     }
