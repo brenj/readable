@@ -45,7 +45,7 @@ class PostView extends Component {
   componentDidMount() {
     const { detailsDispatcher, post } = this.props;
 
-    if (post === undefined) {
+    if (post === null) {
       const postId = this.props.match.params.id;
       Promise.all([api.getPost(postId), api.getCommentsForPost(postId)])
         .then(values => (detailsDispatcher(...values)));
@@ -167,6 +167,7 @@ class PostView extends Component {
   }
 }
 
+PostView.defaultProps = { post: null };
 PostView.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => ({
