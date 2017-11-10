@@ -6,11 +6,12 @@ const propTypes = {
   labelText: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  options: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    tagLine: PropTypes.string.isRequired,
-  }).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
   value: PropTypes.string.isRequired,
 };
 
