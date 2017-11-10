@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -6,13 +7,20 @@ import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
 import PostLister from '../PostLister';
 import { showPosts, sortBy } from '../../action/creators';
-import { getSortedPosts } from '../../selectors/index.js';
+import { getSortedPosts } from '../../selectors';
 import Sorter from '../Sorter';
 
 import './home-view.css';
 
 const HEADING = 'Readable is the place for discussing code snippets';
 const SUBHEADING = '- Anonymously -';
+
+const propTypes = {
+  activeSort: PropTypes.string.isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  postsDispatcher: PropTypes.func.isRequired,
+  sortByDispatcher: PropTypes.func.isRequired,
+};
 
 class HomeView extends Component {
   componentDidMount() {
@@ -46,6 +54,8 @@ class HomeView extends Component {
     );
   }
 }
+
+HomeView.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   activeSort: state.activeSort,
