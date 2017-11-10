@@ -1,20 +1,26 @@
-import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import './heading.css';
 
-class Heading extends Component {
-  render() {
-    const { mainText, subText } = this.props;
+const propTypes = {
+  mainText: PropTypes.string.isRequired,
+  subText: PropTypes.string.isRequired,
+};
 
-    return (
-      <div className="row">
-        <div className="twelve columns heading">
-          <h4>{mainText}</h4>
-          <h6>{subText}</h6>
-        </div>
+function Heading(props) {
+  const { mainText, subText } = props;
+
+  return (
+    <div className="row">
+      <div className="twelve columns heading">
+        <h4>{mainText}</h4>
+        <h6>{subText}</h6>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+Heading.propTypes = propTypes;
 
 export default Heading;
