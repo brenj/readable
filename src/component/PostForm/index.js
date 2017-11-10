@@ -98,21 +98,23 @@ class PostForm extends Component {
         />
         {formType === 'add' &&
           <LabeledInput
-            name="name"
-            labelText="Name"
             id="nameInput"
             inputPlaceholder="Sadie"
-            value={this.state.name}
+            isDisabled={false}
+            labelText="Name"
+            name="name"
             onChange={this.handleInputChange}
+            value={this.state.name}
           />
         }
         <LabeledInput
-          name="title"
-          labelText="Title"
           id="titleInput"
           inputPlaceholder="Hello World"
-          value={this.state.title}
+          isDisabled={false}
+          labelText="Title"
+          name="title"
           onChange={this.handleInputChange}
+          value={this.state.title}
         />
         {formType === 'add' &&
           <LabeledSelect
