@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -9,6 +10,23 @@ import LabeledSelect from '../LabeledSelect';
 import { getLanguageOptions } from '../../languages';
 
 import './post-form.css';
+
+const propTypes = {
+  formType: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
+};
 
 class PostForm extends Component {
   state = {
@@ -22,7 +40,7 @@ class PostForm extends Component {
     const { formType, post } = this.props;
 
     if (formType === 'edit') {
-      if (post === undefined) {
+      if (post === null) {
         const { id } = this.props.match.params;
         api.getPost(id)
           .then((fetchedPost) => { this.fillForm(fetchedPost); });
@@ -130,6 +148,9 @@ class PostForm extends Component {
     );
   }
 }
+
+PostForm.defaultProps = { match: {}, post: null };
+PostForm.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => ({
   post: state.posts[ownProps.match.params.id],
