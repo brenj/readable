@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -5,10 +6,22 @@ import { Link } from 'react-router-dom';
 import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
 import { getLanguage } from '../../languages';
-import { getSortedPosts } from '../../selectors/index.js';
+import { getSortedPosts } from '../../selectors';
 import PostLister from '../PostLister';
 import { showPostsByLang, sortBy } from '../../action/creators';
 import Sorter from '../Sorter';
+
+const propTypes = {
+  activeSort: PropTypes.string.isRequired,
+  lang: PropTypes.shape({
+    displayName: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    tagLine: PropTypes.string.isRequired,
+  }).isRequired,
+  posts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  postsByLangDispatcher: PropTypes.func.isRequired,
+  sortByDispatcher: PropTypes.func.isRequired,
+};
 
 class LanguageView extends Component {
   componentDidMount() {
@@ -47,6 +60,8 @@ class LanguageView extends Component {
     );
   }
 }
+
+LanguageView.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => ({
   activeSort: state.activeSort,
