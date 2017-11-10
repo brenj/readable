@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -8,6 +9,14 @@ import { creators } from '../../action';
 import VoteBox from '../VoteBox';
 
 import './post.css';
+
+const propTypes = {
+  deletePostDispatcher: PropTypes.func.isRequired,
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+  voteOnPostDispatcher: PropTypes.func.isRequired,
+};
 
 class Post extends Component {
   handleDeletePost = () => {
@@ -54,9 +63,10 @@ class Post extends Component {
               <em>{post.commentCount}</em>{' comments'}
             </span>
             <span
-              role="button"
               className="u-pull-right post__link--delete"
               onClick={this.handleDeletePost}
+              role="button"
+              tabIndex="0"
             >
               Delete
             </span>
@@ -73,6 +83,8 @@ class Post extends Component {
     );
   }
 }
+
+Post.propTypes = propTypes;
 
 export default connect(
   null,
