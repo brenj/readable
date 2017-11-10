@@ -1,8 +1,18 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import LabeledInput from '../LabeledInput';
 
 import './comment-form.css';
+
+const propTypes = {
+  cancelHandler: PropTypes.func.isRequired,
+  comment: PropTypes.shape({
+    author: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }),
+  submitHandler: PropTypes.func.isRequired,
+};
 
 class CommentForm extends Component {
   constructor(props) {
@@ -67,5 +77,8 @@ class CommentForm extends Component {
     );
   }
 }
+
+CommentForm.defaultProps = { comment: null };
+CommentForm.propTypes = propTypes;
 
 export default CommentForm;
