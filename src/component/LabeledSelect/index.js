@@ -11,7 +11,7 @@ const propTypes = {
     value: PropTypes.string.isRequired,
     tagLine: PropTypes.string.isRequired,
   }).isRequired,
-  value: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 function LabeledSelect(props) {
