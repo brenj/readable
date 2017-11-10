@@ -1,3 +1,3 @@
 import * as api from './methods';
 
-export { api };
+export default api;

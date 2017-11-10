@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { api } from '../../api';
+import api from '../../api';
 import { creators } from '../../action';
 import Heading from '../Heading';
 import LabeledInput from '../LabeledInput';

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { api } from '../../api';
+import api from '../../api';
 import CommentLister from '../CommentLister';
 import { creators } from '../../action';
 import { getSortedComments } from '../../selectors';
