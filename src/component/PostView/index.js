@@ -91,8 +91,10 @@ class PostView extends Component {
   };
 
   render() {
-    const { activeSort, comments, post = {} } = this.props;
-    const formattedDate = moment(post.timestamp).format('MMM D YYYY, h:mm A');
+    const { activeSort, comments } = this.props;
+    const post = this.props.post || {};
+    const formattedDate = moment(post.timestamp)
+      .format('MMM D YYYY, h:mm A');
 
     return (
       <div>
