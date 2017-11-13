@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import api from '../../api';
-import CommentLister from '../CommentLister';
+import CommentLister from '../../component/CommentLister';
 import { creators } from '../../action';
 import { getSortedComments } from '../../selector';
-import CommentForm from '../CommentForm';
-import Sorter from '../Sorter';
+import CommentForm from '../../component/CommentForm';
+import Sorter from '../../component/Sorter';
 
 import './post-view.css';
 
@@ -39,7 +39,7 @@ const propTypes = {
   sortByDispatcher: PropTypes.func.isRequired,
 };
 
-class PostView extends Component {
+class Post extends Component {
   state = { commentFormVisible: false, commentToEdit: null };
 
   componentDidMount() {
@@ -169,8 +169,8 @@ class PostView extends Component {
   }
 }
 
-PostView.defaultProps = { post: null };
-PostView.propTypes = propTypes;
+Post.defaultProps = { post: null };
+Post.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => ({
   activeSort: state.activeSort,
@@ -186,4 +186,4 @@ export default connect(
     deleteDispatcher: creators.deletePost,
     editCommentDispatcher: creators.editComment,
     sortByDispatcher: creators.sortBy,
-  })(PostView);
+  })(Post);

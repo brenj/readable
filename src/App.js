@@ -6,7 +6,7 @@ import HomeView from './component/HomeView';
 import LanguageView from './component/LanguageView';
 import NavBar from './component/NavBar';
 import PostForm from './component/PostForm';
-import PostView from './component/PostView';
+import PostView from './view/Post';
 
 import './App.css';
 
