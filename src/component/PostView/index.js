@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import api from '../../api';
 import CommentLister from '../CommentLister';
 import { creators } from '../../action';
-import { getSortedComments } from '../../selectors';
+import { getSortedComments } from '../../selector';
 import CommentForm from '../CommentForm';
 import Sorter from '../Sorter';
 

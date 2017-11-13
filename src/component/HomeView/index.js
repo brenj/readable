@@ -7,7 +7,7 @@ import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
 import PostLister from '../PostLister';
 import { showPosts, sortBy } from '../../action/creators';
-import { getSortedPosts } from '../../selectors';
+import { getSortedPosts } from '../../selector';
 import Sorter from '../Sorter';
 
 import './home-view.css';

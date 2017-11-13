@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { getPosts } from '../../api/methods';
 import Heading from '../Heading';
 import { getLanguage } from '../../languages';
-import { getSortedPosts } from '../../selectors';
+import { getSortedPosts } from '../../selector';
 import PostLister from '../PostLister';
 import { showPostsByLang, sortBy } from '../../action/creators';
 import Sorter from '../Sorter';
