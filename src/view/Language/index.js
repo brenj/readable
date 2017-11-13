@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getPosts } from '../../api/methods';
-import Heading from '../Heading';
+import Heading from '../../component/Heading';
 import { getLanguage } from '../../languages';
 import { getSortedPosts } from '../../selector';
-import PostLister from '../PostLister';
+import PostLister from '../../component/PostLister';
 import { showPostsByLang, sortBy } from '../../action/creators';
-import Sorter from '../Sorter';
+import Sorter from '../../component/Sorter';
 
 const propTypes = {
   activeSort: PropTypes.string.isRequired,
@@ -23,7 +23,7 @@ const propTypes = {
   sortByDispatcher: PropTypes.func.isRequired,
 };
 
-class LanguageView extends Component {
+class Language extends Component {
   componentDidMount() {
     // TODO: Add redirect to 404 if unknown language was passed as parameter
     const { lang, postsByLangDispatcher } = this.props;
@@ -61,7 +61,7 @@ class LanguageView extends Component {
   }
 }
 
-LanguageView.propTypes = propTypes;
+Language.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => ({
   activeSort: state.activeSort,
@@ -75,4 +75,4 @@ export default connect(
     postsByLangDispatcher: showPostsByLang,
     sortByDispatcher: sortBy,
   },
-)(LanguageView);
+)(Language);
