@@ -50,7 +50,7 @@ class CommentForm extends Component {
           onChange={this.handleInputChange}
           value={this.state.commentAuthor}
         />
-        <label htmlFor="commentTextArea">Comment</label>
+        <label htmlFor="commentTextArea">Comment*</label>
         <textarea
           name="commentText"
           className="u-full-width"
