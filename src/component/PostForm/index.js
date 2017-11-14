@@ -145,6 +145,8 @@ class PostForm extends Component {
         />
         <input
           className="button button-primary post-form__button--submit"
+          disabled={
+            !this.state.name || !this.state.title || !this.state.snippet}
           type="submit"
           value="Submit"
         />
