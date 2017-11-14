@@ -101,6 +101,7 @@ class PostForm extends Component {
             id="nameInput"
             inputPlaceholder="Sadie"
             isDisabled={false}
+            isRequired={true}
             labelText="Name"
             name="name"
             onChange={this.handleInputChange}
@@ -111,6 +112,7 @@ class PostForm extends Component {
           id="titleInput"
           inputPlaceholder="Hello World"
           isDisabled={false}
+          isRequired={true}
           labelText="Title"
           name="title"
           onChange={this.handleInputChange}
@@ -126,7 +128,7 @@ class PostForm extends Component {
             options={getLanguageOptions()}
           />
         }
-        <label htmlFor="snippetTextArea">Code Snippet</label>
+        <label htmlFor="snippetTextArea">Code Snippet*</label>
         <textarea
           name="snippet"
           className="u-full-width post-form__snippet"

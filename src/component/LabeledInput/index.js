@@ -16,11 +16,16 @@ function LabeledInput(props) {
     id,
     inputPlaceholder,
     isDisabled,
-    labelText,
     name,
     onChange,
+    isRequired,
     value,
   } = props;
+
+   let { labelText } = props;
+   if (isRequired) {
+     labelText = `${labelText}*`;
+   }
 
   return (
     <div className="row">
