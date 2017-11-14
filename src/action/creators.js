@@ -1,4 +1,5 @@
 import { actions } from '.';
+import api from '../api';
 
 export const addPost = post => ({
   type: actions.ADD_POST,
@@ -30,10 +31,16 @@ export const editPost = post => ({
   payload: post,
 });
 
-export const showPosts = posts => ({
+const showPosts = posts => ({
   type: actions.SHOW_POSTS,
   payload: posts,
 });
+
+export function loadPosts() {
+  return function (dispatch) {
+    return api.getPosts().then((posts) => dispatch(showPosts(posts)));
+  };
+}
 
 export const showPostsByLang = (posts, language) => ({
   type: actions.SHOW_POSTS_BY_LANG,
