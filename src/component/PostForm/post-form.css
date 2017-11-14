@@ -6,6 +6,11 @@
   margin-left: 20px;
 }
 
+.post-form__button--disabled {
+  background-color: #cccccc !important;
+  margin-left: 20px;
+}
+
 .post-form__snippet {
   height: 200px;
 }

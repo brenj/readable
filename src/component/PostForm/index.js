@@ -89,6 +89,11 @@ class PostForm extends Component {
 
   render() {
     const { formType, heading } = this.props;
+    const isDisabled = (
+      !this.state.name || !this.state.title || !this.state.snippet)
+    const submitButtonClass = isDisabled ?
+      "post-form__button--disabled" :
+      "post-form__button--submit";
 
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
@@ -144,9 +149,8 @@ class PostForm extends Component {
           onClick={this.handleCancel}
         />
         <input
-          className="button button-primary post-form__button--submit"
-          disabled={
-            !this.state.name || !this.state.title || !this.state.snippet}
+          className={`button button-primary ${submitButtonClass}`}
+          disabled={isDisabled}
           type="submit"
           value="Submit"
         />
