@@ -11,6 +11,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
     "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "skeleton-css-webpack": "^2.0.4",
     "sort-by": "^1.2.0",
