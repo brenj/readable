@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getPosts } from '../../api/methods';
+import { creators } from '../../action';
 import Heading from '../../component/Heading';
 import PostLister from '../../component/PostLister';
-import { showPosts, sortBy } from '../../action/creators';
 import { getSortedPosts } from '../../selector';
 import Sorter from '../../component/Sorter';
 
@@ -17,18 +16,17 @@ const SUBHEADING = '- Anonymously -';
 
 const propTypes = {
   activeSort: PropTypes.string.isRequired,
+  dispatch: PropTypes.func.isRequired,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  postsDispatcher: PropTypes.func.isRequired,
-  sortByDispatcher: PropTypes.func.isRequired,
 };
 
 class Home extends Component {
   componentDidMount() {
-    getPosts().then(posts => this.props.postsDispatcher(posts));
+    this.props.dispatch(creators.loadPosts());
   }
 
   handleSort = (sortType) => {
-    this.props.sortByDispatcher(sortType);
+    this.props.dispatch(creators.sortBy(sortType));
   };
 
   render() {
@@ -64,8 +62,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {
-    postsDispatcher: showPosts,
-    sortByDispatcher: sortBy,
-  },
 )(Home);
