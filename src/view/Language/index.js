@@ -3,50 +3,45 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getPosts } from '../../api/methods';
+import { creators } from '../../action';
 import Heading from '../../component/Heading';
 import { getLanguage } from '../../languages';
-import { getSortedPosts } from '../../selector';
 import PostLister from '../../component/PostLister';
-import { showPostsByLang, sortBy } from '../../action/creators';
+import { getSortedPostsByLanguage } from '../../selector';
 import Sorter from '../../component/Sorter';
 
 const propTypes = {
   activeSort: PropTypes.string.isRequired,
-  lang: PropTypes.shape({
+  dispatch: PropTypes.func.isRequired,
+  language: PropTypes.shape({
     displayName: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
     tagLine: PropTypes.string.isRequired,
   }).isRequired,
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
-  postsByLangDispatcher: PropTypes.func.isRequired,
-  sortByDispatcher: PropTypes.func.isRequired,
 };
 
 class Language extends Component {
   componentDidMount() {
     // TODO: Add redirect to 404 if unknown language was passed as parameter
-    const { lang, postsByLangDispatcher } = this.props;
-    getPosts().then(posts => postsByLangDispatcher(posts, lang.path));
+    this.props.dispatch(creators.loadPosts());
   }
 
   handleSort = (sortType) => {
-    this.props.sortByDispatcher(sortType);
+    this.props.dispatch(creators.sortBy(sortType));
   };
 
   render() {
-    const { activeSort, lang, posts } = this.props;
+    const { activeSort, language, posts } = this.props;
 
     return (
       <div>
         <Heading
-          mainText={lang.displayName}
-          subText={lang.tagLine}
+          mainText={language.displayName}
+          subText={language.tagLine}
         />
         <Link to="/post/new">
-          <button
-            className="button-primary home-view__button--comment"
-          >
+          <button className="button-primary home-view__button--comment">
             Add Post
           </button>
         </Link>
@@ -63,16 +58,16 @@ class Language extends Component {
 
 Language.propTypes = propTypes;
 
-const mapStateToProps = (state, ownProps) => ({
-  activeSort: state.activeSort,
-  lang: getLanguage(ownProps.match.params.lang),
-  posts: getSortedPosts(state),
-});
+const mapStateToProps = (state, ownProps) => {
+  const language = getLanguage(ownProps.match.params.language);
+
+  return {
+    activeSort: state.activeSort,
+    language,
+    posts: getSortedPostsByLanguage(state, language.path),
+  };
+};
 
 export default connect(
   mapStateToProps,
-  {
-    postsByLangDispatcher: showPostsByLang,
-    sortByDispatcher: sortBy,
-  },
 )(Language);
