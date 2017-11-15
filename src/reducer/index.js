@@ -64,10 +64,6 @@ function postsReducer(state = {}, action) {
     }
     case actions.SHOW_POSTS:
       return reducePosts(action.payload);
-    case actions.SHOW_POSTS_BY_LANG: {
-      const { language, posts } = action.payload;
-      return reducePosts(posts.filter(post => post.category === language));
-    }
     case actions.SHOW_POST_DETAILS: {
       const { post } = action.payload;
       return { [post.id]: post };
