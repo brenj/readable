@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getLanguage, getLanguages } from '../../languages';
+import { getLanguage, getLanguages } from '../../util/languages';
 import NavLinks from '../../component/NavLinks';
 
 import './navbar.css';

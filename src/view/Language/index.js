@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { creators } from '../../action';
 import Heading from '../../component/Heading';
-import { getLanguage } from '../../languages';
+import { getLanguage } from '../../util/languages';
 import PostLister from '../../component/PostLister';
 import { getSortedPostsByLanguage } from '../../selector';
 import Sorter from '../../component/Sorter';

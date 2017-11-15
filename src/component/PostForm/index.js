@@ -7,7 +7,7 @@ import { creators } from '../../action';
 import Heading from '../Heading';
 import LabeledInput from '../LabeledInput';
 import LabeledSelect from '../LabeledSelect';
-import { getLanguageOptions } from '../../languages';
+import { getLanguageOptions } from '../../util/languages';
 
 import './post-form.css';
 
