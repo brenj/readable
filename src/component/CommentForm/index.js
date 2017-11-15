@@ -41,8 +41,8 @@ class CommentForm extends Component {
   render() {
     const isDisabled = !this.state.commentAuthor || !this.state.commentText;
     const submitButtonClass = isDisabled ?
-      "comment-form__button--disabled" :
-      "comment-form__button--submit";
+      'comment-form__button--disabled' :
+      'comment-form__button--submit';
 
     return (
       <form className="comment-form" onSubmit={this.handleSubmit}>
@@ -52,7 +52,7 @@ class CommentForm extends Component {
           id="nameInput"
           inputPlaceholder="Sadie"
           isDisabled={this.props.comment !== null}
-          isRequired={true}
+          isRequired
           onChange={this.handleInputChange}
           value={this.state.commentAuthor}
         />

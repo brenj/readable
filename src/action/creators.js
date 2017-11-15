@@ -31,16 +31,12 @@ export const editPost = post => ({
   payload: post,
 });
 
-const showPosts = posts => ({
-  type: actions.SHOW_POSTS,
-  payload: posts,
-});
-
-export function loadPosts() {
-  return function (dispatch) {
-    return api.getPosts().then((posts) => dispatch(showPosts(posts)));
-  };
-}
+export const loadPosts = () => dispatch => (
+  api.getPosts().then(posts => dispatch({
+    type: actions.SHOW_POSTS,
+    payload: posts,
+  }))
+);
 
 export const showPostDetails = (post, comments) => ({
   type: actions.SHOW_POST_DETAILS,

@@ -90,10 +90,10 @@ class PostForm extends Component {
   render() {
     const { formType, heading } = this.props;
     const isDisabled = (
-      !this.state.name || !this.state.title || !this.state.snippet)
+      !this.state.name || !this.state.title || !this.state.snippet);
     const submitButtonClass = isDisabled ?
-      "post-form__button--disabled" :
-      "post-form__button--submit";
+      'post-form__button--disabled' :
+      'post-form__button--submit';
 
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
@@ -106,7 +106,7 @@ class PostForm extends Component {
             id="nameInput"
             inputPlaceholder="Sadie"
             isDisabled={false}
-            isRequired={true}
+            isRequired
             labelText="Name"
             name="name"
             onChange={this.handleInputChange}
@@ -117,7 +117,7 @@ class PostForm extends Component {
           id="titleInput"
           inputPlaceholder="Hello World"
           isDisabled={false}
-          isRequired={true}
+          isRequired
           labelText="Title"
           name="title"
           onChange={this.handleInputChange}

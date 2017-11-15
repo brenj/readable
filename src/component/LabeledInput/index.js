@@ -5,6 +5,7 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   inputPlaceholder: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool.isRequired,
+  isRequired: PropTypes.bool.isRequired,
   labelText: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -22,10 +23,10 @@ function LabeledInput(props) {
     value,
   } = props;
 
-   let { labelText } = props;
-   if (isRequired) {
-     labelText = `${labelText}*`;
-   }
+  let { labelText } = props;
+  if (isRequired) {
+    labelText = `${labelText}*`;
+  }
 
   return (
     <div className="row">
