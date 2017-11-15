@@ -7,10 +7,7 @@ const propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-
-function PostLister(props) {
-  const { posts } = props;
-
+function PostLister({ posts }) {
   return (
     <div>
       {posts.map(post => (

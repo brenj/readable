@@ -8,9 +8,7 @@ const propTypes = {
   subText: PropTypes.string.isRequired,
 };
 
-function Heading(props) {
-  const { mainText, subText } = props;
-
+function Heading({ mainText, subText }) {
   return (
     <div className="row">
       <div className="twelve columns heading">

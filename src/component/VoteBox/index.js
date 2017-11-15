@@ -9,9 +9,7 @@ const propTypes = {
   votes: PropTypes.number.isRequired,
 };
 
-function VoteBox(props) {
-  const { children, handleVote, votes } = props;
-
+function VoteBox({ children, handleVote, votes }) {
   return (
     <div className="row vote-box">
       <div className="three columns vote-box__votes">

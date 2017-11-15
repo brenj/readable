@@ -8,9 +8,7 @@ const propTypes = {
   editHandler: PropTypes.func.isRequired,
 };
 
-function CommentLister(props) {
-  const { comments, editHandler } = props;
-
+function CommentLister({ comments, editHandler }) {
   return (
     <div>
       {comments.map(comment => (

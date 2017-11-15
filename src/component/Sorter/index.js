@@ -9,9 +9,7 @@ const propTypes = {
   sorterType: PropTypes.string.isRequired,
 };
 
-function Sorter(props) {
-  const { activeSort, activeSortHandler, sorterType } = props;
-
+function Sorter({ activeSort, activeSortHandler, sorterType }) {
   return (
     <div className="row sorter">
       <div className="one column" />

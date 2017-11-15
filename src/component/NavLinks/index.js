@@ -12,9 +12,7 @@ const propTypes = {
   ).isRequired,
 };
 
-function NavLinks(props) {
-  const { links } = props;
-
+function NavLinks({ links }) {
   return (
     <ul className="nav-links">
       {links.map(({ href, text }) => (
