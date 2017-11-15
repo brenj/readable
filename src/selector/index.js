@@ -1,39 +1,37 @@
 import { createSelector } from 'reselect';
 import sortBy from 'sort-by';
 
+import getObjAsArray from '../util';
+
 const getActiveSort = state => state.activeSort;
-const getComments = state => state.comments;
-const getPosts = state => state.posts;
+const getComments = state => getObjAsArray(state.comments);
+const getPosts = state => getObjAsArray(state.posts);
+const getPostsByLanguage = (state, language) => (
+  getObjAsArray(state.posts).filter(post => post.category === language)
+);
+
+function getSortedItems(items, sortType) {
+  switch (sortType) {
+    case 'DATE':
+      return items.sort(sortBy('-timestamp'));
+    case 'VOTE':
+      return items.sort(sortBy('-voteScore'));
+    default:
+      return items;
+  }
+}
 
 export const getSortedPosts = createSelector(
   [getActiveSort, getPosts],
-  (activeSort, posts) => {
-    const postsToSort = Object.keys(posts).map(postId => posts[postId]);
+  (activeSort, posts) => getSortedItems(posts, activeSort),
+);
 
-    switch (activeSort) {
-      case 'DATE':
-        return postsToSort.sort(sortBy('-timestamp'));
-      case 'VOTE':
-        return postsToSort.sort(sortBy('-voteScore'));
-      default:
-        return postsToSort;
-    }
-  },
+export const getSortedPostsByLanguage = createSelector(
+  [getActiveSort, getPostsByLanguage],
+  (activeSort, posts) => getSortedItems(posts, activeSort),
 );
 
 export const getSortedComments = createSelector(
   [getActiveSort, getComments],
-  (activeSort, comments) => {
-    const commentsToSort = Object.keys(comments).map(
-      commentId => comments[commentId]);
-
-    switch (activeSort) {
-      case 'DATE':
-        return commentsToSort.sort(sortBy('-timestamp'));
-      case 'VOTE':
-        return commentsToSort.sort(sortBy('-voteScore'));
-      default:
-        return commentsToSort;
-    }
-  },
+  (activeSort, comments) => getSortedItems(comments, activeSort),
 );
