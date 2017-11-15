@@ -21,7 +21,7 @@ const propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-class Language extends Component {
+class LanguageView extends Component {
   componentDidMount() {
     // TODO: Add redirect to 404 if unknown language was passed as parameter
     this.props.dispatch(creators.loadPosts());
@@ -56,7 +56,7 @@ class Language extends Component {
   }
 }
 
-Language.propTypes = propTypes;
+LanguageView.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => {
   const language = getLanguage(ownProps.match.params.language);
@@ -70,4 +70,4 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
   mapStateToProps,
-)(Language);
+)(LanguageView);

@@ -39,7 +39,7 @@ const propTypes = {
   sortByDispatcher: PropTypes.func.isRequired,
 };
 
-class Post extends Component {
+class PostView extends Component {
   state = { commentFormVisible: false, commentToEdit: null };
 
   componentDidMount() {
@@ -169,8 +169,8 @@ class Post extends Component {
   }
 }
 
-Post.defaultProps = { post: null };
-Post.propTypes = propTypes;
+PostView.defaultProps = { post: null };
+PostView.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => ({
   activeSort: state.activeSort,
@@ -186,4 +186,4 @@ export default connect(
     deleteDispatcher: creators.deletePost,
     editCommentDispatcher: creators.editComment,
     sortByDispatcher: creators.sortBy,
-  })(Post);
+  })(PostView);

@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import 'skeleton-css-webpack'; // eslint-disable-line import/extensions
+import ErrorView from '../../view/Error';
 import HomeView from '../../view/Home';
 import LanguageView from '../../view/Language';
 import NavBar from '../../component/NavBar';
@@ -30,6 +31,9 @@ function App() {
             <PostForm {...props} formType="edit" heading="Edit a post" />)}
         />
         <Route exact path="/post/:id" component={PostView} />
+        <Route render={() => (
+          <ErrorView code="404" message="Page not found" />)}
+        />
       </Switch>
     </div>
   );

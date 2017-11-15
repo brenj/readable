@@ -20,7 +20,7 @@ const propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-class Home extends Component {
+class HomeView extends Component {
   componentDidMount() {
     this.props.dispatch(creators.loadPosts());
   }
@@ -53,7 +53,7 @@ class Home extends Component {
   }
 }
 
-Home.propTypes = propTypes;
+HomeView.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   activeSort: state.activeSort,
@@ -62,4 +62,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-)(Home);
+)(HomeView);
