@@ -31,16 +31,20 @@
 }
 
 .post__link--edit {
-  color: blue;
+  color: black;
   text-decoration: none;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
+.post__link--edit:hover {
+  color: black;
+}
+
 .post__link--delete {
   margin-left: 10px;
-  color: red;
+  color: black;
   text-decoration: none;
   background-color: transparent;
   border: none;

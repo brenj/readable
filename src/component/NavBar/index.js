@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { getLanguage, getLanguages } from '../../util/languages';
 import NavLinks from '../../component/NavLinks';
@@ -17,7 +18,9 @@ function NavBar() {
   return (
     <div className="row navbar">
       <div className="two columns">
-        <strong className="navbar__strong">Readable</strong>
+        <Link className="navbar__sitename" to="/">
+          Readable
+        </Link>
         <span className="navbar__span">&nbsp;&lt;code&gt;</span>
       </div>
       <div className="ten columns">

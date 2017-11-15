@@ -11,7 +11,7 @@ import Sorter from '../../component/Sorter';
 
 import './home-view.css';
 
-const HEADING = 'Readable is the place for discussing code snippets';
+const HEADING = 'The place for discussing code snippets';
 const SUBHEADING = '- Anonymously -';
 
 const propTypes = {

@@ -1,19 +1,15 @@
 .navbar {
-  /* background: #ee6225; */
   background: #545454;
   margin-bottom: 60px;
 }
 
-.navbar__col {
-  padding: 0px;
-  margin: 0px;
-}
-
-.navbar__strong {
+.navbar__sitename:link, .navbar__sitename:visited {
   color: white;
   padding-left: 20px;
+  text-decoration: none;
 }
 
 .navbar__span {
   color: white;
+  padding-left: 5px;
 }
