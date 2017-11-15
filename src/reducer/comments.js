@@ -22,7 +22,7 @@ function commentsReducer(state = [], action) {
       const comment = action.payload;
       return { ...state, [comment.id]: comment };
     }
-    case actions.SHOW_POST_DETAILS:
+    case actions.LOAD_POST_DETAILS:
       return reduceComments(action.payload.comments);
     case actions.VOTE_ON_COMMENT: {
       const { comment, voteType } = action.payload;

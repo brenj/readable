@@ -182,7 +182,7 @@ export default connect(
   mapStateToProps,
   {
     addCommentDispatcher: creators.addComment,
-    detailsDispatcher: creators.showPostDetails,
+    detailsDispatcher: creators.loadPostDetails,
     deleteDispatcher: creators.deletePost,
     editCommentDispatcher: creators.editComment,
     sortByDispatcher: creators.sortBy,

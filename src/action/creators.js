@@ -33,13 +33,13 @@ export const editPost = post => ({
 
 export const loadPosts = () => dispatch => (
   api.getPosts().then(posts => dispatch({
-    type: actions.SHOW_POSTS,
+    type: actions.LOAD_POSTS,
     payload: posts,
   }))
 );
 
-export const showPostDetails = (post, comments) => ({
-  type: actions.SHOW_POST_DETAILS,
+export const loadPostDetails = (post, comments) => ({
+  type: actions.LOAD_POST_DETAILS,
   payload: { comments, post },
 });
 

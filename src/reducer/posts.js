@@ -22,9 +22,9 @@ function postsReducer(state = {}, action) {
       const post = action.payload;
       return { ...state, [post.id]: post };
     }
-    case actions.SHOW_POSTS:
+    case actions.LOAD_POSTS:
       return reducePosts(action.payload);
-    case actions.SHOW_POST_DETAILS: {
+    case actions.LOAD_POST_DETAILS: {
       const { post } = action.payload;
       return { [post.id]: post };
     }
