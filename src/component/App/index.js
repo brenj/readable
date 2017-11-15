@@ -2,11 +2,11 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import 'skeleton-css-webpack'; // eslint-disable-line import/extensions
-import HomeView from './view/Home';
-import LanguageView from './view/Language';
-import NavBar from './component/NavBar';
-import PostForm from './component/PostForm';
-import PostView from './view/Post';
+import HomeView from '../../view/Home';
+import LanguageView from '../../view/Language';
+import NavBar from '../../component/NavBar';
+import PostForm from '../../component/PostForm';
+import PostView from '../../view/Post';
 
 import './App.css';
 
