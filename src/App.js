@@ -16,7 +16,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomeView} />
-        <Route exact path="/language/:lang" component={LanguageView} />
+        <Route exact path="/language/:language" component={LanguageView} />
         <Route
           exact
           path="/post/new"
