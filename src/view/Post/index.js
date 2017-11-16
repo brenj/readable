@@ -140,7 +140,7 @@ class PostView extends Component {
             this.setState({ commentFormVisible: true });
           }}
         >
-          Add Comment
+          New Comment
         </button>
         {
           this.state.commentFormVisible &&

@@ -39,7 +39,7 @@ class HomeView extends Component {
           <button
             className="button-primary home-view__button--comment"
           >
-            Add Post
+            New Post
           </button>
         </Link>
         <Sorter
