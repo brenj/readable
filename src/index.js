@@ -9,7 +9,7 @@ import './index.css';
 
 ReactDOM.render(
   <Root store={configureStore()} />,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 registerServiceWorker();

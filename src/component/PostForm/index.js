@@ -97,10 +97,7 @@ class PostForm extends Component {
 
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
-        <Heading
-          mainText={heading}
-          subText="~ Anonymously ~"
-        />
+        <Heading mainText={heading} />
         {formType === 'add' &&
           <LabeledInput
             id="nameInput"

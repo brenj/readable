@@ -5,20 +5,21 @@ import './heading.css';
 
 const propTypes = {
   mainText: PropTypes.string.isRequired,
-  subText: PropTypes.string.isRequired,
+  subText: PropTypes.string,
 };
 
 function Heading({ mainText, subText }) {
   return (
     <div className="row">
       <div className="twelve columns heading">
-        <h4>{mainText}</h4>
-        <h6>{subText}</h6>
+        <h3>{mainText}</h3>
+        <h5>{subText}</h5>
       </div>
     </div>
   );
 }
 
+Heading.defaultProps = { subText: '' };
 Heading.propTypes = propTypes;
 
 export default Heading;

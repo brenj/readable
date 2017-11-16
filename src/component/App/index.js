@@ -22,13 +22,13 @@ function App() {
           exact
           path="/post/new"
           render={props => (
-            <PostForm {...props} formType="add" heading="Add a post" />)}
+            <PostForm {...props} formType="add" heading="New Post" />)}
         />
         <Route
           exact
           path="/post/edit/:id"
           render={props => (
-            <PostForm {...props} formType="edit" heading="Edit a post" />)}
+            <PostForm {...props} formType="edit" heading="Edit Post" />)}
         />
         <Route exact path="/post/:id" component={PostView} />
         <Route render={() => (
