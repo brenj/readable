@@ -20,7 +20,8 @@
     "uuid": "^3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "run-p server react",
+    "react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
