@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = https://github.com/brenj/reactnd-project-readable-starter.git
