@@ -9,7 +9,7 @@ import NavBar from '../../component/NavBar';
 import PostForm from '../../component/PostForm';
 import PostView from '../../view/Post';
 
-import './App.css';
+import './app.css';
 
 function App() {
   return (
