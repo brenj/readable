@@ -1,17 +1,6 @@
-.post {
-  border: 1px solid #e1e1e1;
-  margin: 20px 40px 0 40px;
-}
-
-.post__votes {
-  font-size: xx-large;
-  padding-left: 20px;
-}
-
 .post__details {
   color: #bdbdbd;
   margin-left: 0px !important;
-  padding-top: 5px;
 }
 
 .post__title:link, .post__title:visited {

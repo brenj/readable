@@ -3,18 +3,18 @@
 }
 
 .comment__link--edit {
-  color: blue;
-  text-decoration: none;
   background-color: transparent;
   border: none;
+  color: black;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .comment__link--delete {
-  margin-left: 10px;
-  color: red;
-  text-decoration: none;
   background-color: transparent;
   border: none;
+  color: black;
   cursor: pointer;
+  margin: 0 10px 0px 10px;
+  text-decoration: none;
 }

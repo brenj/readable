@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import * as moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -34,6 +35,7 @@ class Comment extends Component {
 
   render() {
     const { comment, editHandler } = this.props;
+    const formattedDate = moment(comment.timestamp).format('MM/DD/YYYY');
 
     return (
       <VoteBox
@@ -43,6 +45,7 @@ class Comment extends Component {
         <span>{comment.body}</span>
         <div>
           <span className="comment__details">by {comment.author}</span>
+          <span className="comment__details">{` on ${formattedDate}`}</span>
           <span
             className="u-pull-right comment__link--delete"
             onClick={this.handleDeleteComment}
@@ -57,7 +60,7 @@ class Comment extends Component {
               editHandler(comment);
             }}
             role="button"
-            tabIndex="0"
+            tabIndex="-1"
           >
             Edit
           </span>

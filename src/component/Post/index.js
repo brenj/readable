@@ -37,7 +37,7 @@ class Post extends Component {
 
     return (
       <VoteBox
-        className="row post"
+        className="row"
         votes={post.voteScore}
         handleVote={this.handleVoteOnPost}
       >
