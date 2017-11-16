@@ -84,7 +84,12 @@ class PostForm extends Component {
   }
 
   fillForm = (post) => {
-    this.setState({ title: post.title, snippet: post.body });
+    this.setState({
+      language: post.category,
+      name: post.author,
+      title: post.title,
+      snippet: post.body
+    });
   }
 
   render() {
@@ -98,23 +103,21 @@ class PostForm extends Component {
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
         <Heading mainText={heading} />
-        {formType === 'add' &&
-          <LabeledInput
-            id="nameInput"
-            inputPlaceholder="Sadie"
-            isDisabled={false}
-            isRequired
-            labelText="Name"
-            name="name"
-            onChange={this.handleInputChange}
-            value={this.state.name}
-          />
-        }
+        <LabeledInput
+          id="nameInput"
+          inputPlaceholder="Sadie"
+          isDisabled={formType === 'edit'}
+          isRequired={true}
+          labelText="Name"
+          name="name"
+          onChange={this.handleInputChange}
+          value={this.state.name}
+        />
         <LabeledInput
           id="titleInput"
           inputPlaceholder="Hello World"
           isDisabled={false}
-          isRequired
+          isRequired={true}
           labelText="Title"
           name="title"
           onChange={this.handleInputChange}
