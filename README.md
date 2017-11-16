@@ -33,7 +33,84 @@ Use `npm run lint` to check syntax and style.
 Code Organization (src)
 -----------------------
 
-``` console
+```console
+src/
+├── action
+│   ├── actions.js
+│   ├── creators.js
+│   └── index.js
+├── api
+│   ├── index.js
+│   └── methods.js
+├── component
+│   ├── App
+│   │   ├── app.css
+│   │   └── index.js
+│   ├── Comment
+│   │   ├── comment.css
+│   │   └── index.js
+│   ├── CommentForm
+│   │   ├── comment-form.css
+│   │   └── index.js
+│   ├── CommentLister
+│   │   └── index.js
+│   ├── Heading
+│   │   ├── heading.css
+│   │   └── index.js
+│   ├── LabeledInput
+│   │   └── index.js
+│   ├── LabeledSelect
+│   │   └── index.js
+│   ├── NavBar
+│   │   ├── index.js
+│   │   └── navbar.css
+│   ├── NavLinks
+│   │   ├── index.js
+│   │   └── nav-links.css
+│   ├── Post
+│   │   ├── index.js
+│   │   └── post.css
+│   ├── PostForm
+│   │   ├── index.js
+│   │   └── post-form.css
+│   ├── PostLister
+│   │   └── index.js
+│   ├── Root
+│   │   └── index.js
+│   ├── Sorter
+│   │   ├── index.js
+│   │   └── sorter.css
+│   └── VoteBox
+│       ├── index.js
+│       └── vote-box.css
+├── index.css
+├── index.js
+├── reducer
+│   ├── activeSort.js
+│   ├── comments.js
+│   ├── index.js
+│   └── posts.js
+├── registerServiceWorker.js
+├── selector
+│   └── index.js
+├── store
+│   └── index.js
+├── util
+│   ├── index.js
+│   └── languages.js
+└── view
+    ├── Error
+    │   ├── error-view.css
+    │   └── index.js
+    ├── Home
+    │   ├── home-view.css
+    │   └── index.js
+    ├── Language
+    │   └── index.js
+    └── Post
+        ├── index.js
+        └── post-view.css
+7 directories, 48 files
 ```
 
 Grading (by Udacity)
