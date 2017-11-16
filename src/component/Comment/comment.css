@@ -2,6 +2,14 @@
   color: #bdbdbd;
 }
 
+.comment__body {
+  display: block;
+}
+
+.comment__info {
+  margin-top: 5px;
+}
+
 .comment__link--edit {
   background-color: transparent;
   border: none;

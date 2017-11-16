@@ -48,7 +48,7 @@ class Post extends Component {
           >
             {post.title}
           </Link>
-          <div>
+          <div className="post__info">
             <span>{`by ${post.author} in `}</span>
             <span>
               <Link

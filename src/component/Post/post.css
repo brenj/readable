@@ -3,6 +3,10 @@
   margin-left: 0px !important;
 }
 
+.post__info {
+  margin-top: 5px;
+}
+
 .post__title:link, .post__title:visited {
   color: black;
   font-size: large;
