@@ -3,6 +3,7 @@ import React from 'react';
 
 const propTypes = {
   id: PropTypes.string.isRequired,
+  isDisabled: PropTypes.bool.isRequired,
   labelText: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -18,6 +19,7 @@ const propTypes = {
 function LabeledSelect(props) {
   const {
     id,
+    isDisabled,
     labelText,
     name,
     onChange,
@@ -32,6 +34,7 @@ function LabeledSelect(props) {
         <select
           className="u-full-width"
           id={id}
+          disabled={isDisabled}
           onChange={onChange}
           name={name}
           value={value}

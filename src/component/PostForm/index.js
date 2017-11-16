@@ -120,16 +120,15 @@ class PostForm extends Component {
           onChange={this.handleInputChange}
           value={this.state.title}
         />
-        {formType === 'add' &&
-          <LabeledSelect
-            name="language"
-            labelText="Language"
-            id="languageInput"
-            value={this.state.language}
-            onChange={this.handleInputChange}
-            options={getLanguageOptions()}
-          />
-        }
+        <LabeledSelect
+          name="language"
+          labelText="Language"
+          id="languageInput"
+          isDisabled={formType === 'edit'}
+          value={this.state.language}
+          onChange={this.handleInputChange}
+          options={getLanguageOptions()}
+        />
         <label htmlFor="snippetTextArea">Code Snippet*</label>
         <textarea
           name="snippet"
