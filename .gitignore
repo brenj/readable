@@ -9,6 +9,9 @@
 # production
 /build
 
+# submodule
+/server
+
 # misc
 .DS_Store
 .env.local
