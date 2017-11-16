@@ -36,18 +36,21 @@ class HomeView extends Component {
       <div>
         <Heading mainText={HEADING} subText={SUBHEADING} />
         <Link to="/post/new">
-          <button
-            className="button-primary home-view__button--comment"
-          >
+          <button className="button-primary home-view__button--comment">
             New Post
           </button>
         </Link>
-        <Sorter
-          activeSort={activeSort}
-          activeSortHandler={this.handleSort}
-          sorterType="post"
-        />
-        <PostLister posts={posts} />
+        {
+          posts.length !== 0 &&
+            <div>
+              <Sorter
+                activeSort={activeSort}
+                activeSortHandler={this.handleSort}
+                sorterType="post"
+              />
+              <PostLister posts={posts} />
+            </div>
+        }
       </div>
     );
   }

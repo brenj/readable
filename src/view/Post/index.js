@@ -155,15 +155,20 @@ class PostView extends Component {
               submitHandler={this.handleSubmitComment}
             />
         }
-        <Sorter
-          activeSort={activeSort}
-          activeSortHandler={this.handleSort}
-          sorterType="comment"
-        />
-        <CommentLister
-          comments={comments}
-          editHandler={this.handleEditComment}
-        />
+        {
+          comments.length !== 0 &&
+            <div>
+              <Sorter
+                activeSort={activeSort}
+                activeSortHandler={this.handleSort}
+                sorterType="comment"
+              />
+              <CommentLister
+                comments={comments}
+                editHandler={this.handleEditComment}
+              />
+            </div>
+        }
       </div>
     );
   }
