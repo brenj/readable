@@ -6,20 +6,25 @@ import './heading.css';
 const propTypes = {
   mainText: PropTypes.string.isRequired,
   subText: PropTypes.string,
+  subTextStyle: PropTypes.string,
 };
 
-function Heading({ mainText, subText }) {
+function Heading({ mainText, subText, subTextStyle }) {
   return (
     <div className="row">
       <div className="twelve columns heading">
-        <h3>{mainText}</h3>
-        <h5>{subText}</h5>
+        <h2>{mainText}</h2>
+        <h4 className={subTextStyle}>{subText}</h4>
       </div>
     </div>
   );
 }
 
-Heading.defaultProps = { subText: '' };
+Heading.defaultProps = {
+  subTextStyle: 'heading__subtext--default',
+  subText: '',
+};
+
 Heading.propTypes = propTypes;
 
 export default Heading;

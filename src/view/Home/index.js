@@ -34,7 +34,11 @@ class HomeView extends Component {
 
     return (
       <div>
-        <Heading mainText={HEADING} subText={SUBHEADING} />
+        <Heading
+          mainText={HEADING}
+          subText={SUBHEADING}
+          subTextStyle="heading__subtext--barcode"
+        />
         <Link to="/post/new">
           <button className="button-primary home-view__button--comment">
             New Post
