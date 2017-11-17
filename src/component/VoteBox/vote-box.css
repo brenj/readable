@@ -10,11 +10,13 @@
 }
 
 .vote-box__upvote {
+  cursor: pointer;
   margin-left: 15px;
   text-decoration: none;
 }
 
 .vote-box__downvote {
+  cursor: pointer;
   margin-right: 15px;
   text-decoration: none;
 }
