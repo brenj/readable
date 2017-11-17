@@ -107,47 +107,59 @@ class PostForm extends Component {
           subText="- Anonymously -"
           subTextStyle="heading__subtext--barcode"
         />
-        <LabeledInput
-          id="titleInput"
-          inputPlaceholder="Hello World"
-          isDisabled={false}
-          isRequired={true}
-          labelText="Title"
-          name="title"
-          onChange={this.handleInputChange}
-          value={this.state.title}
-        />
-        <LabeledSelect
-          name="language"
-          labelText="Language"
-          id="languageInput"
-          isDisabled={formType === 'edit'}
-          value={this.state.language}
-          onChange={this.handleInputChange}
-          options={getLanguageOptions()}
-        />
-        <label htmlFor="snippetTextArea">Code Snippet*</label>
-        <textarea
-          name="snippet"
-          className="u-full-width post-form__snippet"
-          placeholder="console.log(&quot;Hello, World!&quot;);"
-          id="snippetTextArea"
-          value={this.state.snippet}
-          onChange={this.handleInputChange}
-        />
-        <input
-          className="button"
-          type="button"
-          value="Cancel"
-          onClick={this.handleCancel}
-        />
-        <input
-          className={`button button-primary ${submitButtonClass}`}
-          disabled={isDisabled}
-          type="submit"
-          value="Submit"
-        />
-      </form>
+        <form className="post-form" onSubmit={this.handleSubmit}>
+          <LabeledInput
+            id="nameInput"
+            inputPlaceholder="Sebastian"
+            isDisabled={formType === 'edit'}
+            isRequired={true}
+            labelText="Name"
+            name="name"
+            onChange={this.handleInputChange}
+            value={this.state.name}
+          />
+          <LabeledInput
+            id="titleInput"
+            inputPlaceholder="Hello World"
+            isDisabled={false}
+            isRequired={true}
+            labelText="Title"
+            name="title"
+            onChange={this.handleInputChange}
+            value={this.state.title}
+          />
+          <LabeledSelect
+            name="language"
+            labelText="Language"
+            id="languageInput"
+            isDisabled={formType === 'edit'}
+            value={this.state.language}
+            onChange={this.handleInputChange}
+            options={getLanguageOptions()}
+          />
+          <label htmlFor="snippetTextArea">Code Snippet*</label>
+          <textarea
+            name="snippet"
+            className="u-full-width post-form__snippet"
+            placeholder="console.log(&quot;Hello, World!&quot;);"
+            id="snippetTextArea"
+            value={this.state.snippet}
+            onChange={this.handleInputChange}
+          />
+          <input
+            className="button"
+            type="button"
+            value="Cancel"
+            onClick={this.handleCancel}
+          />
+          <input
+            className={`button button-primary ${submitButtonClass}`}
+            disabled={isDisabled}
+            type="submit"
+            value="Submit"
+          />
+        </form>
+      </div>
     );
   }
 }
