@@ -14,7 +14,7 @@ function Heading({ mainText, subText, subTextStyle }) {
     <div className="row">
       <div className="twelve columns heading">
         <h2>{mainText}</h2>
-        <h4 className={subTextStyle}>{subText}</h4>
+        <h5 className={subTextStyle}>{subText}</h5>
       </div>
     </div>
   );
