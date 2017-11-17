@@ -21,7 +21,7 @@ Requirements
 
 Install
 -------
-1. `git clone --recursive https://github.com/brenj/readable.git`
+1. `git clone --recursive https://github.com/brenj/readable.git && cd readable`
 2. `npm install`
 3. `npm start`
 
