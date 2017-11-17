@@ -32,7 +32,7 @@ const LANGUAGES = {
   python: {
     displayName: 'Python',
     path: 'python',
-    tagLine: 'Compile, run and ship your pseudo-code',
+    tagLine: 'Build, run, and ship your pseudo-code',
   },
   ruby: {
     displayName: 'Ruby',
