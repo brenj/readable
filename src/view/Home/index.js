@@ -41,7 +41,7 @@ class HomeView extends Component {
         />
         <Link to="/post/new">
           <button className="button-primary home-view__button--comment">
-            New Post
+            New Snippet
           </button>
         </Link>
         {
@@ -50,7 +50,7 @@ class HomeView extends Component {
               <Sorter
                 activeSort={activeSort}
                 activeSortHandler={this.handleSort}
-                sorterType="post"
+                sorterType="snippet"
               />
               <PostLister posts={posts} />
             </div>
