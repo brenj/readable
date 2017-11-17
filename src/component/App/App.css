@@ -1,4 +1,6 @@
 .app {
+  background-color: white;
   height: 100%;
-  margin-bottom: 120px;
+  padding-bottom: 120px;
+  overflow: auto;
 }

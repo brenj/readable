@@ -1,12 +1,9 @@
-html, body {
+html, body, #root {
+  background-color: #e1e1e1;
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Ubuntu', sans-serif;
-}
-
-#root {
-  height: 100%;
 }
 
 :focus {
