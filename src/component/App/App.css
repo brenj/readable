@@ -2,5 +2,6 @@
   background-color: white;
   height: 100%;
   padding-bottom: 120px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
