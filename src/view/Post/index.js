@@ -4,11 +4,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import api from '../../api';
-import CommentLister from '../../component/CommentLister';
 import { creators } from '../../action';
-import { getSortedComments } from '../../selector';
+import api from '../../api';
 import CommentForm from '../../component/CommentForm';
+import CommentLister from '../../component/CommentLister';
+import { getLanguage } from '../../util/languages';
+import { getSortedComments } from '../../selector';
 import Sorter from '../../component/Sorter';
 
 import './post-view.css';
@@ -95,6 +96,7 @@ class PostView extends Component {
     const post = this.props.post || {};
     const formattedDate = moment(post.timestamp)
       .format('MMM D YYYY, h:mm A');
+    const language = getLanguage(post.category) || {};
 
     return (
       <div>
@@ -122,6 +124,7 @@ class PostView extends Component {
             <tr>
               <th>Author</th>
               <th>Date</th>
+              <th>Language</th>
               <th>Votes</th>
             </tr>
           </thead>
@@ -129,6 +132,7 @@ class PostView extends Component {
             <tr>
               <td>{post.author}</td>
               <td>{formattedDate}</td>
+              <td>{language.displayName}</td>
               <td>{post.voteScore}</td>
             </tr>
           </tbody>
