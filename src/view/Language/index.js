@@ -23,7 +23,6 @@ const propTypes = {
 
 class LanguageView extends Component {
   componentDidMount() {
-    // TODO: Add redirect to 404 if unknown language was passed as parameter
     this.props.dispatch(creators.loadPosts());
   }
 
@@ -45,12 +44,17 @@ class LanguageView extends Component {
             New Post
           </button>
         </Link>
-        <Sorter
-          activeSort={activeSort}
-          activeSortHandler={this.handleSort}
-          sorterType="post"
-        />
-        <PostLister posts={posts} />
+        {
+          posts.length !== 0 &&
+            <div>
+              <Sorter
+                activeSort={activeSort}
+                activeSortHandler={this.handleSort}
+                sorterType="post"
+              />
+              <PostLister posts={posts} />
+            </div>
+        }
       </div>
     );
   }
