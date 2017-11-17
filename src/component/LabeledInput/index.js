@@ -25,7 +25,7 @@ function LabeledInput(props) {
 
   let { labelText } = props;
   if (isRequired) {
-    labelText = `${labelText}*`;
+    labelText = `${labelText}`;
   }
 
   return (

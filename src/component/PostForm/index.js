@@ -137,7 +137,7 @@ class PostForm extends Component {
             onChange={this.handleInputChange}
             options={getLanguageOptions()}
           />
-          <label htmlFor="snippetTextArea">Code Snippet*</label>
+          <label htmlFor="snippetTextArea">Code Snippet</label>
           <textarea
             name="snippet"
             className="u-full-width post-form__snippet"
