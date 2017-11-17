@@ -50,7 +50,7 @@ class CommentForm extends Component {
           name="commentAuthor"
           labelText="Name"
           id="nameInput"
-          inputPlaceholder="Sadie"
+          inputPlaceholder="Sebastian"
           isDisabled={this.props.comment !== null}
           isRequired
           onChange={this.handleInputChange}
@@ -61,7 +61,7 @@ class CommentForm extends Component {
           name="commentText"
           className="u-full-width"
           id="commentTextArea"
-          placeholder="Meow, furthermore, meow mew."
+          placeholder="This is great, thanks for sharing."
           onChange={this.handleInputChange}
           value={this.state.commentText}
         />

@@ -105,7 +105,7 @@ class PostForm extends Component {
         <Heading mainText={heading} />
         <LabeledInput
           id="nameInput"
-          inputPlaceholder="Sadie"
+          inputPlaceholder="Sebastian"
           isDisabled={formType === 'edit'}
           isRequired={true}
           labelText="Name"
