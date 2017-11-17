@@ -16,7 +16,7 @@
 }
 
 .comment__link--delete {
-  color: #1eaedb;
+  color: red;
   cursor: pointer;
   margin: 0 10px 0px 10px;
   text-decoration: none;

@@ -7,6 +7,10 @@
   margin-top: 5px;
 }
 
+.post__language {
+  text-decoration: none;
+}
+
 .post__title:link, .post__title:visited {
   color: black;
   font-size: large;
@@ -28,7 +32,7 @@
 }
 
 .post__link--delete {
-  color: #1eaedb;
+  color: red;
   margin-left: 10px;
   text-decoration: none;
   background-color: transparent;
