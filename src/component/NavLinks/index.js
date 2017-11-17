@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './nav-links.css';
 
@@ -17,7 +18,7 @@ function NavLinks({ links }) {
     <ul className="nav-links">
       {links.map(({ href, text }) => (
         <li key={href} className="nav-links__links">
-          <a className="nav-links__link" href={href}>{text}</a>
+          <Link className="nav-links__link" to={href}>{text}</Link>
         </li>
       ))}
     </ul>
