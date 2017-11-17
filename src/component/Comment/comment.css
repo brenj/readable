@@ -1,5 +1,5 @@
 .comment__details {
-  color: #bdbdbd;
+  color: #e6c200;
 }
 
 .comment__body {
@@ -11,17 +11,12 @@
 }
 
 .comment__link--edit {
-  background-color: transparent;
-  border: none;
-  color: black;
+  color: #1eaedb;
   cursor: pointer;
-  text-decoration: none;
 }
 
 .comment__link--delete {
-  background-color: transparent;
-  border: none;
-  color: black;
+  color: #1eaedb;
   cursor: pointer;
   margin: 0 10px 0px 10px;
   text-decoration: none;

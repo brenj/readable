@@ -1,5 +1,5 @@
 .post__details {
-  color: #bdbdbd;
+  color: #e6c200;
   margin-left: 0px !important;
 }
 
@@ -10,10 +10,7 @@
 .post__title:link, .post__title:visited {
   color: black;
   font-size: large;
-  text-decoration: none;
-}
-
-.post__language {
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -24,20 +21,15 @@
 }
 
 .post__link--edit {
-  color: black;
   text-decoration: none;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.post__link--edit:hover {
-  color: black;
-}
-
 .post__link--delete {
+  color: #1eaedb;
   margin-left: 10px;
-  color: black;
   text-decoration: none;
   background-color: transparent;
   border: none;
