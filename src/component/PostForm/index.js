@@ -101,17 +101,11 @@ class PostForm extends Component {
       'post-form__button--submit';
 
     return (
-      <form className="post-form" onSubmit={this.handleSubmit}>
-        <Heading mainText={heading} />
-        <LabeledInput
-          id="nameInput"
-          inputPlaceholder="Sebastian"
-          isDisabled={formType === 'edit'}
-          isRequired={true}
-          labelText="Name"
-          name="name"
-          onChange={this.handleInputChange}
-          value={this.state.name}
+      <div>
+        <Heading
+          mainText={heading}
+          subText="- Anonymously -"
+          subTextStyle="heading__subtext--barcode"
         />
         <LabeledInput
           id="titleInput"
