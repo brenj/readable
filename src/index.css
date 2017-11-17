@@ -9,6 +9,10 @@ html, body {
   height: 100%;
 }
 
+:focus {
+ outline: 0;
+}
+
 /* div { */
 /*   border: 1px solid #ff0000; */
 /* } */
