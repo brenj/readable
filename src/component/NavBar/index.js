@@ -23,8 +23,14 @@ function NavBar() {
         </Link>
         <span className="navbar__span">&nbsp;&lt;code&gt;</span>
       </div>
-      <div className="ten columns">
+      <div className="eight columns">
         <NavLinks links={links} />
+      </div>
+      <div className="two columns">
+        <span className="navbar__github">
+          GitHub:&nbsp;&nbsp;
+          <a href="https://github.com/brenj/readable">@brenj</a>
+        </span>
       </div>
     </div>
   );
