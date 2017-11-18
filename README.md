@@ -21,7 +21,7 @@ Requirements
 
 Quickstart (*nix only)
 ----------------------
-* `wget -O - https://raw.githubusercontent.com/brenj/readable/master/bootstrap-readable.sh | bash`
+* `wget https://raw.githubusercontent.com/brenj/readable/master/bootstrap-readable.sh && bash bootstrap-readable.sh`
 
 Install
 -------
