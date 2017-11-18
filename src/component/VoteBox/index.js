@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import FontAwesome from 'react-fontawesome';
 
 import './vote-box.css';
 
@@ -19,7 +20,7 @@ function VoteBox({ children, handleVote, votes }) {
           role="button"
           tabIndex="0"
         >
-          -
+          <FontAwesome name='chevron-left' />
         </span>
         <span>{votes}</span>
         <span
@@ -28,7 +29,7 @@ function VoteBox({ children, handleVote, votes }) {
           role="button"
           tabIndex="-1"
         >
-          +
+          <FontAwesome name='chevron-right' />
         </span>
       </div>
       {children}
