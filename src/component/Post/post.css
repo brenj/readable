@@ -25,17 +25,19 @@
 }
 
 .post__link--edit {
-  text-decoration: none;
   background-color: transparent;
-  border: none;
+  border: solid 1px;
   cursor: pointer;
+  padding: 0px 10px 0px 10px;
+  text-decoration: none;
 }
 
 .post__link--delete {
-  color: red;
-  margin-left: 10px;
-  text-decoration: none;
   background-color: transparent;
-  border: none;
+  border: solid 1px;
+  color: red;
   cursor: pointer;
+  margin: 0px 0px 5px 10px;
+  padding: 0px 10px 0px 10px;
+  text-decoration: none;
 }
