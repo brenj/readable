@@ -88,7 +88,7 @@ class PostForm extends Component {
       language: post.category,
       name: post.author,
       title: post.title,
-      snippet: post.body
+      snippet: post.body,
     });
   }
 
@@ -112,7 +112,7 @@ class PostForm extends Component {
             id="nameInput"
             inputPlaceholder="Sebastian"
             isDisabled={formType === 'edit'}
-            isRequired={true}
+            isRequired
             labelText="Name"
             name="name"
             onChange={this.handleInputChange}
@@ -122,7 +122,7 @@ class PostForm extends Component {
             id="titleInput"
             inputPlaceholder="Hello World"
             isDisabled={false}
-            isRequired={true}
+            isRequired
             labelText="Title"
             name="title"
             onChange={this.handleInputChange}

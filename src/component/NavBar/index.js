@@ -30,10 +30,10 @@ function NavBar() {
       <div className="two columns">
         <span>
           <a href="https://github.com/brenj/readable">
-            <FontAwesome className="navbar__github" name='github' />
+            <FontAwesome className="navbar__github" name="github" />
           </a>
           <a href="https://www.linkedin.com/in/brenj/">
-            <FontAwesome className="navbar__linkedin" name='linkedin' />
+            <FontAwesome className="navbar__linkedin" name="linkedin" />
           </a>
         </span>
       </div>

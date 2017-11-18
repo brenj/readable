@@ -20,7 +20,7 @@ function VoteBox({ children, handleVote, votes }) {
           role="button"
           tabIndex="0"
         >
-          <FontAwesome name='chevron-left' />
+          <FontAwesome name="chevron-left" />
         </span>
         <span className="disable-selection">{votes}</span>
         <span
@@ -29,7 +29,7 @@ function VoteBox({ children, handleVote, votes }) {
           role="button"
           tabIndex="-1"
         >
-          <FontAwesome name='chevron-right' />
+          <FontAwesome name="chevron-right" />
         </span>
       </div>
       {children}

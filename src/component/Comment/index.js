@@ -45,28 +45,28 @@ class Comment extends Component {
       >
         <div className="nine columns comment__details">
           <div className="comment__info">
-          <span className="comment__body">{comment.body}</span>
-          <span className="comment__details">by {comment.author}</span>
-          <span className="comment__details">{` on ${formattedDate}`}</span>
-          <span
-            className="u-pull-right comment__link--delete"
-            onClick={this.handleDeleteComment}
-            role="button"
-            tabIndex="0"
-          >
+            <span className="comment__body">{comment.body}</span>
+            <span className="comment__details">by {comment.author}</span>
+            <span className="comment__details">{` on ${formattedDate}`}</span>
+            <span
+              className="u-pull-right comment__link--delete"
+              onClick={this.handleDeleteComment}
+              role="button"
+              tabIndex="0"
+            >
             Delete
-          </span>
-          <span
-            className="u-pull-right comment__link--edit"
-            onClick={() => {
-              editHandler(comment);
-            }}
-            role="button"
-            tabIndex="-1"
-          >
+            </span>
+            <span
+              className="u-pull-right comment__link--edit"
+              onClick={() => {
+                editHandler(comment);
+              }}
+              role="button"
+              tabIndex="-1"
+            >
             Edit
-          </span>
-        </div>
+            </span>
+          </div>
         </div>
       </VoteBox>
     );
