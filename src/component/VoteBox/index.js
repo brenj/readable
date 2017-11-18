@@ -22,7 +22,7 @@ function VoteBox({ children, handleVote, votes }) {
         >
           <FontAwesome name='chevron-left' />
         </span>
-        <span>{votes}</span>
+        <span className="disable-selection">{votes}</span>
         <span
           className="vote-box__upvote"
           onClick={() => handleVote('upVote')}
