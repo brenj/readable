@@ -1,0 +1,11 @@
+.alert {
+  background-color: #545454;
+  margin: 10px 40px 0px 40px;
+  text-align: center;
+}
+
+.alert__content {
+  color: white;
+  margin-left: 10px;
+  vertical-align: middle;
+}
