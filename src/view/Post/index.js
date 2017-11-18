@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { creators } from '../../action';
+import Alert from '../../component/Alert';
 import api from '../../api';
 import CommentForm from '../../component/CommentForm';
 import CommentLister from '../../component/CommentLister';
@@ -173,6 +174,7 @@ class PostView extends Component {
               />
             </div>
         }
+        { comments.length === 0 && <Alert content="No comments" /> }
       </div>
     );
   }

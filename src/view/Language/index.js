@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { creators } from '../../action';
+import Alert from '../../component/Alert';
 import Heading from '../../component/Heading';
 import { getLanguage } from '../../util/languages';
 import PostLister from '../../component/PostLister';
@@ -55,6 +56,7 @@ class LanguageView extends Component {
               <PostLister posts={posts} />
             </div>
         }
+        { posts.length === 0 && <Alert content="No snippets" /> }
       </div>
     );
   }
