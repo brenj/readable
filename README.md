@@ -19,6 +19,10 @@ Requirements
 * Node
 * Node Package Manager (npm)
 
+Quickstart (*nix only)
+----------------------
+* `wget -O - https://raw.githubusercontent.com/brenj/readable/master/bootstrap-readable.sh | bash`
+
 Install
 -------
 1. `git clone --recursive https://github.com/brenj/readable.git && cd readable`
@@ -45,6 +49,9 @@ src/
 ├── component
 │   ├── App
 │   │   ├── app.css
+│   │   └── index.js
+│   ├── Alert
+│   │   ├── alert.css
 │   │   └── index.js
 │   ├── Comment
 │   │   ├── comment.css
@@ -110,7 +117,8 @@ src/
     └── Post
         ├── index.js
         └── post-view.css
-7 directories, 48 files
+
+7 directories, 51 files
 ```
 
 Grading (by Udacity)
