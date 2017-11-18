@@ -4,7 +4,7 @@ import React from 'react';
 import './vote-box.css';
 
 const propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.objectOf(PropTypes.any).isRequired,
   handleVote: PropTypes.func.isRequired,
   votes: PropTypes.number.isRequired,
 };
