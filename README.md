@@ -14,9 +14,7 @@ and edit and delete posts and comments.
 Supporting courses:
   * React & Redux
   
-For the Readable project I chose to create a forum for discussing code snippets anonymously.
-  
-Readable was created using `create-react-app`, and the only code provided by Udacity lives in the server submodule. I modified the server to support my categories (languages) and included default posts that are more relevant to my implementation.
+For the Readable project I chose to create a forum for discussing code snippets anonymously. Readable was created using `create-react-app`, and the only code provided by Udacity lives in the server submodule. I modified the server to support my categories (languages) and included default posts that are more relevant to my implementation.
 
 Some of the noteworthy libraries I used are:
 
