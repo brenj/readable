@@ -1,8 +1,10 @@
 .comment__details {
   color: #c0c0c0;
+  margin-left: 0px !important;
 }
 
 .comment__body {
+  color: black;
   display: block;
 }
 
@@ -11,13 +13,24 @@
 }
 
 .comment__link--edit {
-  color: #1eaedb;
+  background-color: transparent;
+  border: solid 1px #bbbbbb;
+  color: #555555;
   cursor: pointer;
+  padding: 0px 10px 0px 10px;
+  text-decoration: none;
+}
+
+.comment__link--edit:hover {
+  color: #555555;
 }
 
 .comment__link--delete {
+  background-color: transparent;
+  border: solid 1px #bbbbbb;
   color: red;
   cursor: pointer;
-  margin: 0 10px 0px 10px;
+  margin: 0px 10px 10px 10px;
+  padding: 0px 10px 0px 10px;
   text-decoration: none;
 }

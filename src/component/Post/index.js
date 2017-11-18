@@ -78,7 +78,6 @@ class Post extends Component {
             </Link>
           </div>
         </div>
-        <div className="one column" />
       </VoteBox>
     );
   }

@@ -43,7 +43,8 @@ class Comment extends Component {
         votes={comment.voteScore}
         handleVote={this.handleVoteOnComment}
       >
-        <div className="nine columns comment__info">
+        <div className="nine columns comment__details">
+          <div className="comment__info">
           <span className="comment__body">{comment.body}</span>
           <span className="comment__details">by {comment.author}</span>
           <span className="comment__details">{` on ${formattedDate}`}</span>
@@ -66,7 +67,7 @@ class Comment extends Component {
             Edit
           </span>
         </div>
-        <div className="one column" />
+        </div>
       </VoteBox>
     );
   }
