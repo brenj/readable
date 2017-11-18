@@ -5,3 +5,11 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+input:disabled {
+  background: #cccccc;
+}
+
+select:disabled {
+  background: #cccccc;
+}
