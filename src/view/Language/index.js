@@ -42,7 +42,7 @@ class LanguageView extends Component {
         />
         <Link to="/post/new">
           <button className="button-primary home-view__button--comment">
-            New Post
+            New Snippet
           </button>
         </Link>
         {
