@@ -13,6 +13,18 @@ and edit and delete posts and comments.
 
 Supporting courses:
   * React & Redux
+  
+For the Readable project I chose to create a forum for discussing code snippets anonymously.
+  
+Readable was created using `create-react-app`, and the only code provided by Udacity lives in the server submodule. I modified the server to support my categories (languages) and included default posts that are more relevant to my implementation.
+
+Some of the noteworthy libraries I used are:
+
+* [FontAwesome](http://fontawesome.io/), for icons
+* [Moment](https://momentjs.com/), for date formatting
+* [Redux Thunk](https://github.com/gaearon/redux-thunk), to dispatch functions as action creators
+* [Reselect](https://github.com/reactjs/reselect), for memoized Redux selectors
+* [Skeleton](http://getskeleton.com/), for a simple CSS boilerplate
 
 Requirements
 ------------
