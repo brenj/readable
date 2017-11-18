@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
 
 import { getLanguage, getLanguages } from '../../util/languages';
 import NavLinks from '../../component/NavLinks';
@@ -27,9 +28,13 @@ function NavBar() {
         <NavLinks links={links} />
       </div>
       <div className="two columns">
-        <span className="navbar__github">
-          GitHub:&nbsp;&nbsp;
-          <a href="https://github.com/brenj/readable">@brenj</a>
+        <span>
+          <a href="https://github.com/brenj/readable">
+            <FontAwesome className="navbar__github" name='github' />
+          </a>
+          <a href="https://www.linkedin.com/in/brenj/">
+            <FontAwesome className="navbar__linkedin" name='linkedin' />
+          </a>
         </span>
       </div>
     </div>

@@ -16,4 +16,10 @@
 
 .navbar__github {
   color: white;
+  margin-left: 50px;
+}
+
+.navbar__linkedin {
+  color: white;
+  margin-left: 10px;
 }
