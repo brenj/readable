@@ -33,6 +33,8 @@ class Post extends Component {
 
   render() {
     const { post } = this.props;
+    const commentOrComments = (
+      post.commentCount === 1 ? ' comment' : ' comments');
     const formattedDate = moment(post.timestamp).format('MM/DD/YYYY');
 
     return (
@@ -60,7 +62,7 @@ class Post extends Component {
             </span>
             <span>{`on ${formattedDate} `}</span>
             <span className="post__comments">
-              <em>{post.commentCount}</em>{' comments'}
+              <em>{post.commentCount}</em>{commentOrComments}
             </span>
             <span
               className="u-pull-right post__link--delete"
