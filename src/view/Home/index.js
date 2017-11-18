@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { creators } from '../../action';
+import Alert from '../../component/Alert';
 import Heading from '../../component/Heading';
 import PostLister from '../../component/PostLister';
 import { getSortedPosts } from '../../selector';
@@ -55,6 +56,7 @@ class HomeView extends Component {
               <PostLister posts={posts} />
             </div>
         }
+        { posts.length === 0 && <Alert content="No snippets" /> }
       </div>
     );
   }
