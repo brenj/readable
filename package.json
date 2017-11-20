@@ -20,6 +20,9 @@
     "sort-by": "^1.2.0",
     "uuid": "^3.1.0"
   },
+  "engines": {
+    "node": "8.9.1"
+  },
   "scripts": {
     "start": "run-p server react",
     "react": "react-scripts start",
