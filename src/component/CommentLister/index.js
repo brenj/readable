@@ -5,17 +5,16 @@ import Comment from '../Comment';
 
 const propTypes = {
   comments: PropTypes.arrayOf(PropTypes.object).isRequired,
-  editHandler: PropTypes.func.isRequired,
 };
 
-function CommentLister({ comments, editHandler }) {
+function CommentLister({ comments, ...props }) {
   return (
     <div>
       {comments.map(comment => (
         <Comment
           key={comment.id}
           comment={comment}
-          editHandler={editHandler}
+          {...props}
         />))}
     </div>
   );

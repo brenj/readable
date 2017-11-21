@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import * as moment from 'moment';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 
 import { creators } from '../../action';
@@ -17,11 +18,8 @@ import './post-view.css';
 
 const propTypes = {
   activeSort: PropTypes.string.isRequired,
-  addCommentDispatcher: PropTypes.func.isRequired,
   comments: PropTypes.arrayOf(PropTypes.object).isRequired,
-  editCommentDispatcher: PropTypes.func.isRequired,
-  deleteDispatcher: PropTypes.func.isRequired,
-  detailsDispatcher: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({
     goBack: PropTypes.func.isRequired,
   }).isRequired,
@@ -38,29 +36,31 @@ const propTypes = {
     title: PropTypes.string.isRequired,
     voteScore: PropTypes.number.isRequired,
   }),
-  sortByDispatcher: PropTypes.func.isRequired,
 };
 
 class PostView extends Component {
   state = { commentFormVisible: false, commentToEdit: null };
 
   componentDidMount() {
-    const { detailsDispatcher, post } = this.props;
+    const { loadPostDetails } = this.boundActionCreators;
+    const { post } = this.props;
 
     if (post === null) {
       const postId = this.props.match.params.id;
       Promise.all([api.getPost(postId), api.getCommentsForPost(postId)])
-        .then(values => (detailsDispatcher(...values)));
+        .then(values => (loadPostDetails(...values)));
     } else {
       api.getCommentsForPost(post.id)
-        .then(comments => detailsDispatcher(post, comments));
+        .then(comments => loadPostDetails(post, comments));
     }
   }
 
+  boundActionCreators = bindActionCreators(creators, this.props.dispatch);
+
   handleDeletePost = () => {
-    const { deleteDispatcher, history, post } = this.props;
+    const { history, post } = this.props;
     api.deletePost(post.id).then(() => {
-      deleteDispatcher(post);
+      this.boundActionCreators.deletePost(post);
       history.goBack();
     });
   };
@@ -70,7 +70,7 @@ class PostView extends Component {
   };
 
   handleSort = (sortType) => {
-    this.props.sortByDispatcher(sortType);
+    this.boundActionCreators.sortBy(sortType);
   };
 
   handleSubmitComment = (author, body) => {
@@ -80,10 +80,10 @@ class PostView extends Component {
     // Are we in edit mode (there is a comment to edit)?
     if (this.state.commentToEdit === null) {
       apiCall = api.addComment(body, author, this.props.post.id);
-      dispatcher = this.props.addCommentDispatcher;
+      dispatcher = this.boundActionCreators.addComment;
     } else {
       apiCall = api.editComment(this.state.commentToEdit.id, body);
-      dispatcher = this.props.editCommentDispatcher;
+      dispatcher = this.boundActionCreators.editComment;
     }
 
     apiCall.then((comment) => {
@@ -170,7 +170,9 @@ class PostView extends Component {
               />
               <CommentLister
                 comments={comments}
-                editHandler={this.handleEditComment}
+                onDelete={this.boundActionCreators.deleteComment}
+                onEdit={this.handleEditComment}
+                onVote={this.boundActionCreators.voteOnComment}
               />
             </div>
         }
@@ -189,12 +191,4 @@ const mapStateToProps = (state, ownProps) => ({
   post: state.posts[ownProps.match.params.id],
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    addCommentDispatcher: creators.addComment,
-    detailsDispatcher: creators.loadPostDetails,
-    deleteDispatcher: creators.deletePost,
-    editCommentDispatcher: creators.editComment,
-    sortByDispatcher: creators.sortBy,
-  })(PostView);
+export default connect(mapStateToProps)(PostView);

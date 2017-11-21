@@ -1,40 +1,37 @@
 import PropTypes from 'prop-types';
 import * as moment from 'moment';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import api from '../../api';
-import { creators } from '../../action';
 import VoteBox from '../VoteBox';
 
 import './comment.css';
 
 const propTypes = {
-  deleteCommentDispatcher: PropTypes.func.isRequired,
   comment: PropTypes.shape({
     id: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired,
     voteScore: PropTypes.number.isRequired,
   }).isRequired,
-  editHandler: PropTypes.func.isRequired,
-  voteOnCommentDispatcher: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onVote: PropTypes.func.isRequired,
 };
 
 class Comment extends Component {
   handleDeleteComment = () => {
-    const { deleteCommentDispatcher, comment } = this.props;
-    api.deleteComment(comment.id)
-      .then(() => { deleteCommentDispatcher(comment); });
+    const { comment, onDelete } = this.props;
+    api.deleteComment(comment.id).then(() => { onDelete(comment); });
   };
 
   handleVoteOnComment = (voteType) => {
-    const { voteOnCommentDispatcher, comment } = this.props;
+    const { comment, onVote } = this.props;
     api.voteOnComment(comment.id, voteType)
-      .then(() => { voteOnCommentDispatcher(comment, voteType); });
+      .then(() => { onVote(comment, voteType); });
   };
 
   render() {
-    const { comment, editHandler } = this.props;
+    const { comment, onEdit } = this.props;
     const formattedDate = moment(comment.timestamp).format('MM/DD/YYYY');
 
     return (
@@ -58,9 +55,7 @@ class Comment extends Component {
             </span>
             <span
               className="u-pull-right comment__link--edit"
-              onClick={() => {
-                editHandler(comment);
-              }}
+              onClick={() => { onEdit(comment); }}
               role="button"
               tabIndex="-1"
             >
@@ -75,10 +70,4 @@ class Comment extends Component {
 
 Comment.propTypes = propTypes;
 
-export default connect(
-  null,
-  {
-    deleteCommentDispatcher: creators.deleteComment,
-    voteOnCommentDispatcher: creators.voteOnComment,
-  },
-)(Comment);
+export default Comment;
