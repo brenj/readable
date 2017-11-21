@@ -1,6 +1,6 @@
 import v4 from 'uuid/v4';
 
-const API_BASE = process.env.READABLE_API || 'https://localhost:3001';
+const API_BASE = process.env.READABLE_API || 'http://localhost:3001';
 
 const headers = new Headers({
   'Content-Type': 'application/json',
