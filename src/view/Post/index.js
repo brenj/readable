@@ -50,8 +50,14 @@ class PostView extends Component {
     const { loadPostDetails } = this.boundActionCreators;
     const { comments, post } = this.props;
 
+    // Does this data already live in state?
     if (post !== null) {
-      loadPostDetails(post, comments);
+      if (comments.length === 0) {
+        api.getCommentsForPost(post.id)
+          .then(commentsReceived => loadPostDetails(post, commentsReceived));
+      } else {
+        loadPostDetails(post, comments);
+      }
       return;
     }
 
