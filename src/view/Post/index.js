@@ -10,6 +10,7 @@ import Alert from '../../component/Alert';
 import api from '../../api';
 import CommentForm from '../../component/CommentForm';
 import CommentLister from '../../component/CommentLister';
+import ErrorView from '../../view/Error';
 import { getLanguage } from '../../util/languages';
 import { getSortedComments } from '../../selector';
 import Sorter from '../../component/Sorter';
@@ -39,20 +40,31 @@ const propTypes = {
 };
 
 class PostView extends Component {
-  state = { commentFormVisible: false, commentToEdit: null };
+  state = {
+    commentFormVisible: false,
+    commentToEdit: null,
+    postNotFound: false,
+  };
 
   componentDidMount() {
     const { loadPostDetails } = this.boundActionCreators;
-    const { post } = this.props;
+    const { comments, post } = this.props;
 
-    if (post === null) {
-      const postId = this.props.match.params.id;
-      Promise.all([api.getPost(postId), api.getCommentsForPost(postId)])
-        .then(values => (loadPostDetails(...values)));
-    } else {
-      api.getCommentsForPost(post.id)
-        .then(comments => loadPostDetails(post, comments));
+    if (post !== null) {
+      loadPostDetails(post, comments);
+      return;
     }
+
+    // TODO: Move logic to action creators
+    const postId = this.props.match.params.id;
+    Promise.all([api.getPost(postId), api.getCommentsForPost(postId)])
+      .then(([postReceived, commentsReceived]) => {
+        if (!('id' in postReceived)) {
+          this.setState({ postNotFound: true });
+        } else {
+          loadPostDetails(postReceived, commentsReceived);
+        }
+      });
   }
 
   boundActionCreators = bindActionCreators(creators, this.props.dispatch);
@@ -98,6 +110,10 @@ class PostView extends Component {
     const formattedDate = moment(post.timestamp)
       .format('MMM D YYYY, h:mm A');
     const language = getLanguage(post.category) || {};
+
+    if (this.state.postNotFound) {
+      return <ErrorView code="404" message="Page not found" />;
+    }
 
     return (
       <div>
