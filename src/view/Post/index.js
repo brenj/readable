@@ -117,10 +117,6 @@ class PostView extends Component {
       .format('MMM D YYYY, h:mm A');
     const language = getLanguage(post.category) || {};
 
-    if (this.state.postNotFound) {
-      return <ErrorView code="404" message="Page not found" />;
-    }
-
     return (
       <div>
         <div className="row">
@@ -207,10 +203,14 @@ class PostView extends Component {
 PostView.defaultProps = { post: null };
 PostView.propTypes = propTypes;
 
-const mapStateToProps = (state, ownProps) => ({
-  activeSort: state.activeSort,
-  comments: getSortedComments(state),
-  post: state.posts[ownProps.match.params.id],
-});
+const mapStateToProps = (state, ownProps) => {
+  const postId = ownProps.match.params.id;
+
+  return {
+    activeSort: state.activeSort,
+    comments: getSortedComments(state, postId),
+    post: state.posts[postId],
+  };
+};
 
 export default connect(mapStateToProps)(PostView);

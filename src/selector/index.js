@@ -4,7 +4,10 @@ import sortBy from 'sort-by';
 import getObjAsArray from '../util';
 
 const getActiveSort = state => state.activeSort;
-const getComments = state => getObjAsArray(state.comments);
+const getCommentsByPost = (state, postId) => (
+  getObjAsArray(state.comments)
+    .filter(comment => comment.parentId === postId)
+);
 const getPosts = state => getObjAsArray(state.posts);
 const getPostsByLanguage = (state, language) => (
   getObjAsArray(state.posts).filter(post => post.category === language)
@@ -32,6 +35,6 @@ export const getSortedPostsByLanguage = createSelector(
 );
 
 export const getSortedComments = createSelector(
-  [getActiveSort, getComments],
+  [getActiveSort, getCommentsByPost],
   (activeSort, comments) => getSortedItems(comments, activeSort),
 );
