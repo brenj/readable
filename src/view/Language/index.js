@@ -23,10 +23,6 @@ const propTypes = {
 };
 
 class LanguageView extends Component {
-  componentDidMount() {
-    this.props.dispatch(creators.loadPosts());
-  }
-
   handleSort = (sortType) => {
     this.props.dispatch(creators.sortBy(sortType));
   };
