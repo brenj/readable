@@ -5,7 +5,7 @@ function reduceComments(comments) {
     { ...newCommentsState, [comment.id]: comment }), {});
 }
 
-function commentsReducer(state = [], action) {
+function commentsReducer(state = {}, action) {
   switch (action.type) {
     case actions.ADD_COMMENT: {
       const comment = action.payload;
