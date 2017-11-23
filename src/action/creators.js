@@ -38,10 +38,12 @@ export const loadPosts = () => dispatch => (
   }))
 );
 
-export const loadPostDetails = (post, comments) => ({
-  type: actions.LOAD_POST_DETAILS,
-  payload: { comments, post },
-});
+export const loadComments = postId => dispatch => (
+  api.getCommentsForPost(postId).then(comments => dispatch({
+    type: actions.LOAD_COMMENTS,
+    payload: { comments, postId },
+  }))
+);
 
 export const sortBy = (sortType) => {
   if (sortType === 'DATE') {
