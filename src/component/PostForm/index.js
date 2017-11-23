@@ -56,7 +56,7 @@ class PostForm extends Component {
   }
 
   handleCancel = () => {
-    this.props.history.push('/');
+    this.props.history.goBack();
   }
 
   handleSubmit = (event) => {
