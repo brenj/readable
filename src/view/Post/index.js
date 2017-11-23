@@ -104,7 +104,9 @@ class PostView extends Component {
   };
 
   render() {
-    if (this.state.postNotFound) {
+    const { commentFormVisible, commentToEdit, postNotFound } = this.state;
+
+    if (postNotFound) {
       return <ErrorView code="404" message="Page not found" />;
     }
 
@@ -113,6 +115,38 @@ class PostView extends Component {
     const formattedDate = moment(post.timestamp)
       .format('MMM D YYYY, h:mm A');
     const language = getLanguage(post.category) || {};
+
+    let commentsView = <Alert content="No comments" />;
+    if (commentFormVisible) {
+      commentsView = (
+        <CommentForm
+          cancelHandler={() => {
+            this.setState({
+              commentFormVisible: false,
+              commentToEdit: null,
+            });
+          }}
+          comment={commentToEdit}
+          submitHandler={this.handleSubmitComment}
+        />
+      );
+    } else if (comments.length !== 0) {
+      commentsView = (
+        <div>
+          <Sorter
+            activeSort={activeSort}
+            activeSortHandler={this.handleSort}
+            sorterType="comment"
+          />
+          <CommentLister
+            comments={comments}
+            onDelete={this.handleDeleteComment}
+            onEdit={this.handleEditComment}
+            onVote={this.handleVoteOnComment}
+          />
+        </div>
+      );
+    }
 
     return (
       <div>
@@ -154,44 +188,18 @@ class PostView extends Component {
           </tbody>
         </table>
         <pre><code className="post-view__code">{post.body}</code></pre>
-        <button
-          className="button-primary post-view__button--comment"
-          onClick={() => {
-            this.setState({ commentFormVisible: true });
-          }}
-        >
-          New Comment
-        </button>
         {
-          this.state.commentFormVisible &&
-            <CommentForm
-              cancelHandler={() => {
-                this.setState({
-                  commentFormVisible: false,
-                  commentToEdit: null,
-                });
+          !commentFormVisible &&
+            <button
+              className="button-primary post-view__button--comment"
+              onClick={() => {
+                this.setState({ commentFormVisible: true });
               }}
-              comment={this.state.commentToEdit}
-              submitHandler={this.handleSubmitComment}
-            />
+            >
+              New Comment
+            </button>
         }
-        {
-          comments.length !== 0 &&
-            <div>
-              <Sorter
-                activeSort={activeSort}
-                activeSortHandler={this.handleSort}
-                sorterType="comment"
-              />
-              <CommentLister
-                comments={comments}
-                onDelete={this.handleDeleteComment}
-                onEdit={this.handleEditComment}
-                onVote={this.handleVoteOnComment}
-              />
-            </div>
-        }
-        { comments.length === 0 && <Alert content="No comments" /> }
+        {commentsView}
       </div>
     );
   }
