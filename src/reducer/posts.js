@@ -7,6 +7,13 @@ function reducePosts(posts) {
 
 function postsReducer(state = {}, action) {
   switch (action.type) {
+    case actions.ADD_COMMENT:
+    case actions.DELETE_COMMENT: {
+      const post = action.payload.post;
+      const commentCount = action.type === actions.ADD_COMMENT ?
+        post.commentCount + 1 : post.commentCount - 1;
+      return { ...state, [post.id]: { ...post, commentCount } };
+    }
     case actions.ADD_POST: {
       const post = action.payload;
       return { ...state, [post.id]: post };

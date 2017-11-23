@@ -8,12 +8,12 @@ function reduceComments(comments) {
 function commentsReducer(state = {}, action) {
   switch (action.type) {
     case actions.ADD_COMMENT: {
-      const comment = action.payload;
+      const comment = action.payload.comment;
       return { ...state, [comment.id]: comment };
     }
     case actions.DELETE_COMMENT: {
       const newState = { ...state };
-      const comment = action.payload;
+      const comment = action.payload.comment;
 
       delete newState[comment.id];
       return newState;

@@ -6,14 +6,14 @@ export const addPost = post => ({
   payload: post,
 });
 
-export const addComment = comment => ({
+export const addComment = (comment, post) => ({
   type: actions.ADD_COMMENT,
-  payload: comment,
+  payload: { comment, post },
 });
 
-export const deleteComment = comment => ({
+export const deleteComment = (comment, post) => ({
   type: actions.DELETE_COMMENT,
-  payload: comment,
+  payload: { comment, post },
 });
 
 export const deletePost = post => ({
