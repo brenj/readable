@@ -50,17 +50,10 @@ class PostView extends Component {
     if (this.props.comments.length === 0) {
       this.boundActionCreators.loadComments(this.props.match.params.id);
     }
+  }
 
-    // TODO: Move logic to action creators
-    const postId = this.props.match.params.id;
-    Promise.all([api.getPost(postId), api.getCommentsForPost(postId)])
-      .then(([postReceived, commentsReceived]) => {
-        if (!('id' in postReceived)) {
-          this.setState({ postNotFound: true });
-        } else {
-          loadPostDetails(postReceived, commentsReceived);
-        }
-      });
+  componentWillReceiveProps(nextProps) {
+    this.setState({ postNotFound: !this.props.post && !nextProps.post });
   }
 
   boundActionCreators = bindActionCreators(creators, this.props.dispatch);
@@ -114,6 +107,10 @@ class PostView extends Component {
   };
 
   render() {
+    if (this.state.postNotFound) {
+      return <ErrorView code="404" message="Page not found" />;
+    }
+
     const { activeSort, comments } = this.props;
     const post = this.props.post || {};
     const formattedDate = moment(post.timestamp)
