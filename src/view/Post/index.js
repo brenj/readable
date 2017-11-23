@@ -87,6 +87,19 @@ class PostView extends Component {
     this.setState({ commentFormVisible: true, commentToEdit: comment });
   };
 
+  handleDeleteComment = (comment) => {
+    api.deleteComment(comment.id).then(() => {
+      this.boundActionCreators.deleteComment(comment, this.props.post);
+    });
+  };
+
+  handleVoteOnComment = (comment, voteType) => {
+    api.voteOnComment(comment.id, voteType)
+      .then(() => {
+        this.boundActionCreators.voteOnComment(comment, voteType);
+      });
+  };
+
   handleSort = (sortType) => {
     this.boundActionCreators.sortBy(sortType);
   };
@@ -192,9 +205,9 @@ class PostView extends Component {
               />
               <CommentLister
                 comments={comments}
-                onDelete={this.boundActionCreators.deleteComment}
+                onDelete={this.handleDeleteComment}
                 onEdit={this.handleEditComment}
-                onVote={this.boundActionCreators.voteOnComment}
+                onVote={this.handleVoteOnComment}
               />
             </div>
         }
