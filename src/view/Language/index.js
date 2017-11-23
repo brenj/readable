@@ -36,13 +36,13 @@ class LanguageView extends Component {
           mainText={language.displayName}
           subText={language.tagLine}
         />
-        <Link to="/post/new">
+        <Link to={`/post/${language.path}/new`}>
           <button className="button-primary home-view__button--comment">
             New Snippet
           </button>
         </Link>
         {
-          posts.length !== 0 &&
+          posts.length !== 0 ?
             <div>
               <Sorter
                 activeSort={activeSort}
@@ -50,9 +50,9 @@ class LanguageView extends Component {
                 sorterType="post"
               />
               <PostLister posts={posts} />
-            </div>
+            </div> :
+            <Alert content="No snippets" />
         }
-        { posts.length === 0 && <Alert content="No snippets" /> }
       </div>
     );
   }

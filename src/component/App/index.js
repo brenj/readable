@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/language/:language" component={LanguageView} />
         <Route
           exact
-          path="/post/new"
+          path="/post/:language?/new"
           render={props => (
             <PostForm
               {...props}

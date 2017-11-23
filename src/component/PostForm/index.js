@@ -11,6 +11,8 @@ import { getLanguageOptions } from '../../util/languages';
 
 import './post-form.css';
 
+const DEFAULT_LANGUAGE = 'javascript';
+
 const propTypes = {
   formType: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
@@ -22,7 +24,7 @@ const propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string,
     }),
-  }),
+  }).isRequired,
   post: PropTypes.shape({
     id: PropTypes.string.isRequired,
   }),
@@ -32,21 +34,24 @@ class PostForm extends Component {
   state = {
     name: '',
     title: '',
-    language: 'javascript',
+    language: '',
     snippet: '',
   }
 
   componentDidMount() {
-    const { formType, post } = this.props;
+    const { formType, match, post } = this.props;
+    const language = match.params.language || DEFAULT_LANGUAGE;
 
     if (formType === 'edit') {
       if (post === null) {
-        const { id } = this.props.match.params;
+        const { id } = match.params;
         api.getPost(id)
           .then((fetchedPost) => { this.fillForm(fetchedPost); });
       } else {
         this.fillForm(post);
       }
+    } else {
+      this.fillLanguage(language);
     }
   }
 
@@ -90,6 +95,10 @@ class PostForm extends Component {
       title: post.title,
       snippet: post.body,
     });
+  }
+
+  fillLanguage = (language) => {
+    this.setState({ language });
   }
 
   render() {
@@ -164,7 +173,7 @@ class PostForm extends Component {
   }
 }
 
-PostForm.defaultProps = { match: {}, post: null };
+PostForm.defaultProps = { post: null };
 PostForm.propTypes = propTypes;
 
 const mapStateToProps = (state, ownProps) => ({
