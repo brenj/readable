@@ -75,7 +75,7 @@ class CommentForm extends Component {
           }}
         />
         <input
-          className={`button ${submitButtonClass}`}
+          className={`button-primary ${submitButtonClass}`}
           disabled={isDisabled}
           type="submit"
           value="Submit"
