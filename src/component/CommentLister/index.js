@@ -7,14 +7,14 @@ const propTypes = {
   comments: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-function CommentLister({ comments, ...props }) {
+function CommentLister({ comments, ...rest }) {
   return (
     <div>
       {comments.map(comment => (
         <Comment
           key={comment.id}
           comment={comment}
-          {...props}
+          {...rest}
         />))}
     </div>
   );
