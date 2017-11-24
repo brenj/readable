@@ -24,14 +24,14 @@
     "npm": "5.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "run-p server start",
     "build": "npm run clean && react-scripts build",
     "clean": "rm -rf build",
-    "test": "react-scripts test --env=jsdom",
+    "dev": "run-p server start",
     "eject": "react-scripts eject",
     "lint": "eslint src; exit 0",
-    "server": "node server/server.js"
+    "server": "node server/server.js",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
   },
   "devDependencies": {
     "eslint": "^4.7.2",
