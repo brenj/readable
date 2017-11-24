@@ -1,3 +1,5 @@
+[![Live Demo](https://img.shields.io/badge/live%20demo-active-brightgreen.svg?style=flat-square)](http://lit-temple-91394.herokuapp.com/)
+
 Readable: A Content and Comment Web App
 =======================================
 
@@ -14,7 +16,7 @@ and edit and delete posts and comments.
 Supporting courses:
   * React & Redux
   
-For the Readable project I chose to create a forum for discussing code snippets anonymously. Readable was created using `create-react-app`, and the only code provided by Udacity lives in the server submodule. I modified the server to support my categories (languages) and included default posts that are more relevant to my implementation.
+For the Readable project I chose to create a forum for discussing code snippets, anonymously. Readable was created using `create-react-app`, and the only code provided by Udacity lives in the server submodule. I modified the server to support my categories (languages) and included default posts that are more relevant to my implementation.
 
 Some of the noteworthy libraries I used are:
 
@@ -29,15 +31,19 @@ Requirements
 * Node
 * Node Package Manager (npm)
 
-Quickstart
-----------
+Quick start
+-----------
 * `wget https://raw.githubusercontent.com/brenj/readable/master/bootstrap-readable.sh && bash bootstrap-readable.sh`
 
 Install
 -------
 1. `git clone --recursive https://github.com/brenj/readable.git && cd readable`
 2. `npm install`
-3. `npm start`
+3. `npm run dev`
+
+Deployment
+----------
+This project was deployed on Heroku using their free-tier service. This means that the readable app will "go to sleep" after 30 minutes of inactivity. This translates to a very slow first startup as the Heroku dynos that run the application will need to be brought up first.
 
 Code Quality
 ------------
