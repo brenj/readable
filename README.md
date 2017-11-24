@@ -127,8 +127,6 @@ src/
     └── Post
         ├── index.js
         └── post-view.css
-
-28 directories, 50 files
 ```
 
 Grading (by Udacity)
@@ -136,6 +134,10 @@ Grading (by Udacity)
 
 Criteria           |Highest Grade Possible  |Grade Recieved
 -------------------|------------------------|--------------
-Application Setup  |Meets Specifications    |
-State Management   |Meets Specifications    |
-Code Functionality |Meets Specifications    |
+Application Setup  |Meets Specifications    |Meets Specifications
+State Management   |Meets Specifications    |Meets Specifications
+Code Functionality |Meets Specifications    |Meets Specifications
+
+##### Excerpt from review
+
+> "Great job! You made it perfect! You showed excellent skills on React and Redux. Keep learning and Stay Udacious."
