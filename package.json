@@ -12,7 +12,6 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
-    "reddit-clone-server": "file:server",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
@@ -20,10 +19,15 @@
     "sort-by": "^1.2.0",
     "uuid": "^3.1.0"
   },
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.5.1"
+  },
   "scripts": {
-    "start": "run-p server react",
-    "react": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "dev": "run-p server start",
+    "build": "npm run clean && react-scripts build",
+    "clean": "rm -rf build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint src; exit 0",
@@ -34,6 +38,7 @@
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.4.0"
+    "eslint-plugin-react": "^7.4.0",
+    "reddit-clone-server": "file:server"
   }
 }
