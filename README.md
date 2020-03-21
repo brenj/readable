@@ -1,4 +1,4 @@
-[![Live Demo](https://img.shields.io/badge/live%20demo-active-brightgreen.svg?style=flat-square)](http://lit-temple-91394.herokuapp.com/)
+[![Live Demo](https://img.shields.io/badge/live%20demo-active-brightgreen.svg?style=flat-square)](https://lit-temple-91394.herokuapp.com/)
 
 Readable: A Content and Comment Web App
 =======================================
